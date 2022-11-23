@@ -1,4 +1,5 @@
-flatpak install com.uploadedlobster.peek \
+flatpak install flathub \
+  com.uploadedlobster.peek \
   com.github.junrrein.PDFSlicer \
   org.kde.okular \
   com.spotify.Client \
@@ -11,4 +12,5 @@ flatpak install com.uploadedlobster.peek \
   us.zoom.Zoom \
   nl.hjdskes.gcolor3 \
   re.sonny.Junction \
-  com.mattjakeman.ExtensionManager
+  com.mattjakeman.ExtensionManager \
+  com.visualstudio.code
