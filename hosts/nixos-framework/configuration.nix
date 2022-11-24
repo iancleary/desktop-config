@@ -9,6 +9,10 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./editors/vscode.nix
+      ./modules/cli_utils.nix
+      ./modules/desktop_utils.nix
+      ./modules/sh.nix
+      ./modules/tailscale.nix
     ];
 
   # Bootloader.
@@ -76,11 +80,10 @@
     packages = with pkgs; [
     #  firefox
     #  thunderbird
+    zsh
     ];
     shell = pkgs.zsh;
   };
-
-  environment.shells = with pkgs; [ zsh ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -88,36 +91,18 @@
   # Install Flatpak
   services.flatpak.enable = true;
 
-  # Install tailscale
-  services.tailscale.enable = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    colorls
     docker
-    git
     gh
-    gnome.gnome-tweaks
-    gnome.sushi
-    guake
-    linssid
     python38
     python39
     python310
     python311
     nodePackages.npm
-    oh-my-zsh
-    tailscale
     yarn
     yadm
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    zsh
-    zsh-history
-    zsh-completions
-    zsh-powerlevel10k
-    zsh-syntax-highlighting
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -127,15 +112,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # Enable ZSH
-  programs.zsh.enable = true;
-
-  # Enable oh-my-zsh
-  programs.zsh.ohMyZsh = {
-    enable = true;
-    plugins = [ "gitfast" "yarn" "zsh-syntax-highlighting" "powerlevel10k" ];
-  }; 
 
   # List services that you want to enable:
 
