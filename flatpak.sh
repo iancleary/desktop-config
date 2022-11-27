@@ -12,5 +12,4 @@ flatpak install flathub \
   us.zoom.Zoom \
   nl.hjdskes.gcolor3 \
   re.sonny.Junction \
-  com.mattjakeman.ExtensionManager \
-  com.visualstudio.code
+  com.mattjakeman.ExtensionManager
