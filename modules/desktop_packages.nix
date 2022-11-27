@@ -12,6 +12,7 @@
     gnome.sushi
     guake
     linssid
+    jetbrains.pycharm-community
   ];
 
 }

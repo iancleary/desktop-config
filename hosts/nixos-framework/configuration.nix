@@ -37,7 +37,7 @@
       ./modules/time_and_localization.nix
       
       ./modules/user_accounts.nix
-      
+
       ./editors/vscode.nix
     ];
 
