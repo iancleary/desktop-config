@@ -5,6 +5,8 @@
 { config, pkgs, ... }:
 
 {
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 }
