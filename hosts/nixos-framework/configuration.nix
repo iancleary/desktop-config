@@ -8,6 +8,9 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # Include home configuration (per hostname)
+      # <home-manager/nixos>
+      ./home_manager.nix
       # These files will be symlinks to this relative path
       ./modules/allow_unfree.nix
       

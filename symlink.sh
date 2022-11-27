@@ -21,6 +21,7 @@ function make_link() {
 
 sudo ln -f "hosts/$HOST/configuration.nix" "/etc/nixos/configuration.nix"
 sudo ln -f "hosts/$HOST/hardware-configuration.nix" "/etc/nixos/hardware-configuration.nix"
+sudo ln -f "hosts/$HOST/home_manager.nix" "/etc/nixos/home_manager.nix"
 
 make_dir "editors"
 make_dir "modules"

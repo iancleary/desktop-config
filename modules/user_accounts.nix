@@ -8,13 +8,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.iancleary = {
     isNormalUser = true;
-    description = "Ian Cleary";
     extraGroups = [ "networkmanager" "wheel" "docker"];
-    packages = with pkgs; [
-    #  firefox
-    #  thunderbird
-    # zsh
-    ];
   };
 
 
