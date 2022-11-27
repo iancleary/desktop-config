@@ -8,11 +8,18 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/allow_unfree.nix
+      ./modules/cli_packages.nix
+      ./modules/desktop_packages.nix
+      ./modules/gnome_and_x11.nix
+      ./modules/install_docker.nix
+      ./modules/install_flatpak.nix
+      ./modules/install_tailscale.nix
+      ./modules/networking.nix
+      ./modules/sw_development.nix
+      ./modules/terminal_customization.nix
+      ./modules/time_and_localization.nix
       ./editors/vscode.nix
-      ./modules/cli_utils.nix
-      ./modules/desktop_utils.nix
-      ./modules/sh.nix
-      ./modules/tailscale.nix
     ];
 
   # Bootloader.
@@ -20,34 +27,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  networking.hostName = "nixos-framework"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "America/Phoenix";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.utf8";
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -76,34 +55,14 @@
   users.users.iancleary = {
     isNormalUser = true;
     description = "Ian Cleary";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
     #  firefox
     #  thunderbird
-    zsh
+    # zsh
     ];
-    shell = pkgs.zsh;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Install Flatpak
-  services.flatpak.enable = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    docker
-    gh
-    python38
-    python39
-    python310
-    python311
-    nodePackages.npm
-    yarn
-    yadm
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

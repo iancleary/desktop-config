@@ -10,13 +10,30 @@ if [[ ! -e "hosts/$HOST/configuration.nix" ]] || [[ ! -e "hosts/$HOST/hardware-c
 	exit 1
 fi
 
+function make_dir() {
+	sudo mkdir -p "/etc/nixos/$1"
+}
+
+function make_link() {
+	sudo ln -f "$1" "/etc/nixos/$1"
+}
+
+
 sudo ln -f "hosts/$HOST/configuration.nix" "/etc/nixos/configuration.nix"
 sudo ln -f "hosts/$HOST/hardware-configuration.nix" "/etc/nixos/hardware-configuration.nix"
-sudo mkdir -p "/etc/nixos/editors"
-sudo ln -f "editors/vscode.nix" "/etc/nixos/editors/vscode.nix"
-sudo mkdir -p "/etc/nixos/modules"
-sudo ln -f "modules/cli_utils.nix" "/etc/nixos/modules/cli_utils.nix"
-sudo ln -f "modules/desktop_utils.nix" "/etc/nixos/modules/desktop_utils.nix"
-sudo ln -f "modules/sh.nix" "/etc/nixos/modules/sh.nix"
-sudo ln -f "modules/tailscale.nix" "/etc/nixos/modules/tailscale.nix"
 
+make_dir "editors"
+make_dir "modules"
+
+make_link "modules/allow_unfree.nix"
+make_link "modules/cli_packages.nix"
+make_link "modules/desktop_packages.nix"
+make_link "modules/gnome_and_x11.nix"
+make_link "modules/install_docker.nix"
+make_link "modules/install_flatpak.nix"
+make_link "modules/install_tailscale.nix"
+make_link "modules/networking.nix"
+make_link "modules/sw_development.nix"
+make_link "modules/terminal_customization.nix"
+make_link "modules/time_and_localization.nix"
+make_link "editors/vscode.nix"
