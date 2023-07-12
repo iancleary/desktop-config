@@ -5,16 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    docker
-    gh
-    python38
-    python39
-    python310
-    python311
-    nodePackages.npm
-    yarn
+  users.users.iancleary.openssh.authorizedKeys.keyFiles = [
+    /etc/nixos/ssh/authorized_keys
   ];
 }

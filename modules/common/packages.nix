@@ -8,23 +8,20 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    colorls
-    oh-my-zsh
-    zsh
-    zsh-history
-    zsh-completions
-    zsh-powerlevel10k
-    zsh-syntax-highlighting
+    git
+    gnumake
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    nano
+    wget
+    docker
+    gh
+    just
+    python38
+    python39
+    python310
+    python311
+    nodejs
+    nodePackages.npm
+    yarn
   ];
-
-  environment.shells = with pkgs; [ zsh ];
-
-  # Enable ZSH
-  programs.zsh.enable = true;
-
-  # Enable oh-my-zsh
-  programs.zsh.ohMyZsh = {
-    enable = true;
-    plugins = [ "gitfast" "yarn" "zsh-syntax-highlighting" "powerlevel10k" ];
-  }; 
 }

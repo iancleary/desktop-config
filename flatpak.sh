@@ -1,5 +1,7 @@
+flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub \
-  com.uploadedlobster.peek \
+  io.github.seadve.Kooha \
+  dev.lapce.lapce \
   com.github.junrrein.PDFSlicer \
   org.kde.okular \
   com.spotify.Client \

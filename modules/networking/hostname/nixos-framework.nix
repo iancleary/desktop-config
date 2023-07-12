@@ -3,16 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
 {
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
-    gnome.sushi
-    guake
-    linssid
-    jetbrains.pycharm-community
-  ];
-
+  networking.hostName = "nixos-framework"; # Define your hostname.
 }
