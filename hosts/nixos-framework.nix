@@ -29,10 +29,8 @@
 
       ./modules/localization/en_US.nix
 
-      ./modules/networking/networkmanager/enabled.nix
-      ./modules/networking/openssh/enabled.nix
-      ./modules/networking/openssh/start-ssh-agent.nix
-      ./modules/networking/wait-online.nix
+      ./modules/networkmanager.nix
+      ./modules/openssh.nix
 
       ./modules/timezone/America-Phoenix.nix
 
@@ -43,6 +41,7 @@
 
   # Define your hostname.
   networking.hostName = "nixos-framework";
+
 
   # Bootloader.
   #boot.loader.grub.enable = true;

@@ -2,7 +2,7 @@
 
 {
   home-manager.users.iancleary = {
-    home.stateVersion = "22.11";
+    home.stateVersion = "23.05";
 
     dconf.settings = {
       "org/gnome/mutter" = {
