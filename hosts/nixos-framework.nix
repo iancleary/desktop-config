@@ -23,6 +23,7 @@
       ./modules/desktop/flatpak.nix
       ./modules/desktop/gnome.nix
       ./modules/desktop/packages.nix
+      ./modules/desktop/x11-keymap.nix
 
       # User Specific
       <home-manager/nixos>
@@ -33,7 +34,6 @@
       ./modules/common/localBinInPath.nix
       ./modules/common/packages.nix
       ./modules/common/zsh.nix
-      ./modules/common/x11-keymap.nix
 
       ./modules/networkmanager.nix
       ./modules/openssh.nix
