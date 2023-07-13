@@ -64,7 +64,24 @@ It is then possible to add
 `imports = [ <home-manager/nixos> ];`
 to your system configuration.nix file, which will introduce a new NixOS option called home-manager.users whose type is an attribute set that maps user names to Home Manager configurations.
 
-## Upgrade to 23.05
+## Desktop
+
+### Flatpak
+
+To install Flatpak, set NixOS option `services.flatpak.enable` to true by putting the following into your `/etc/nixos/configuration.nix`: 
+
+```nix
+  services.flatpak.enable = true;
+```
+
+Flathub is the best place to get Flatpak apps. To enable it, run:
+
+```bash
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+## Operating Sustem Upgrades
+
+### Upgrade to 23.05
 
 <https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module>
 
