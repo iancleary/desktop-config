@@ -11,6 +11,13 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Systray Icons
+  ## To get systray icons, install the related gnome shell extension 
+  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
+  ## And ensure gnome-settings-daemon udev rules are enabled : 
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
+  # Excluding some GNOME applications from the default install
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
