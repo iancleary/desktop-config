@@ -16,12 +16,5 @@
     docker
     gh
     just
-    python38
-    python39
-    python310
-    python311
-    nodejs
-    nodePackages.npm
-    yarn
   ];
 }
