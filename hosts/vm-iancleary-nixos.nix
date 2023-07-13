@@ -9,8 +9,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ./modules/nixos-version/22.11.nix # IMPORTANT
-
       <home-manager/nixos>
       ./users/iancleary/home-manager.nix
       ./users/iancleary/authorized-keys.nix
