@@ -41,7 +41,7 @@
 
       ./modules/unfree/allowed.nix
 
-      ./modules/vpn/tailscale.nix
+      ./modules/tailscale.nix
     ];
 
   # Define your hostname.
