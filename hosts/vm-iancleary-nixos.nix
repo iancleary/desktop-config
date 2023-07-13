@@ -9,29 +9,26 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      # Host Specific
+      ./modules/virtualbox/guest-enabled.nix
+
+      # User Specific
       <home-manager/nixos>
       ./users/iancleary/home-manager.nix
       ./users/iancleary/authorized-keys.nix
       ./users/iancleary/vboxsf.nix
 
+      # Common
       ./modules/common/docker.nix
       ./modules/common/localBinInPath.nix
       ./modules/common/packages.nix
       ./modules/common/zsh.nix
       ./modules/common/x11-keymap.nix
 
-      ./modules/localization/en_US.nix
-
-      ./modules/networking/networkmanager/enabled.nix
-      ./modules/networking/openssh/enabled.nix
-      ./modules/networking/openssh/start-ssh-agent.nix
-      ./modules/networking/wait-online.nix
-
-      ./modules/timezone/America-Phoenix.nix
+      ./modules/networkmanager.nix
+      ./modules/openssh.nix
 
       ./modules/unfree-allowed.nix
-
-      ./modules/virtualbox/guest-enabled.nix
     ];
 
   # Define your hostname.

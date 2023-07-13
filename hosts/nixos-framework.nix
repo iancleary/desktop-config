@@ -9,39 +9,41 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      <home-manager/nixos>
+      # Host Specific
       ./users/iancleary/bare-metal.nix
-      ./users/iancleary/home-manager.nix
-      #./users/iancleary/authorized-keys.nix
-
+      ./modules/tailscale.nix
       ./modules/bare-metal/sound.nix
       ./modules/bare-metal/printing.nix
 
+      # Locale and Timezone
+      ./modules/localization/en_US.nix
+      ./modules/timezone/America-Phoenix.nix
+
+      # Desktop Specific
+      ./modules/desktop/flatpak.nix
+      ./modules/desktop/gnome.nix
+      ./modules/desktop/packages.nix
+
+      # User Specific
+      <home-manager/nixos>
+      ./users/iancleary/home-manager.nix
+
+      # Common
       ./modules/common/docker.nix
       ./modules/common/localBinInPath.nix
       ./modules/common/packages.nix
       ./modules/common/zsh.nix
       ./modules/common/x11-keymap.nix
 
-      ./modules/desktop/flatpak.nix
-      ./modules/desktop/gnome.nix
-      ./modules/desktop/packages.nix
-
-      ./modules/localization/en_US.nix
-
       ./modules/networkmanager.nix
       ./modules/openssh.nix
 
-      ./modules/timezone/America-Phoenix.nix
-
       ./modules/unfree-allowed.nix
 
-      ./modules/tailscale.nix
     ];
 
   # Define your hostname.
   networking.hostName = "nixos-framework";
-
 
   # Bootloader.
   #boot.loader.grub.enable = true;
