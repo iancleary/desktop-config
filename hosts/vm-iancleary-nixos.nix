@@ -24,7 +24,6 @@
 
       ./modules/localization/en_US.nix
 
-      ./modules/networking/hostname/vm-iancleary-nixos.nix
       ./modules/networking/networkmanager/enabled.nix
       ./modules/networking/openssh/enabled.nix
       ./modules/networking/openssh/start-ssh-agent.nix
@@ -36,6 +35,9 @@
 
       ./modules/virtualbox/guest-enabled.nix
     ];
+
+  # Define your hostname.
+  networking.hostName = "vm-iancleary-nixos";
 
   # Bootloader.
   boot.loader.grub.enable = true;

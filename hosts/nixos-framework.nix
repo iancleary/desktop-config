@@ -32,7 +32,6 @@
 
       ./modules/localization/en_US.nix
 
-      ./modules/networking/hostname/nixos-framework.nix
       ./modules/networking/networkmanager/enabled.nix
       ./modules/networking/openssh/enabled.nix
       ./modules/networking/openssh/start-ssh-agent.nix
@@ -44,6 +43,9 @@
 
       ./modules/vpn/tailscale.nix
     ];
+
+  # Define your hostname.
+  networking.hostName = "nixos-framework";
 
   # Bootloader.
   #boot.loader.grub.enable = true;
