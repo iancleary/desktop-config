@@ -14,13 +14,13 @@ Welcome to my nixos-config!
 
 <https://www.bekk.christmas/post/2021/16/dotfiles-with-nix-and-home-manager>
 
-## First Run
+## First Run (Virtual Box)
 
 Edit:
 
 * update hostname
 * add user to `vboxsf` group (if in a virtualbox)
-* add `just` to `environment.systemPackages`
+* add `just` and `git` to `environment.systemPackages`
 
 Run:
 
@@ -40,7 +40,15 @@ sudo mkdir ssh
 sudo cp /mnt/shared/authorized_keys /etc/nixos/ssh/authorized_keys
 ```
 
-> Then clone this repo onto the shared folder and run the [update-config.sh](update-config.sh) script to change the contents of `/etc/nixos/` to mirror this git repo.
+Add the authorized keyfile for your user
+
+```nix
+  users.users.{username}.openssh.authorizedKeys.keyFiles = [
+    /etc/nixos/ssh/authorized_keys
+  ];
+```
+
+> Then clone this repo onto the shared folder and use the [justfie](justfile) script to change the contents of `/etc/nixos/` to mirror this git repo.
 
 **Setup home manager before rebuilding!**
 
