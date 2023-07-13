@@ -3,8 +3,8 @@ if [[ ! -z "$1" ]]; then
 	HOST=$1
 fi
 
-if [[ ! -e "hosts/$HOST/configuration.nix" ]]; then
-	echo "missing $HOST/configuration.nix" >&2
+if [[ ! -e "hosts/$HOST.nix" ]]; then
+	echo "missing hosts/$HOST.nix" >&2
 	exit 1
 fi
 
@@ -17,7 +17,7 @@ function cp_local_folder() {
 }
 
 
-sudo cp "hosts/$HOST/configuration.nix" "/etc/nixos/configuration.nix"
+sudo cp "hosts/$HOST.nix" "/etc/nixos/configuration.nix"
 
 clean_local_folder "modules"
 clean_local_folder "users"

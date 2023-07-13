@@ -14,4 +14,7 @@
     tailscale
   ];
 
+  systemd.network.wait-online.ignoredInterfaces = [
+    "tailscale0"
+  ];
 }

@@ -6,5 +6,9 @@
 
 {
   # Install Docker
-    virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
+
+  systemd.network.wait-online.ignoredInterfaces = [
+    "docker0"
+  ];
 }
