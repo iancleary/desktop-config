@@ -24,7 +24,7 @@
       ./modules/common/x11-keymap.nix
 
       ./modules/desktop/flatpak.nix
-      ./modules/desktop/gnome-x11.nix
+      ./modules/desktop/gnome.nix
       ./modules/desktop/packages.nix
 
       ./modules/localization/en_US.nix
