@@ -23,7 +23,6 @@
       ./modules/common/localBinInPath.nix
       ./modules/common/packages.nix
       ./modules/common/zsh.nix
-      ./modules/common/x11-keymap.nix
 
       ./modules/networkmanager.nix
       ./modules/openssh.nix
