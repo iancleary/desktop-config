@@ -10,7 +10,7 @@
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
     gnome.sushi
-    # guake
+    guake
     linssid
     # jetbrains.pycharm-community
     #
