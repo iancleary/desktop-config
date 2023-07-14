@@ -14,6 +14,10 @@
       ./modules/tailscale.nix
       ./modules/bare-metal/sound.nix
       ./modules/bare-metal/printing.nix
+      
+      # Flakes and Direnv
+      ./modules/flakes.nix
+      ./modules/nix-direnv.nix
 
       # Locale and Timezone
       ./modules/localization/en_US.nix

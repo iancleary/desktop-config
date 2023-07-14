@@ -4,6 +4,10 @@
   home-manager.users.iancleary = {
     home.stateVersion = "23.05";
 
+    # https://github.com/nix-community/nix-direnv#via-home-manager
+    programs.direnv.enable = true;
+    programs.direnv.nix-direnv.enable = true;
+
     dconf.settings = {
       "org/gnome/mutter" = {
         experimental-features = [ "scale-monitor-framebuffer" ];
