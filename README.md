@@ -14,6 +14,14 @@ Welcome to my nixos-config!
 
 <https://www.bekk.christmas/post/2021/16/dotfiles-with-nix-and-home-manager>
 
+## Flakes and Direnv
+
+<https://nixos.wiki/wiki/Flakes#Enable_flakes>
+
+<https://github.com/nix-community/nix-direnv>
+
+<https://determinate.systems/posts/nix-direnv>
+
 ## First Run (Virtual Box)
 
 Edit:
