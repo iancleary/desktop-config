@@ -14,11 +14,11 @@
     linssid
     # jetbrains.pycharm-community
     #
-    # vscode-fhs # vscode with FHS (File Hierarchy System) layout
+    vscode-fhs # vscode with FHS (File Hierarchy System) layout
     # Switched to Flatpak and Devcontainers
     # https://github.com/flathub/com.visualstudio.code/issues/203#issue-802483421
   ];
 
   # Run Vscode under Wayland
-  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
