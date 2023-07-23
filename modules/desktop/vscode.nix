@@ -3,14 +3,12 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
-{
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
-    gnome.sushi
-    guake
-    linssid
+let
+  unstable = import <nixos-unstable> { config.allowUnfree = true;};
+in {
+  environment.systemPackages = [ 
+    unstable.vscode-fhs # vscode with FHS (File Hierarchy System) layout
   ];
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
