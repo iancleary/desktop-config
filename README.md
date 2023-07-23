@@ -34,28 +34,13 @@ to your system configuration.nix file, which will introduce a new NixOS option c
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 
-## Upgrading to 23.05
+## Upgrading Versions
 
 <https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module>
 <https://nixos.org/manual/nixos/stable/index.html#sec-upgrading>
 
 ```bash
-sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
-sudo nix-channel --update
-sudo  nix-channel --add https://channels.nixos.org/nixos-23.05 nixos
-nixos-rebuild switch --upgrade
-```
-
-## Upgrading to 23.11
-
-<https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module>
-<https://nixos.org/manual/nixos/stable/index.html#sec-upgrading>
-
-```bash
-sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
-sudo nix-channel --update
-sudo  nix-channel --add https://channels.nixos.org/nixos-23.11 nixos
-nixos-rebuild switch --upgrade
+just version-update 23.11
 ```
 
 ## Links
@@ -129,19 +114,4 @@ Add the authorized keyfile for your user
   users.users.{username}.openssh.authorizedKeys.keyFiles = [
     /etc/nixos/ssh/authorized_keys
   ];
-```
-## Desktop
-
-### Flatpak
-
-To install Flatpak, set NixOS option `services.flatpak.enable` to true by putting the following into your `/etc/nixos/configuration.nix`
-
-```nix
-  services.flatpak.enable = true;
-```
-
-Flathub is the best place to get Flatpak apps. To enable it, run:
-
-```bash
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
