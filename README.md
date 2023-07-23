@@ -14,6 +14,10 @@ Welcome to my nixos-config!
 
 <https://www.bekk.christmas/post/2021/16/dotfiles-with-nix-and-home-manager>
 
+Mixing Channels
+
+<https://discourse.nixos.org/t/allow-unfree-from-unstable/23218>
+
 ## Flakes and Direnv
 
 <https://nixos.wiki/wiki/Flakes#Enable_flakes>
@@ -21,6 +25,18 @@ Welcome to my nixos-config!
 <https://github.com/nix-community/nix-direnv>
 
 <https://determinate.systems/posts/nix-direnv>
+
+## First Run (Host)
+
+```bash
+nix-shell -p git just
+git clone https://github.com/iancleary/nixos-config.git
+cd nixos-config
+# Need to set hostname TODO
+just update
+just switch
+```
+
 
 ## First Run (Virtual Box)
 
