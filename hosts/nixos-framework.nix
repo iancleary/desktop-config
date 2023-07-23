@@ -27,6 +27,7 @@
       ./modules/desktop/flatpak.nix
       ./modules/desktop/gnome.nix
       ./modules/desktop/packages.nix
+      ./modules/desktop/vscode.nix
       ./modules/desktop/x11-keymap.nix
 
       # User Specific
