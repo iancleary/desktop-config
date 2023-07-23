@@ -9,8 +9,13 @@ Welcome to my nixos-config!
 ```bash
 sudo nix-channel --add https://channels.nixos.org/nixos-unstable nixos-unstable
 sudo nix-channel --add https://channels.nixos.org/nixos-23.05 nixos
-sudo nix-channel --update nixos-unstable
+sudo nix-channel --update
+```
+
+Once that is done, you can:
+```bash
 sudo nix-channel --update nixos
+sudo nix-channel --update nixos-unstable
 ```
 
 ### Home Manager
@@ -76,6 +81,8 @@ nix-shell -p git just
 git clone https://github.com/iancleary/nixos-config.git
 cd nixos-config
 # Need to set hostname TODO
+sudo nano /etc/nixos/configuration.nix
+
 just update
 just switch
 ```
