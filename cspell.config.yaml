@@ -3,6 +3,8 @@ ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - Direnv
+  - Flathub
   - justfie
   - keyfile
   - nixos
