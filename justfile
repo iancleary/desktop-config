@@ -36,3 +36,12 @@ python310-pipx:
 
 python310-packages:
   python3.10 -m pip install ansible
+
+version VERSION:
+  @echo "{{ VERSION }}"
+
+version-upgrade VERSION:
+  sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-{{VERSION}}.tar.gz home-manager
+  sudo nix-channel --update
+  sudo  nix-channel --add https://channels.nixos.org/nixos-{{VERSION}} nixos
+  nixos-rebuild switch --upgrade
