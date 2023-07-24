@@ -107,3 +107,7 @@ Add the authorized keyfile for your user
 ```
 
 Add `users/iancleary/authorized-keys.nix` to the `configuration.nix` file
+
+## VirtualBox Resolution
+
+On the host, add more than 32MB of video memory to get over 1920x1080 resolution.
