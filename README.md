@@ -9,23 +9,23 @@ Welcome to my nixos-config!
 ```bash
 sudo nix-channel --add https://channels.nixos.org/nixos-unstable nixos-unstable
 sudo nix-channel --add https://channels.nixos.org/nixos-23.05 nixos
-sudo nix-channel --update
-```
-
-Once that is done, you can:
-```bash
-sudo nix-channel --update nixos
-sudo nix-channel --update nixos-unstable
-```
-
-### Home Manager
-
-```bash
 sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
 sudo nix-channel --update
 ```
 
-It is then possible to add
+Once that is done, they are up to date.
+
+You manually update any of them by name:
+```bash
+sudo nix-channel --update nixos
+sudo nix-channel --update nixos-unstable
+sudo nix-channel --update home-manager
+
+```
+
+### Home Manager
+
+Once the Home Manager Channel is updated, it is then possible to add
 
 ```nix
 imports = [ <home-manager/nixos> ];
@@ -82,8 +82,10 @@ git clone https://github.com/iancleary/nixos-config.git
 cd nixos-config
 # Set hostname
 sudo nano /etc/nixos/configuration.nix
+# after hostname is set, copy config over
+sudo nixos-rebuild switch
 just update
-just switch
+
 ```
 
 ## SSH Authorized Keys (VirtualBox)
