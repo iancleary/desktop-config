@@ -74,38 +74,21 @@ Mixing Channels
 
 <https://determinate.systems/posts/nix-direnv>
 
-## First Run (Host)
+## First Run (Host and VirtualBox)
 
 ```bash
 nix-shell -p git just
 git clone https://github.com/iancleary/nixos-config.git
 cd nixos-config
-# Need to set hostname TODO
+# Set hostname
 sudo nano /etc/nixos/configuration.nix
-
 just update
 just switch
 ```
 
-## First Run (Virtual Box)
+## SSH Authorized Keys (VirtualBox)
 
-Edit:
-
-* update hostname
-* add user to `vboxsf` group (if in a virtualbox)
-* add `just` and `git` to `environment.systemPackages`
-
-`nix-shell -p git just``
-
-Run:
-
-```bash
-cd /etc/nixos
-sudo nixos-rebuild switch
-sudo reboot now
-```
-
-Then setup a shared folder, copy the public ssh key over to `/mnt/shared/authorized_keys`.
+Setup a shared folder, copy the public ssh key over to `/mnt/shared/authorized_keys`.
 
 Then run
 
@@ -122,3 +105,9 @@ Add the authorized keyfile for your user
     /etc/nixos/ssh/authorized_keys
   ];
 ```
+
+Add `users/iancleary/authorized-keys.nix` to the `configuration.nix` file
+
+## VirtualBox Resolution
+
+On the host, add more than 32MB of video memory to get over 1920x1080 resolution.
