@@ -34,9 +34,6 @@ python310-pipx:
   pipx install pre-commit
   pipx install ruff
 
-python310-packages:
-  python3.10 -m pip install ansible
-
 version VERSION:
   @echo "{{ VERSION }}"
 
