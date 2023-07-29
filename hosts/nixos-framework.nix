@@ -42,6 +42,7 @@
 
       ./modules/networkmanager.nix
       ./modules/openssh.nix
+      ./modules/garbage-collection.nix
 
       ./modules/unfree-allowed.nix
 
