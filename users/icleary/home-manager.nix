@@ -37,7 +37,7 @@
         ####
 
         # beginning of file
-        initExtraFirst = (builtins.readFile /etc/nixos/modules/common/p10k-config/instant_prompt.zsh);
+        # initExtraFirst = (builtins.readFile /etc/nixos/modules/common/p10k-config/instant_prompt.zsh);
 
         # end of file
         initExtra = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
