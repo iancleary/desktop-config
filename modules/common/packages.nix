@@ -16,5 +16,6 @@
     docker
     gh
     just
+    devbox
   ];
 }
