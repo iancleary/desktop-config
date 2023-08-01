@@ -30,7 +30,6 @@
       # User Specific
       <home-manager/nixos>
       ./users/icleary/home-manager.nix
-      ./users/icleary/authorized-keys.nix
       ./users/icleary/vboxsf.nix
 
       # Common
