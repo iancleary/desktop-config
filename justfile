@@ -29,15 +29,6 @@ gc:
 reboot:
   sudo reboot now
 
-# Install pip with python3.10
-python310-pip:
-  python3.10 -m ensurepip --default-pip
-
-python310-pipx:
-  python3.10 -m pip install pipx
-  pipx install pre-commit
-  pipx install ruff
-
 version VERSION:
   @echo "{{ VERSION }}"
 
