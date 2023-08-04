@@ -21,6 +21,10 @@ switch:
 upgrade:
   sudo nixos-rebuild switch --upgrade
 
+# garbage collect
+gc:
+  nix-store --gc
+
 # Reboot
 reboot:
   sudo reboot now
