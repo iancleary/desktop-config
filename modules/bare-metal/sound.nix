@@ -21,4 +21,12 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.settings = {
+  General = {
+    Enable = "Source,Sink,Media,Socket";
+  };
+
+
+};
 }
