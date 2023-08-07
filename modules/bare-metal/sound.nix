@@ -21,6 +21,8 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  # https://nixos.wiki/wiki/Bluetooth#Enabling_A2DP_Sink
   hardware.bluetooth.enable = true;
   hardware.bluetooth.settings = {
   General = {
