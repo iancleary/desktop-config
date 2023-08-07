@@ -12,6 +12,7 @@
   services.pipewire = {
     enable = true;
     alsa.enable = true;
+    # alsamixer: https://nixos.wiki/wiki/ALSA
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
