@@ -29,6 +29,11 @@ gc:
 reboot:
   sudo reboot now
 
+fwupd:
+  @echo "run 'fwupdmgr refresh' to refresh firmware list"
+  @echo "run 'fwupdmgr get-updates' to check for updates"
+  @echo "Run 'fwupdmgr update' to update firmware"
+
 version VERSION:
   @echo "{{ VERSION }}"
 

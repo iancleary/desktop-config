@@ -12,6 +12,7 @@
       # Host Specific
       ./users/iancleary/bare-metal.nix
       ./modules/tailscale.nix
+      ./modules/bare-metal/fwupd.nix
       ./modules/bare-metal/sound.nix
       ./modules/bare-metal/printing.nix
       
@@ -50,6 +51,11 @@
 
   # Define your hostname.
   networking.hostName = "nixos-framework";
+
+
+  # testing fwupd on framework 11th gen intel
+  # https://knowledgebase.frame.work/en_us/framework-laptop-bios-releases-S1dMQt6F#Linux_BIOS
+  services.fwupd.enableTestRemote = true;
 
   # Bootloader.
   #boot.loader.grub.enable = true;
