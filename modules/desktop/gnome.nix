@@ -11,6 +11,9 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Gnome Keyring
+  services.gnome.gnome-keyring.enable = true;
+
   # Systray Icons
   ## To get systray icons, install the related gnome shell extension 
   environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
