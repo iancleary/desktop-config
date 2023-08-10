@@ -13,6 +13,4 @@ in {
   environment.systemPackages = [ 
     unstable.vscode-fhs # vscode with FHS (File Hierarchy System) layout
   ];
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
