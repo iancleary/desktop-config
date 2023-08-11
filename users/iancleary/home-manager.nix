@@ -8,15 +8,11 @@
     programs.direnv.enable = true;
     programs.direnv.nix-direnv.enable = true;
 
-    dconf.settings = {
-      "org/gnome/mutter" = {
-        experimental-features = [ "scale-monitor-framebuffer" ];
-      };
-    };
-
     home.packages = with pkgs; [
         colorls
         nix-zsh-completions
+        gnomeExtensions.user-themes
+        palenight-theme
     ];
 
     home.file."dvd".source = ./dotfiles/dvd;
@@ -95,6 +91,64 @@
                 file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
             }
         ];
+    };
+
+    gtk = {
+        enable = true;
+
+        iconTheme = {
+            name = "Papirus-Dark";
+            package = pkgs.papirus-icon-theme;
+        };
+
+        theme = {
+            name = "palenight";
+            package = pkgs.palenight-theme;
+        };
+
+        cursorTheme = {
+            name = "Numix-Cursor";
+            package = pkgs.numix-cursor-theme;
+        };
+
+        gtk3.extraConfig = {
+            Settings = ''
+                gtk-application-prefer-dark-theme=1
+            '';
+        };
+
+        gtk4.extraConfig = {
+            Settings = ''
+                gtk-application-prefer-dark-theme=1
+            '';
+        };
+    };
+
+    home.sessionVariables.GTK_THEME = "palenight";
+    # ...
+
+    dconf.settings = {
+      "org/gnome/mutter" = {
+        experimental-features = [ "scale-monitor-framebuffer" ];
+      };
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        enable-hot-corners = false;
+      };
+      "org/gnome/desktop/wm/preferences" = {
+        workspace-names = [ "Main" ];
+      };
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+
+        enabled-extensions = [
+            "user-theme@gnome-shell-extensions.gcampax.github.com"
+        ];
+      };
+
+      "org/gnome/shell/extensions/user-theme" = {
+          name = "palenight";
+      };
     };
   };
 }
