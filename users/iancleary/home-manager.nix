@@ -12,7 +12,11 @@
         colorls
         nix-zsh-completions
         gnomeExtensions.user-themes
-        palenight-theme
+        gnomeExtensions.tray-icons-reloaded
+        gnomeExtensions.vitals
+        gnomeExtensions.dash-to-panel
+        gnomeExtensions.sound-output-device-chooser
+        gnomeExtensions.space-bar
     ];
 
     home.file."dvd".source = ./dotfiles/dvd;
@@ -101,10 +105,10 @@
             package = pkgs.papirus-icon-theme;
         };
 
-        theme = {
-            name = "palenight";
-            package = pkgs.palenight-theme;
-        };
+        # theme = {
+        #     name = "mojave";
+        #     package = pkgs.mojave-gtk-theme;
+        # };
 
         cursorTheme = {
             name = "Numix-Cursor";
@@ -124,7 +128,7 @@
         };
     };
 
-    home.sessionVariables.GTK_THEME = "palenight";
+    # home.sessionVariables.GTK_THEME = "mojave";
     # ...
 
     dconf.settings = {
@@ -141,14 +145,20 @@
       "org/gnome/shell" = {
         disable-user-extensions = false;
 
+        # `gnome-extensions list` for a list
         enabled-extensions = [
             "user-theme@gnome-shell-extensions.gcampax.github.com"
+            "trayIconsReloaded@selfmade.pl"
+            "Vitals@CoreCoding.com"
+            "dash-to-panel@jderose9.github.com"
+            # "sound-output-device-chooser@kgshank.net"
+            "space-bar@luchrioh"
         ];
       };
 
-      "org/gnome/shell/extensions/user-theme" = {
-          name = "palenight";
-      };
+    #   "org/gnome/shell/extensions/user-theme" = {
+    #       name = "mojave";
+    #   };
     };
   };
 }
