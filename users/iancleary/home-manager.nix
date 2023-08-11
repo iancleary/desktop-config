@@ -11,6 +11,7 @@
     home.packages = with pkgs; [
         colorls
         nix-zsh-completions
+        yaru-theme
         gnomeExtensions.user-themes
         gnomeExtensions.tray-icons-reloaded
         gnomeExtensions.vitals
@@ -105,10 +106,10 @@
             package = pkgs.papirus-icon-theme;
         };
 
-        # theme = {
-        #     name = "mojave";
-        #     package = pkgs.mojave-gtk-theme;
-        # };
+        theme = {
+            name = "Yaru-blue-dark";
+            package = pkgs.yaru-theme;
+        };
 
         cursorTheme = {
             name = "Numix-Cursor";
@@ -128,7 +129,7 @@
         };
     };
 
-    # home.sessionVariables.GTK_THEME = "mojave";
+    home.sessionVariables.GTK_THEME = "Yaru-blue-dark";
     # ...
 
     dconf.settings = {
@@ -156,9 +157,9 @@
         ];
       };
 
-    #   "org/gnome/shell/extensions/user-theme" = {
-    #       name = "mojave";
-    #   };
+      "org/gnome/shell/extensions/user-theme" = {
+          name = "Yaru-blue-dark";
+      };
     };
   };
 }
