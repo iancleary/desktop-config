@@ -113,7 +113,7 @@
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
-          modules = bare-metal-system ++ common-modules ++ desktop-modules
+          modules = bare-metal-modules ++ common-modules ++ desktop-modules
             ++ [ 
                 ./hardware-configuration/framework.nix 
                 ./hosts/framework.nix

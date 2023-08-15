@@ -1,12 +1,24 @@
-{ config, pkgs, lib, ... }:
-
-{
+{ inputs, config, pkgs, lib, home-manager, ... }: {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
   home-manager.users.icleary = {
-    home.stateVersion = "22.11";
+    home.stateVersion = "23.05";
+
+    # https://github.com/nix-community/nix-direnv#via-home-manager
+    programs.direnv.enable = true;
+    programs.direnv.nix-direnv.enable = true;
 
     home.packages = with pkgs; [
         colorls
         nix-zsh-completions
+        yaru-theme
+        gnomeExtensions.user-themes
+        gnomeExtensions.tray-icons-reloaded
+        gnomeExtensions.vitals
+        gnomeExtensions.dash-to-panel
+        gnomeExtensions.sound-output-device-chooser
+        gnomeExtensions.space-bar
     ];
 
     home.file."dvd".source = ./dotfiles/dvd;
@@ -23,7 +35,19 @@
         shellAliases = {
             l = "ls -alh";
             ll = "ls -l";
-            ls = "colorls";
+            ls = "ls -F";
+            ga = "git add";
+            gc = "git commit -m";
+            gs = "git status";
+            gp = "git push origin";
+            gl = "git pull origin";
+            gcm = "git checkout main && git pull origin main && git branch -D ";
+            gd = "git diff";
+            gds = "git diff --staged";
+            gr = "git reset HEAD --hard";
+            hg = "history|grep";  # search bash history, I swapped the letters for github-cli compatibility
+            left = "ls -t -1";  # most recently edited files
+            cg = "cd `git rev-parse --show-toplevel`";  # go to git main level
         };
         # promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
         enableCompletion = true;
@@ -40,7 +64,12 @@
         # initExtraFirst = (builtins.readFile /etc/nixos/modules/common/p10k-config/instant_prompt.zsh);
 
         # end of file
-        initExtra = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
+        initExtra =
+        ''
+            [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+            setopt auto_cd
+            cdpath=(.. $HOME $HOME/Development $HOME/infra)
+        '';
 
         # https://discourse.nixos.org/t/using-an-external-oh-my-zsh-theme-with-zsh-in-nix/6142/2
         plugins = [
@@ -68,6 +97,70 @@
                 file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
             }
         ];
+    };
+
+    gtk = {
+        enable = true;
+
+        iconTheme = {
+            name = "Papirus-Dark";
+            package = pkgs.papirus-icon-theme;
+        };
+
+        theme = {
+            name = "Yaru-blue-dark";
+            package = pkgs.yaru-theme;
+        };
+
+        cursorTheme = {
+            name = "Numix-Cursor";
+            package = pkgs.numix-cursor-theme;
+        };
+
+        gtk3.extraConfig = {
+            Settings = ''
+                gtk-application-prefer-dark-theme=1
+            '';
+        };
+
+        gtk4.extraConfig = {
+            Settings = ''
+                gtk-application-prefer-dark-theme=1
+            '';
+        };
+    };
+
+    home.sessionVariables.GTK_THEME = "Yaru-blue-dark";
+    # ...
+
+    dconf.settings = {
+      "org/gnome/mutter" = {
+        experimental-features = [ "scale-monitor-framebuffer" ];
+      };
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        enable-hot-corners = false;
+      };
+      "org/gnome/desktop/wm/preferences" = {
+        workspace-names = [ "Main" ];
+      };
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+
+        # `gnome-extensions list` for a list
+        enabled-extensions = [
+            "user-theme@gnome-shell-extensions.gcampax.github.com"
+            "trayIconsReloaded@selfmade.pl"
+            "Vitals@CoreCoding.com"
+            "dash-to-panel@jderose9.github.com"
+            # "sound-output-device-chooser@kgshank.net"
+            "space-bar@luchrioh"
+        ];
+      };
+
+      "org/gnome/shell/extensions/user-theme" = {
+          name = "Yaru-blue-dark";
+      };
     };
   };
 }
