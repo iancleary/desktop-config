@@ -5,52 +5,8 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-
-      # Host Specific
-      ./users/iancleary/bare-metal.nix
-      ./modules/tailscale.nix
-      ./modules/bare-metal/fwupd.nix
-      ./modules/bare-metal/sound.nix
-      ./modules/bare-metal/printing.nix
-      
-      # Flakes and Direnv
-      ./modules/flakes.nix
-      ./modules/nix-direnv.nix
-
-      # Locale and Timezone
-      ./modules/localization/en_US.nix
-      ./modules/timezone/America-Phoenix.nix
-
-      # Desktop Specific
-      ./modules/desktop/flatpak.nix
-      ./modules/desktop/gnome.nix
-      ./modules/desktop/packages.nix
-      ./modules/desktop/vscode.nix
-      ./modules/desktop/x11-keymap.nix
-
-      # User Specific
-      <home-manager/nixos>
-      ./users/iancleary/home-manager.nix
-
-      # Common
-      ./modules/common/docker.nix
-      ./modules/common/localBinInPath.nix
-      ./modules/common/packages.nix
-      ./modules/common/zsh.nix
-
-      ./modules/networkmanager.nix
-      ./modules/openssh.nix
-      ./modules/garbage-collection.nix
-
-      ./modules/unfree-allowed.nix
-
-    ];
-
   # Define your hostname.
-  networking.hostName = "nixos-framework";
+  networking.hostName = "framework";
 
 
   # testing fwupd on framework 11th gen intel
