@@ -104,11 +104,5 @@
               ];
         };
       };
-
-      devShells.x86_64-linux.default = with desktop-pkgs;
-        stdenv.mkDerivation {
-          name = "dotfiles";
-          buildInputs = [ nixfmt nil ];
-        };
     };
 }
