@@ -75,38 +75,8 @@
         ./modules/desktop/vscode.nix
         ./modules/desktop/x11-keymap.nix
 
-        # User Specific
-        # <home-manager/nixos>
-        
-
       ];
 
-    # #   personal-modules = [
-    # #     ./modules/git-config-personal.nix
-    # #     ./modules/password-manager-ssh.nix
-    # #     ./modules/beeper.nix
-    # #   ];
-
-    # #   work-modules = [
-    # #     ./modules/gcloud.nix
-    # #     ./modules/git-config-work.nix
-    # #     ./modules/user-bender.nix
-    # #     ./modules/vagrant.nix
-    # #     ./modules/xdg-utils.nix
-    # #   ];
-
-    #   server-system = "aarch64-linux";
-    #   server-pkgs = (import nixpkgs) { system = server-system; };
-    #   server-modules = [
-    #     ./modules/arion.nix
-    #     ./modules/cgm.nix
-    #     ./modules/docker.nix
-    #     ./modules/reverse-proxy.nix
-    #     ./modules/secret-management.nix
-    #     ./modules/ssh-server.nix
-    #     ./modules/time.nix
-    #     ./modules/users.nix
-    #   ];
     in {
       nixosConfigurations = {
         framework = nixpkgs.lib.nixosSystem {
