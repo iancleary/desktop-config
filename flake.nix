@@ -90,12 +90,12 @@
     #   ];
     in {
       nixosConfigurations = {
-        nixos-framework = nixpkgs.lib.nixosSystem {
+        framework = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
           modules = desktop-modules
-            ++ [ ./hardware-configuration/framework.nix ./hosts/nixos-framework.nix];
+            ++ [ ./hardware-configuration/framework.nix ./hosts/framework.nix];
         };
       };
 
