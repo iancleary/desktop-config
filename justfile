@@ -13,9 +13,14 @@ echo:
 update:
   bash config.sh "{{ hostname }}"
 
+lock:
+  sudo cp /etc/nixos/flake.lock flake.lock
+
+
 # Run `sudo nixos-rebuild switch`
 switch:
   sudo nixos-rebuild switch
+  sudo cp /etc/nixos/"{{ hostname }}"/flake.lock flake.lock
 
 # Run `sudo nixos-rebuild switch --upgrade` to upgrade channels
 upgrade:
