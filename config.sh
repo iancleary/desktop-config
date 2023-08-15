@@ -27,6 +27,7 @@ cp_local_folder "modules"
 cp_local_folder "users"
 sudo mkdir "/etc/nixos/hosts"
 sudo cp "hosts/$HOST.nix" "/etc/nixos/hosts/$HOST.nix"
+sudo mkdir "/etc/nixos/hardware-configuration"
 sudo cp "hardware-configuration/$HOST.nix" "/etc/nixos/hardware-configuration/$HOST.nix"
 sudo cp "flake.nix" "/etc/nixos/flake.nix"
 
