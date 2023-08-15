@@ -115,8 +115,8 @@
           pkgs = desktop-pkgs;
           modules = bare-metal-modules ++ common-modules ++ desktop-modules
             ++ [ 
-                ./hardware-configuration.nix 
-                ./hosts/framework.nix
+                ./hardware-configuration.nix # hardware-configuration/framework.nix
+                ./configuration.nix # hosts/framework.nix
                 ./users/iancleary/bare-metal.nix
                 ./users/iancleary/home-manager.nix
               ];
@@ -127,8 +127,8 @@
           pkgs = vm-pkgs;
           modules = common-modules ++ virtualbox-guest-modules ++ desktop-modules
             ++ [ 
-                ./hardware-configuration.nix
-                ./hosts/vm-icleary-nixos.nix
+                ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
+                ./configuration.nix # hosts/vm-icleary-nixos.nix
                 ./users/icleary/vboxsf.nix
                 ./users/icleary/home-manager.nix
               ];
