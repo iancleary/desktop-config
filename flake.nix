@@ -22,32 +22,29 @@
           allowUnfree = true;
         };
       };
-      desktop-modules = [
-         # Host Specific
-        ./users/iancleary/bare-metal.nix
-        ./modules/tailscale.nix
+
+      vm-system = "x86_64-linux";
+      vm-pkgs = (import nixpkgs) {
+        system = vm-system;
+        config = {
+          allowUnfree = true;
+        };
+      };
+
+      bare-metal-modules = [
         ./modules/bare-metal/fwupd.nix
         ./modules/bare-metal/sound.nix
         ./modules/bare-metal/printing.nix
-        
+      ];
+
+      virtualbox-guest-modules = [
+        ./modules/virtualbox/guest-enabled.nix
+      ];
+
+      common-modules = [
         # Flakes and Direnv
         ./modules/flakes.nix
         ./modules/nix-direnv.nix
-
-        # Locale and Timezone
-        ./modules/localization/en_US.nix
-        ./modules/timezone/America-Phoenix.nix
-
-        # Desktop Specific
-        ./modules/desktop/flatpak.nix
-        ./modules/desktop/gnome.nix
-        ./modules/desktop/packages.nix
-        ./modules/desktop/vscode.nix
-        ./modules/desktop/x11-keymap.nix
-
-        # User Specific
-        # <home-manager/nixos>
-        ./users/iancleary/home-manager.nix
 
         # Common
         ./modules/common/docker.nix
@@ -60,6 +57,28 @@
         ./modules/garbage-collection.nix
 
         ./modules/unfree-allowed.nix
+
+        # Locale and Timezone
+        ./modules/localization/en_US.nix
+        ./modules/timezone/America-Phoenix.nix
+      ];
+
+      personal-modules = [
+        ./modules/tailscale.nix
+      ];
+      
+      desktop-modules = [
+        # Desktop Specific
+        ./modules/desktop/flatpak.nix
+        ./modules/desktop/gnome.nix
+        ./modules/desktop/packages.nix
+        ./modules/desktop/vscode.nix
+        ./modules/desktop/x11-keymap.nix
+
+        # User Specific
+        # <home-manager/nixos>
+        
+
       ];
 
     # #   personal-modules = [
@@ -94,8 +113,24 @@
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
-          modules = desktop-modules
-            ++ [ ./hardware-configuration/framework.nix ./hosts/framework.nix];
+          modules = bare-metal-system ++ common-modules ++ desktop-modules
+            ++ [ 
+                ./hardware-configuration/framework.nix 
+                ./hosts/framework.nix
+                ./users/iancleary/bare-metal.nix
+                ./users/iancleary/home-manager.nix
+              ];
+        };
+        vm-icleary-nixos = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          system = vm-system;
+          pkgs = vm-pkgs;
+          modules = common-modules ++ virtualbox-guest-modules ++ desktop-modules
+            ++ [ 
+                ./hosts/vm-icleary-nixos.nix
+                ./users/icleary/vboxsf.nix
+                ./users/icleary/home-manager.nix
+              ];
         };
       };
 
