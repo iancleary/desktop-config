@@ -4,34 +4,9 @@ Welcome to my nixos-config!
 
 ## Setup Channels and Home Manager
 
-### Channels
+Channels for the current nixos release, nixpkgs unstable, and home-manager are all handled by the [flake.nix](flake.nix) file.
 
-```bash
-sudo nix-channel --add https://channels.nixos.org/nixos-unstable nixos-unstable
-sudo nix-channel --add https://channels.nixos.org/nixos-23.05 nixos
-sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
-sudo nix-channel --update
-```
-
-Once that is done, they are up to date.
-
-You manually update any of them by name:
-```bash
-sudo nix-channel --update nixos
-sudo nix-channel --update nixos-unstable
-sudo nix-channel --update home-manager
-
-```
-
-### Home Manager
-
-Once the Home Manager Channel is updated, it is then possible to add
-
-```nix
-imports = [ <home-manager/nixos> ];
-```
-
-to your system configuration.nix file, which will introduce a new NixOS option called home-manager.users whose type is an attribute set that maps user names to Home Manager configurations.
+There is a good walkthrough here: [https://nixos-and-flakes.thiscute.world/](https://nixos-and-flakes.thiscute.world/).
 
 ### Flatpak
 
@@ -44,9 +19,9 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 <https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module>
 <https://nixos.org/manual/nixos/stable/index.html#sec-upgrading>
 
-```bash
-just version-update 23.11
-```
+* Update the [flake.nix](flake.nix) file to use the new release
+* Check the release notes for changes to modules
+* Run `just upgrade` and resolve errors until upgrade is complete
 
 ## Links
 

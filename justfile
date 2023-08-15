@@ -39,12 +39,3 @@ fwupd:
   @echo "run 'fwupdmgr refresh' to refresh firmware list"
   @echo "run 'fwupdmgr get-updates' to check for updates"
   @echo "Run 'fwupdmgr update' to update firmware"
-
-version VERSION:
-  @echo "{{ VERSION }}"
-
-version-upgrade VERSION:
-  sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-{{VERSION}}.tar.gz home-manager
-  sudo nix-channel --update
-  sudo  nix-channel --add https://channels.nixos.org/nixos-{{VERSION}} nixos
-  nixos-rebuild switch --upgrade
