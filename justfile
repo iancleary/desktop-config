@@ -12,6 +12,7 @@ echo:
 # Copy the nixos config in repo to /etc/nixos
 update:
   bash config.sh "{{ hostname }}"
+  nix flake update
 
 lock:
   sudo cp /etc/nixos/flake.lock flake.lock
