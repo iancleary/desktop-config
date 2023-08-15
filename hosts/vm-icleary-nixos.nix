@@ -5,46 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-
-      # Host Specific
-      ./modules/virtualbox/guest-enabled.nix
-
-      # Flakes and Direnv
-      ./modules/flakes.nix
-      ./modules/nix-direnv.nix
-
-      # Locale and Timezone
-      ./modules/localization/en_US.nix
-      ./modules/timezone/America-Phoenix.nix
-
-      # Desktop Specific
-      ./modules/desktop/flatpak.nix
-      ./modules/desktop/gnome.nix
-      ./modules/desktop/packages.nix
-      ./modules/desktop/vscode.nix
-      ./modules/desktop/x11-keymap.nix
-
-      # User Specific
-      <home-manager/nixos>
-      ./users/icleary/home-manager.nix
-      ./users/icleary/vboxsf.nix
-
-      # Common
-      ./modules/common/docker.nix
-      ./modules/common/localBinInPath.nix
-      ./modules/common/packages.nix
-      ./modules/common/zsh.nix
-
-      ./modules/networkmanager.nix
-      ./modules/openssh.nix
-      ./modules/garbage-collection.nix
-
-      ./modules/unfree-allowed.nix
-    ];
-
   # Define your hostname.
   networking.hostName = "vm-icleary-nixos";
 

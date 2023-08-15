@@ -17,10 +17,17 @@ function cp_local_folder() {
 }
 
 
-sudo cp "hosts/$HOST.nix" "/etc/nixos/configuration.nix"
-
+clean_local_folder "hosts"
+clean_local_folder "hardware-configuration"
 clean_local_folder "modules"
 clean_local_folder "users"
+sudo rm "/etc/nixos/configuration.nix"
+sudo rm "/etc/nixos/hardware-configuration.nix"
 
 cp_local_folder "modules"
 cp_local_folder "users"
+sudo cp "hosts/$HOST.nix" "/etc/nixos/configuration.nix"
+sudo cp "hardware-configuration/$HOST.nix" "/etc/nixos/hardware-configuration.nix"
+sudo cp "flake.nix" "/etc/nixos/flake.nix"
+
+
