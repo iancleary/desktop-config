@@ -1,8 +1,8 @@
-{ inputs, config, pkgs, lib, home-manager, ... }: {
+{ username, inputs, config, pkgs, lib, home-manager, ... }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
-  home-manager.users.iancleary = {
+  home-manager.users."${username}" = {
     home.stateVersion = "23.05";
 
     # https://github.com/nix-community/nix-direnv#via-home-manager

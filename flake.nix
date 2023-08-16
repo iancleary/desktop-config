@@ -13,23 +13,27 @@
 
   outputs = { nixpkgs, ... }@inputs:
     let
+
+      username = "iancleary";
+      ;
+      userfullname = "Ian Cleary";
+      useremail = "github@iancleary.me";
+
+      workUsername = "icleary";
+      workUserfullname = "Ian Cleary";
+      workUseremail = "ian.cleary@viasat.com";
+
+      x64_system = "x86_64-linux";
+
+      x64_base_args = {
+        inherit nixpkgs;
+        system = x64_system;
+        config = {
+          allowUnfree = true;
+        };
+      };
+
       specialArgs = { inherit inputs; };
-
-      desktop-system = "x86_64-linux";
-      desktop-pkgs = (import nixpkgs) {
-        system = desktop-system;
-        config = {
-          allowUnfree = true;
-        };
-      };
-
-      vm-system = "x86_64-linux";
-      vm-pkgs = (import nixpkgs) {
-        system = vm-system;
-        config = {
-          allowUnfree = true;
-        };
-      };
 
       bare-metal-modules = [
         ./modules/bare-metal/fwupd.nix
@@ -81,9 +85,9 @@
     {
       nixosConfigurations = {
         framework = nixpkgs.lib.nixosSystem {
+          inherit x64_base_args;
           inherit specialArgs;
-          system = desktop-system;
-          pkgs = desktop-pkgs;
+          username = username;
           modules = bare-metal-modules ++ common-modules ++ desktop-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
@@ -93,15 +97,14 @@
           ];
         };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
+          inherit x64_base_args;
           inherit specialArgs;
-          system = vm-system;
-          pkgs = vm-pkgs;
+          username = workUsername;
           modules = common-modules ++ virtualbox-guest-modules ++ desktop-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
             ./configuration.nix # hosts/vm-icleary-nixos.nix
-            ./users/icleary/vboxsf.nix
-            ./users/icleary/home-manager.nix
+            ./home/default
           ];
         };
       };
