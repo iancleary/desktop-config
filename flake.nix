@@ -11,26 +11,8 @@
     };
   };
 
-  outputs = { nixpkgs, config, lib, ... }@inputs:
+  outputs = { nixpkgs, ... }@inputs:
     let
-      options.variables = lib.mkOption {
-        type = lib.types.attrs;
-        default = { };
-      };
-      config._module.args.variables = options.variables;
-
-      personal_variables = {
-        username = "iancleary";
-        userfullname = "Ian Cleary";
-        useremail = "github@iancleary.me";
-      };
-
-      work_variables = {
-        username = "icleary";
-        userfullname = "Ian Cleary";
-        useremail = "ian.cleary@viasat.com";
-      };
-
       x64_system = "x86_64-linux";
 
       x64_base_args = {
@@ -52,6 +34,9 @@
       ];
 
       common-modules = [
+        # variable setup
+        ./modules/variables.nix
+
         # Flakes and Direnv
         ./modules/flakes.nix
         ./modules/nix-direnv.nix
@@ -98,6 +83,7 @@
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
             ./home/default.nix
+            ./users/iancleary.nix
           ];
         };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
@@ -108,6 +94,7 @@
             ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
             ./configuration.nix # hosts/vm-icleary-nixos.nix
             ./home/default.nix
+            ./users/icleary.nix
           ];
         };
       };
