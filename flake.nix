@@ -15,7 +15,7 @@
     let
       x64_system = "x86_64-linux";
 
-      x64_base_args = {
+      x64_pkgs = {
         inherit nixpkgs;
         system = x64_system;
         config = {
@@ -76,7 +76,8 @@
     {
       nixosConfigurations = {
         framework = nixpkgs.lib.nixosSystem {
-          extraArgs = x64_base_args;
+          system = x64_system;
+          pkgs = x64_pkgs;
           modules = bare-metal-modules ++ common-modules ++ desktop-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
@@ -86,7 +87,8 @@
           ];
         };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
-          extraArgs = x64_base_args;
+          system = x64_system;
+          pkgs = x64_pkgs;
           modules = common-modules ++ virtualbox-guest-modules ++ desktop-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
