@@ -10,7 +10,8 @@ let
     system = "x86_64-linux";
     config.allowUnfree = true;
   };
-in {
+in
+{
   environment.systemPackages = with pkgs-unstable; [
     pkgs-unstable.devbox
     pkgs-unstable.gh

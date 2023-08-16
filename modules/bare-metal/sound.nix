@@ -26,10 +26,10 @@
   # https://nixos.wiki/wiki/Bluetooth#Enabling_A2DP_Sink
   hardware.bluetooth.enable = true;
   hardware.bluetooth.settings = {
-  General = {
-    Enable = "Source,Sink,Media,Socket";
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+    };
+
+
   };
-
-
-};
 }

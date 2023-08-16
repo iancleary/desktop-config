@@ -29,5 +29,3 @@ cp_local_folder "users"
 sudo cp "hosts/$HOST.nix" "/etc/nixos/configuration.nix"
 sudo cp "hardware-configuration/$HOST.nix" "/etc/nixos/hardware-configuration.nix"
 sudo cp "flake.nix" "/etc/nixos/flake.nix"
-
-

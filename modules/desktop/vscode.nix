@@ -10,8 +10,9 @@ let
     system = "x86_64-linux";
     config.allowUnfree = true;
   };
-in {
-  environment.systemPackages = [ 
+in
+{
+  environment.systemPackages = [
     pkgs-unstable.vscode-fhs # vscode with FHS (File Hierarchy System) layout
   ];
 }

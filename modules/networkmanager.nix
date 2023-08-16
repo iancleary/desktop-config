@@ -1,4 +1,3 @@
-
 { config, pkgs, ... }:
 {
   # Enable networking
