@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = { nixpkgs, config, ... }@inputs:
+  outputs = { nixpkgs, config, lib, ... }@inputs:
     let
       options.variables = lib.mkOption {
         type = lib.types.attrs;
