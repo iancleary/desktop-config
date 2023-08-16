@@ -34,9 +34,6 @@
       ];
 
       common-modules = [
-        # variable setup
-        ./modules/variables.nix
-
         # Flakes and Direnv
         ./modules/flakes.nix
         ./modules/nix-direnv.nix
