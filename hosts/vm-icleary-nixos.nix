@@ -8,11 +8,6 @@
   # Define your hostname.
   networking.hostName = "vm-icleary-nixos";
 
-  # Setup Variables
-  config.variables = {
-    username = "icleary";
-  };
-
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";

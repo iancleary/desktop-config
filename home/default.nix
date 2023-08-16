@@ -2,18 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, ... }:
+{ ... }:
 
 {
   include = [
     ./gnome.nix
   ];
-  users.users."${config.variables.username}" = {
-    home = "/home/${config.variables.username}";
+  users.users.iancleary = {
+    home = "/home/iancleary";
     isNormalUser = true;
-    description = config.variables.username;
+    description = "iancleary";
     extraGroups = [
-      config.variables.username
+      "iancleary"
       "wheel"
       "docker"
       "vboxsf"

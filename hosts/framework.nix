@@ -8,11 +8,6 @@
   # Define your hostname.
   networking.hostName = "framework";
 
-  # Setup Variables
-  config.variables = {
-    username = "icleary";
-  };
-
   # testing fwupd on framework 11th gen intel
   # https://knowledgebase.frame.work/en_us/framework-laptop-bios-releases-S1dMQt6F#Linux_BIOS
   services.fwupd.enableTestRemote = true;
