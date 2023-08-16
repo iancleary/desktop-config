@@ -1,0 +1,13 @@
+---
+repos:
+  - repo: https://github.com/nix-community/nixpkgs-fmt
+    rev: master
+    hooks:
+      - id: nixpkgs-fmt
+        args: ["--check"]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: trailing-whitespace
