@@ -9,6 +9,6 @@
   users.users.icleary = {
     isNormalUser = true;
     description = "icleary on bare-metal";
-    extraGroups = [ "networkmanager" "wheel" "docker" "vboxsf"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "vboxsf" ];
   };
 }

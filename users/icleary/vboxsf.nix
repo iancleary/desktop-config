@@ -9,6 +9,6 @@
   users.users.icleary = {
     isNormalUser = true;
     description = "icleary in VirtualBox VM";
-    extraGroups = [ "networkmanager" "wheel" "docker" "vboxsf"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "vboxsf" ];
   };
 }

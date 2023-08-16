@@ -31,9 +31,9 @@
   fonts.fonts = with pkgs; [
     meslo-lgs-nf
   ];
-  fonts.fontconfig.defaultFonts.serif = ["meslo-lgs-nf"];
-  fonts.fontconfig.defaultFonts.sansSerif = ["meslo-lgs-nf"];
-  fonts.fontconfig.defaultFonts.monospace = ["meslo-lgs-nf"];
+  fonts.fontconfig.defaultFonts.serif = [ "meslo-lgs-nf" ];
+  fonts.fontconfig.defaultFonts.sansSerif = [ "meslo-lgs-nf" ];
+  fonts.fontconfig.defaultFonts.monospace = [ "meslo-lgs-nf" ];
 
   # https://nixos.wiki/wiki/Command_Shell
   # Many programs look at /etc/shells to determine if a user is a "normal" user and not a "system" user.

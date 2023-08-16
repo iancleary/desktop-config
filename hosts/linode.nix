@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -43,7 +44,7 @@
     isNormalUser = true;
     home = "/home/iancleary";
     description = "Ian Cleary";
-    extraGroups = [ "wheel" "networkmanager"];
+    extraGroups = [ "wheel" "networkmanager" ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII7RewHTrKsekCvRoPUZc0heu8MwSpdHsLqG9LYMdlkV github@iancleary.me"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDmLe3vZflB95jEz3CJlqxKJLN6kPan8nk9CAdHNzLse github@iancleary.me"
@@ -60,7 +61,7 @@
     # Linode Monitoring
     inetutils
     mtr
-    sysstat    
+    sysstat
 
     # Use Cases
     git
@@ -103,13 +104,13 @@
 
   services.nginx.enable = true;
   services.nginx.virtualHosts."iancleary.dev" = {
-      addSSL = true;
-      enableACME = true;
-      #root = "/var/www/iancleary.dev";
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:8000";
-      };
-      basicAuth = { iancleary = (builtins.readFile ./secrets/nginx); };
+    addSSL = true;
+    enableACME = true;
+    #root = "/var/www/iancleary.dev";
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:8000";
+    };
+    basicAuth = { iancleary = (builtins.readFile ./secrets/nginx); };
   };
   security.acme = {
     acceptTerms = true;

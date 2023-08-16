@@ -15,9 +15,9 @@
   services.gnome.gnome-keyring.enable = true;
 
   # Systray Icons
-  ## To get systray icons, install the related gnome shell extension 
+  ## To get systray icons, install the related gnome shell extension
   environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
-  ## And ensure gnome-settings-daemon udev rules are enabled : 
+  ## And ensure gnome-settings-daemon udev rules are enabled :
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   # Excluding some GNOME applications from the default install

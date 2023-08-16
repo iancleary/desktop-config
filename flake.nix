@@ -66,7 +66,7 @@
       personal-modules = [
         ./modules/tailscale.nix
       ];
-      
+
       desktop-modules = [
         # Desktop Specific
         ./modules/desktop/flatpak.nix
@@ -77,31 +77,32 @@
 
       ];
 
-    in {
+    in
+    {
       nixosConfigurations = {
         framework = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
           modules = bare-metal-modules ++ common-modules ++ desktop-modules
-            ++ [ 
-                ./hardware-configuration.nix # hardware-configuration/framework.nix
-                ./configuration.nix # hosts/framework.nix
-                ./users/iancleary/bare-metal.nix
-                ./users/iancleary/home-manager.nix
-              ];
+            ++ [
+            ./hardware-configuration.nix # hardware-configuration/framework.nix
+            ./configuration.nix # hosts/framework.nix
+            ./users/iancleary/bare-metal.nix
+            ./users/iancleary/home-manager.nix
+          ];
         };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = vm-system;
           pkgs = vm-pkgs;
           modules = common-modules ++ virtualbox-guest-modules ++ desktop-modules
-            ++ [ 
-                ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
-                ./configuration.nix # hosts/vm-icleary-nixos.nix
-                ./users/icleary/vboxsf.nix
-                ./users/icleary/home-manager.nix
-              ];
+            ++ [
+            ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
+            ./configuration.nix # hosts/vm-icleary-nixos.nix
+            ./users/icleary/vboxsf.nix
+            ./users/icleary/home-manager.nix
+          ];
         };
       };
     };

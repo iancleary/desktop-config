@@ -9,6 +9,6 @@
   users.users.iancleary = {
     isNormalUser = true;
     description = "Ian Cleary";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 }
