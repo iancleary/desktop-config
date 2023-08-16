@@ -2,26 +2,21 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ username, ... }:
+{ config, variables, ... }:
 
 {
   include = [
     ./gnome.nix
-  ]
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.groups = {
-  "${username}" = {};
-  docker = { };
-};
-users.users."${username}" = {
-home = "/home/${username}";
-isNormalUser = true;
-description = username;
-extraGroups = [
-username
-"wheel"
-"docker"
-"vboxsf"
-];
-}
-}
+  ];
+  users.users."${variables.username}" = {
+    home = "/home/${variables.username}";
+    isNormalUser = true;
+    description = variables.username;
+    extraGroups = [
+      variables.username
+      "wheel"
+      "docker"
+      "vboxsf"
+    ];
+  }
+    }
