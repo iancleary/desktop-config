@@ -77,7 +77,6 @@
       nixosConfigurations = {
         framework = nixpkgs.lib.nixosSystem {
           extraArgs = x64_base_args;
-          specialArgs = personal_variables;
           modules = bare-metal-modules ++ common-modules ++ desktop-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
@@ -88,7 +87,6 @@
         };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
           extraArgs = x64_base_args;
-          specialArgs = work_variables;
           modules = common-modules ++ virtualbox-guest-modules ++ desktop-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
