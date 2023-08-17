@@ -5,10 +5,13 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./icleary-home.nix
+  ];
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.iancleary = {
+  users.users.icleary = {
     isNormalUser = true;
-    description = "Ian Cleary";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    description = "icleary";
+    extraGroups = [ "networkmanager" "wheel" "docker" "vboxsf" ];
   };
 }
