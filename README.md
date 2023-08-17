@@ -59,7 +59,7 @@ cd nixos-config
 sudo nano /etc/nixos/configuration.nix
 # after hostname is set, copy config over
 sudo nixos-rebuild switch
-just update
+just update upgrade
 
 ```
 
