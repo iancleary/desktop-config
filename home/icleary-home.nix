@@ -31,6 +31,9 @@
     home.file.".p10k.zsh".source = ./dotfiles/.p10k.zsh;
     home.file.".p10k.zsh".target = ".p10k.zsh";
 
+    home.file.".face".source = ./dotfiles/avatar.jpg;
+    home.file.".face".target = ".face";
+
     programs.zsh = {
       enable = true;
       shellAliases = {
