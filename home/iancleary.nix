@@ -5,10 +5,13 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./iancleary-home.nix
+  ];
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.icleary = {
+  users.users.iancleary = {
     isNormalUser = true;
-    description = "icleary on bare-metal";
+    description = "iancleary";
     extraGroups = [ "networkmanager" "wheel" "docker" "vboxsf" ];
   };
 }
