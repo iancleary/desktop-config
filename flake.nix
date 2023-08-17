@@ -84,7 +84,7 @@
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
-          modules = bare-metal-modules ++ common-modules ++ desktop-modules
+          modules = common-modules ++ desktop-modules ++ bare-metal-modules ++ personal-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
@@ -95,7 +95,7 @@
           inherit specialArgs;
           system = vm-system;
           pkgs = vm-pkgs;
-          modules = common-modules ++ virtualbox-guest-modules ++ desktop-modules
+          modules = common-modules ++ desktop-modules ++ virtualbox-guest-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
             ./configuration.nix # hosts/vm-icleary-nixos.nix
