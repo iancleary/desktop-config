@@ -27,6 +27,6 @@ sudo rm "/etc/nixos/hardware-configuration.nix"
 
 cp_local_folder "modules"
 cp_local_folder "home"
-sudo cp "hosts/$HOST.nix" "/etc/nixos/configuration.nix"
-sudo cp "hardware-configuration/$HOST.nix" "/etc/nixos/hardware-configuration.nix"
+sudo cp "hosts/$HOST/configuration.nix" "/etc/nixos/configuration.nix"
+sudo cp "hosts/$HOST/hardware-configuration.nix" "/etc/nixos/hardware-configuration.nix"
 sudo cp "flake.nix" "/etc/nixos/flake.nix"
