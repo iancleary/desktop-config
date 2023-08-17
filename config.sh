@@ -3,8 +3,8 @@ if [[ ! -z "$1" ]]; then
 	HOST=$1
 fi
 
-if [[ ! -e "hosts/$HOST.nix" ]]; then
-	echo "missing hosts/$HOST.nix" >&2
+if [[ ! -e "hosts/$HOST" ]]; then
+	echo "missing hosts/$HOST folder! exiting..." >&2
 	exit 1
 fi
 
