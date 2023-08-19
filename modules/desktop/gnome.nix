@@ -7,10 +7,15 @@
 {
   # Enable the GNOME Desktop Environment.
   # https://nixos.wiki/wiki/GNOME
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
+  services.xserver = {
+    enable = true;
+    excludePackages = with pkgs; [
+      xterm
+    ];
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
   # Gnome Keyring
   services.gnome.gnome-keyring.enable = true;
 

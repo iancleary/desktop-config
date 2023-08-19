@@ -103,68 +103,26 @@
       ];
     };
 
-    # gtk = {
-    #   enable = true;
-
-    #   iconTheme = {
-    #     name = "Papirus-Dark";
-    #     package = pkgs.papirus-icon-theme;
-    #   };
-
-    #   theme = {
-    #     name = "Yaru-blue-dark";
-    #     package = pkgs.yaru-theme;
-    #   };
-
-    #   cursorTheme = {
-    #     name = "Numix-Cursor";
-    #     package = pkgs.numix-cursor-theme;
-    #   };
-
-    #   gtk3.extraConfig = {
-    #     Settings = ''
-    #       gtk-application-prefer-dark-theme=1
-    #     '';
-    #   };
-
-    #   gtk4.extraConfig = {
-    #     Settings = ''
-    #       gtk-application-prefer-dark-theme=1
-    #     '';
-    #   };
-    # };
-
-    # home.sessionVariables.GTK_THEME = "Yaru-blue-dark";
-    # # ...
-
-    # dconf.settings = {
-    #   "org/gnome/mutter" = {
-    #     experimental-features = [ "scale-monitor-framebuffer" ];
-    #   };
-    #   "org/gnome/desktop/interface" = {
-    #     color-scheme = "prefer-dark";
-    #     enable-hot-corners = false;
-    #   };
-    #   "org/gnome/desktop/wm/preferences" = {
-    #     workspace-names = [ "Main" ];
-    #   };
-    #   "org/gnome/shell" = {
-    #     disable-user-extensions = false;
-
-    #     # `gnome-extensions list` for a list
-    #     enabled-extensions = [
-    #       "user-theme@gnome-shell-extensions.gcampax.github.com"
-    #       "trayIconsReloaded@selfmade.pl"
-    #       "Vitals@CoreCoding.com"
-    #       "dash-to-panel@jderose9.github.com"
-    #       # "sound-output-device-chooser@kgshank.net"
-    #       "space-bar@luchrioh"
-    #     ];
-    #   };
-
-    #   "org/gnome/shell/extensions/user-theme" = {
-    #     name = "Yaru-blue-dark";
-    #   };
-    # };
+    gtk = {
+      enable = true;
+      iconTheme = {
+        name = "elementary-Xfce-dark";
+        package = pkgs.elementary-xfce-icon-theme;
+      };
+      theme = {
+        name = "zukitre-dark";
+        package = pkgs.zuki-themes;
+      };
+      gtk3.extraConfig = {
+        Settings = ''
+          gtk-application-prefer-dark-theme=1
+        '';
+      };
+      gtk4.extraConfig = {
+        Settings = ''
+          gtk-application-prefer-dark-theme=1
+        '';
+      };
+    };
   };
 }
