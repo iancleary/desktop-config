@@ -5,18 +5,8 @@
     nix-zsh-completions
   ];
 
-  home.file."dvd".source = ./dotfiles/dvd;
-  home.file."dvd".target = ".local/bin/dvd";
-  home.file."dvd".executable = true;
-  home.file."dvt".source = ./dotfiles/dvt;
-  home.file."dvt".target = ".local/bin/dvt";
-  home.file."dvt".executable = true;
-
   home.file.".p10k.zsh".source = ./dotfiles/.p10k.zsh;
   home.file.".p10k.zsh".target = ".p10k.zsh";
-
-  home.file.".face".source = ./dotfiles/avatar.jpg;
-  home.file.".face".target = ".face";
 
   programs.zsh = {
     enable = true;

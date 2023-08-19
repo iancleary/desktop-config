@@ -1,5 +1,10 @@
 { pkgs, ... }: {
 
+  # Login picture/avatar
+  home.file.".face".source = ./dotfiles/avatar.jpg;
+  home.file.".face".target = ".face";
+
+  # Themes and extensions
   home.packages = with pkgs; [
     yaru-theme
     gnomeExtensions.user-themes
@@ -9,6 +14,8 @@
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.space-bar
   ];
+
+  # Configure themes
   gtk = {
     enable = true;
 
@@ -43,6 +50,7 @@
   home.sessionVariables.GTK_THEME = "Yaru-blue-dark";
   # ...
 
+  # Configure gnome settings and extensions
   dconf.settings = {
     "org/gnome/mutter" = {
       experimental-features = [ "scale-monitor-framebuffer" ];
