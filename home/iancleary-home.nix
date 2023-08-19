@@ -72,7 +72,7 @@
         ''
           [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
           setopt auto_cd
-          cdpath=(.. $HOME $HOME/Development $HOME/infra)
+          cdpath=(.. $HOME $HOME/Development)
         '';
 
       # https://discourse.nixos.org/t/using-an-external-oh-my-zsh-theme-with-zsh-in-nix/6142/2
