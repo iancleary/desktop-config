@@ -5,7 +5,7 @@
     nix-zsh-completions
   ];
 
-  home.file.".p10k.zsh".source = ./dotfiles/.p10k.zsh;
+  home.file.".p10k.zsh".source = ./.p10k.zsh;
   home.file.".p10k.zsh".target = ".p10k.zsh";
 
   programs.zsh = {

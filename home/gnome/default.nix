@@ -1,7 +1,7 @@
 { pkgs, ... }: {
 
   # Login picture/avatar
-  home.file.".face".source = ./dotfiles/avatar.jpg;
+  home.file.".face".source = ./avatar.jpg;
   home.file.".face".target = ".face";
 
   # Themes and extensions

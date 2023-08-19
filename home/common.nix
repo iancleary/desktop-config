@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./direnv.nix
-    ./zsh.nix
+    ./direnv
+    ./zsh
   ];
 }
