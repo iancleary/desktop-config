@@ -12,7 +12,7 @@
     home.packages = with pkgs; [
       colorls
       nix-zsh-completions
-      # yaru-theme
+      yaru-theme
       # gnomeExtensions.user-themes
       # gnomeExtensions.tray-icons-reloaded
       # gnomeExtensions.vitals
