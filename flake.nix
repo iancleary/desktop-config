@@ -88,7 +88,7 @@
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
-            ./home/iancleary.nix
+            ./home/iancleary-gnome.nix
           ];
         };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
@@ -99,7 +99,7 @@
             ++ [
             ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
             ./configuration.nix # hosts/vm-icleary-nixos.nix
-            ./home/icleary.nix
+            ./home/icleary-gnome.nix
           ];
         };
       };

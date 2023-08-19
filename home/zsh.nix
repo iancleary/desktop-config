@@ -21,9 +21,9 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      l = "ls -alh";
-      ll = "ls -l";
-      ls = "ls -F";
+      l = "colorls -alh";
+      ll = "colorls -l";
+      ls = "colorls";
       ga = "git add";
       gc = "git commit -m";
       gs = "git status";
@@ -34,7 +34,7 @@
       gds = "git diff --staged";
       gr = "git reset HEAD --hard";
       hg = "history|grep"; # search bash history, I swapped the letters for github-cli compatibility
-      left = "ls -t -1"; # most recently edited files
+      left = "colorls -t -1"; # most recently edited files
       cg = "cd `git rev-parse --show-toplevel`"; # go to git main level
     };
     # promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
