@@ -70,11 +70,17 @@
       desktop-modules = [
         # Desktop Specific
         ./modules/desktop/flatpak.nix
-        ./modules/desktop/gnome.nix
         ./modules/desktop/packages.nix
         ./modules/desktop/vscode.nix
         ./modules/desktop/x11-keymap.nix
+      ];
 
+      gnome-desktop-modules = [
+        ./modules/desktop/gnome.nix
+      ];
+
+      xfce-desktop-modules = [
+        ./modules/desktop/xfce.nix
       ];
 
     in
@@ -84,11 +90,14 @@
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
-          modules = common-modules ++ desktop-modules ++ bare-metal-modules ++ personal-modules
+          modules = common-modules ++ desktop-modules
+            ++ xfce-desktop-modules
+            ++ bare-metal-modules ++ personal-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
-            ./home/iancleary.nix
+            # ./home/iancleary.nix
+            ./home/iancleary-xfce.nix
           ];
         };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
