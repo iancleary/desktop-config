@@ -13,4 +13,5 @@
     };
     displayManager.defaultSession = "xfce";
   };
+  xdg.portal.enable = true;
 }
