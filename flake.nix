@@ -69,12 +69,10 @@
 
       desktop-modules = [
         # Desktop Specific
-        ./modules/desktop/flatpak.nix
+        ./modules/desktop
+      ];
+      gnome-desktop-modules = [
         ./modules/desktop/gnome.nix
-        ./modules/desktop/packages.nix
-        ./modules/desktop/ulauncher.nix
-        ./modules/desktop/vscode.nix
-        ./modules/desktop/x11-keymap.nix
       ];
 
     in

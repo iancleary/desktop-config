@@ -10,7 +10,7 @@
     home.stateVersion = "23.05";
     imports = [
       ./common.nix
-      ./gnome.nix
+      ./gnome # folder
     ];
   };
   # Define a user account. Don't forget to set a password with ‘passwd’.
