@@ -69,7 +69,7 @@
 
       desktop-modules = [
         # Desktop Specific
-        ./modules/desktop
+        ./modules/desktop # folder
       ];
       gnome-desktop-modules = [
         ./modules/desktop/gnome.nix
