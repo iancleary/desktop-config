@@ -11,19 +11,29 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # https://github.com/NixOS/nixpkgs/issues/206630#issuecomment-1518696676
+  services.xserver.displayManager.importedVariables = [
+    "XDG_SESSION_TYPE"
+    "XDG_CURRENT_DESKTOP"
+    "XDG_SESSION_DESKTOP"
+  ];
+
   # Install Flatpak
   services.flatpak.enable = true;
-  #environment.systemPackages = with pkgs; [
-  #  xdg-desktop-portal-gtk
-  #  xdg-desktop-portal-gnome
-  #];
-  #xdg.portal = {
-  #  enable = true;
-  #  extraPortals = with pkgs; [
-  #    xdg-desktop-portal-gtk
-  #    xdg-desktop-portal-gnome
-  #  ];
-  #};
+
+  environment.systemPackages = with pkgs; [
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
+  ];
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+    ];
+  };
 
   # Gnome Keyring
   services.gnome.gnome-keyring.enable = true;
