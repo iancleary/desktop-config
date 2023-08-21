@@ -67,14 +67,9 @@
         ./modules/tailscale.nix
       ];
 
-      desktop-modules = [
-        # Desktop Specific
-        ./modules/desktop/flatpak.nix
-        ./modules/desktop/gnome.nix
-        ./modules/desktop/packages.nix
-        ./modules/desktop/vscode.nix
-        ./modules/desktop/x11-keymap.nix
-
+      gnome-desktop-modules = [
+        ./modules/desktop # folder
+        ./modules/desktop/gnome # folder
       ];
 
     in
@@ -84,22 +79,22 @@
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
-          modules = common-modules ++ desktop-modules ++ bare-metal-modules ++ personal-modules
+          modules = common-modules ++ gnome-desktop-modules ++ bare-metal-modules ++ personal-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
-            ./home/iancleary.nix
+            ./home/iancleary-gnome.nix
           ];
         };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = vm-system;
           pkgs = vm-pkgs;
-          modules = common-modules ++ desktop-modules ++ virtualbox-guest-modules
+          modules = common-modules ++ gnome-desktop-modules ++ virtualbox-guest-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
             ./configuration.nix # hosts/vm-icleary-nixos.nix
-            ./home/icleary.nix
+            ./home/icleary-gnome.nix
           ];
         };
       };

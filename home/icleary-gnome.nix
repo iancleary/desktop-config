@@ -2,16 +2,21 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-
-{
+{ config, inputs, pkgs, ... }: {
   imports = [
-    ./iancleary-home.nix
+    inputs.home-manager.nixosModules.home-manager
   ];
+  home-manager.users.icleary = {
+    home.stateVersion = "23.05";
+    imports = [
+      ./common.nix
+      ./gnome # folder
+    ];
+  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.iancleary = {
+  users.users.icleary = {
     isNormalUser = true;
-    description = "iancleary";
+    description = "icleary";
     extraGroups = [ "networkmanager" "wheel" "docker" "vboxsf" ];
   };
 }

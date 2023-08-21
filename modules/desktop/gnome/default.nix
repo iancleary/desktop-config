@@ -11,12 +11,32 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # # https://github.com/NixOS/nixpkgs/issues/206630#issuecomment-1518696676
+  services.xserver.displayManager.importedVariables = [
+    "XDG_SESSION_TYPE"
+    "XDG_CURRENT_DESKTOP"
+    "XDG_SESSION_DESKTOP"
+  ];
+
+  environment.systemPackages = with pkgs; [
+    ## To get systray icons, install the related gnome shell extension
+    gnomeExtensions.appindicator
+    xdg-desktop-portal-gnome
+  ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome
+    ];
+  };
+
+  # Install Flatpak
+  services.flatpak.enable = true;
+
   # Gnome Keyring
   services.gnome.gnome-keyring.enable = true;
 
-  # Systray Icons
-  ## To get systray icons, install the related gnome shell extension
-  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
   ## And ensure gnome-settings-daemon udev rules are enabled :
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
