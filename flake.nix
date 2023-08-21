@@ -67,12 +67,9 @@
         ./modules/tailscale.nix
       ];
 
-      desktop-modules = [
-        # Desktop Specific
-        ./modules/desktop # folder
-      ];
       gnome-desktop-modules = [
-        ./modules/desktop/gnome.nix
+        ./modules/desktop # folder
+        ./modules/desktop/gnome # folder
       ];
 
     in
@@ -82,7 +79,7 @@
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
-          modules = common-modules ++ desktop-modules ++ bare-metal-modules ++ personal-modules
+          modules = common-modules ++ gnome-desktop-modules ++ bare-metal-modules ++ personal-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
@@ -93,7 +90,7 @@
           inherit specialArgs;
           system = vm-system;
           pkgs = vm-pkgs;
-          modules = common-modules ++ desktop-modules ++ virtualbox-guest-modules
+          modules = common-modules ++ gnome-desktop-modules ++ virtualbox-guest-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
             ./configuration.nix # hosts/vm-icleary-nixos.nix
