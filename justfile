@@ -52,3 +52,7 @@ pre-commit:
 # Lint all files according to pre-commit hooks
 lint:
   pre-commit run --all-files
+
+# Open the github repo in default web browser
+open:
+  xdg-open https://github.com/iancleary/nixos-config
