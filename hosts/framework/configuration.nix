@@ -70,11 +70,6 @@
     };
   };
 
-  # Bootloader.
-  #boot.loader.grub.enable = true;
-  #boot.loader.grub.device = "/dev/sda";
-  #boot.loader.grub.useOSProber = true;
-
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -86,6 +81,36 @@
       device = "nodev";
     };
   };
+
+  boot.kernelParams = [
+    # For Power consumption
+    # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
+    "mem_sleep_default=deep"
+    # For Power consumption
+    # https://community.frame.work/t/linux-battery-life-tuning/6665/156
+    "nvme.noacpi=1"
+    # Workaround iGPU hangs
+    # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
+    "i915.enable_psr=1"
+  ];
+
+  # Fix TRRS headphones missing a mic
+  # https://community.frame.work/t/headset-microphone-on-linux/12387/3
+  boot.extraModprobeConfig = ''
+    options snd-hda-intel model=dell-headset-multi
+  '';
+
+  # Custom udev rules
+  services.udev.extraRules = ''
+    # Fix headphone noise when on powersave
+    # https://community.frame.work/t/headphone-jack-intermittent-noise/5246/55
+    SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0xa0e0", ATTR{power/control}="on"
+    # Ethernet expansion card support
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="8156", ATTR{power/autosuspend}="20"
+  '';
+
+  # https://nixos.wiki/wiki/Linux_kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
