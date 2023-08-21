@@ -42,6 +42,7 @@
     ####
 
     # beginning of file
+    # disable due to interaction with nix-direnv
     # initExtraFirst = (builtins.readFile /etc/nixos/modules/common/p10k-config/instant_prompt.zsh);
 
     # end of file
