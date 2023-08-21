@@ -14,6 +14,9 @@
   services.fwupd.enable = true;
   services.fwupd.enableTestRemote = true;
 
+  # https://community.frame.work/t/nixos-on-the-framework-blog-review/3835/10?u=ian_cleary
+  # https://gist.github.com/digitalknk/ee0379c1cd4597463c31a323ea5882a5
+  # Some of the config was pulled from the above gist
   powerManagement = {
     enable = true;
     powertop.enable = true;
