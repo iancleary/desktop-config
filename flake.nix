@@ -31,12 +31,6 @@
         };
       };
 
-      bare-metal-modules = [
-        ./modules/bare-metal/fwupd.nix
-        ./modules/bare-metal/sound.nix
-        ./modules/bare-metal/printing.nix
-      ];
-
       virtualbox-guest-modules = [
         ./modules/virtualbox/guest-enabled.nix
       ];
@@ -79,7 +73,7 @@
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
-          modules = common-modules ++ gnome-desktop-modules ++ bare-metal-modules ++ personal-modules
+          modules = common-modules ++ gnome-desktop-modules ++ personal-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
