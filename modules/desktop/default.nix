@@ -1,6 +1,5 @@
 { ... }: {
   imports = [
-    ./flatpak.nix
     ./packages.nix
     ./ulauncher.nix
     ./vscode.nix
