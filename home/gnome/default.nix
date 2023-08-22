@@ -15,6 +15,13 @@
     gnomeExtensions.space-bar
   ];
 
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=Vulkan";
+    };
+  };
+
   # Configure themes
   gtk = {
     enable = true;

@@ -28,7 +28,7 @@
       cg = "cd `git rev-parse --show-toplevel`"; # go to git main level
 
       # path for vscode on nixos
-      code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=Vulkan";
+      # code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=Vulkan";
     };
     # promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     enableCompletion = true;

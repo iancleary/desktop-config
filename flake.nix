@@ -66,6 +66,11 @@
         ./modules/desktop/gnome # folder
       ];
 
+      xfce-desktop-modules = [
+        ./modules/desktop # folder
+        ./modules/desktop/xfce # folder
+      ];
+
     in
     {
       nixosConfigurations = {
@@ -84,11 +89,11 @@
           inherit specialArgs;
           system = vm-system;
           pkgs = vm-pkgs;
-          modules = common-modules ++ gnome-desktop-modules ++ virtualbox-guest-modules
+          modules = common-modules ++ xfce-desktop-modules ++ virtualbox-guest-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
             ./configuration.nix # hosts/vm-icleary-nixos.nix
-            ./home/icleary-gnome.nix
+            ./home/icleary-xfce.nix
           ];
         };
       };
