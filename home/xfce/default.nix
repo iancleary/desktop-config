@@ -5,10 +5,16 @@
     elementary-xfce-icon-theme
   ];
 
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      code = "code --enable-features=Vulkan";
+    };
+  };
   gtk = {
     enable = true;
     iconTheme = {
-      name = "elementary-Xfce-dark";
+      name = "elementary-xfce-dark";
       package = pkgs.elementary-xfce-icon-theme;
     };
     theme = {

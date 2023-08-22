@@ -62,14 +62,14 @@
     xfce.xfce4-xkb-plugin
     xfce.xfdashboard
     zuki-themes
-    xdg-desktop-portal-xfce
+    # xdg-desktop-portal-xfce
   ];
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-xfce
-    ];
+    # extraPortals = with pkgs; [
+    # xdg-desktop-portal-xfce
+    # ];
   };
 
   # Install Flatpak
