@@ -19,14 +19,27 @@ in
   # Service to start
   # copied from https://discourse.nixos.org/t/ulauncher-and-the-debugging-journey/13141/5?u=iancleary
   # modified to use pkg-unstable instead of pkgs
+  # names of wantedBy targets and after services are
+  # different for user services
   systemd.user.services.ulauncher = {
     enable = true;
     description = "Start Ulauncher";
-    script = "${pkgs-unstable.ulauncher}/bin/ulauncher --hide-window";
+    script = "/run/current-system/sw/bin/ulauncher --hide-window";
 
     documentation = [ "https://github.com/Ulauncher/Ulauncher/blob/f0905b9a9cabb342f9c29d0e9efd3ba4d0fa456e/contrib/systemd/ulauncher.service" ];
-    wantedBy = [ "graphical.target" "multi-user.target" ];
-    after = [ "display-manager.service" ];
+    wantedBy = [ "graphical-session.target" "default.target" ];
+    after = [ "graphical-session.service" ];
   };
+
+  # systemd.services.ulauncher = {
+  #   enable = true;
+  #   description = "Start Ulauncher";
+  #   script = "/run/current-system/sw/bin/ulauncher --hide-window";
+
+  #   documentation = [ "https://github.com/Ulauncher/Ulauncher/blob/f0905b9a9cabb342f9c29d0e9efd3ba4d0fa456e/contrib/systemd/ulauncher.service" ];
+  #   wantedBy = [ "graphical.target" "multi-user.target" ];
+  #   after = [ "display-manager.service" ];
+  # };
+
 
 }
