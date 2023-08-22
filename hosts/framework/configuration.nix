@@ -2,21 +2,73 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # Define your hostname.
   networking.hostName = "framework";
 
-
   # testing fwupd on framework 11th gen intel
   # https://knowledgebase.frame.work/en_us/framework-laptop-bios-releases-S1dMQt6F#Linux_BIOS
+  # https://nixos.wiki/wiki/Fwupd
+  services.fwupd.enable = true;
   services.fwupd.enableTestRemote = true;
 
-  # Bootloader.
-  #boot.loader.grub.enable = true;
-  #boot.loader.grub.device = "/dev/sda";
-  #boot.loader.grub.useOSProber = true;
+  # https://community.frame.work/t/nixos-on-the-framework-blog-review/3835/10?u=ian_cleary
+  # https://gist.github.com/digitalknk/ee0379c1cd4597463c31a323ea5882a5
+  # Some of the config was pulled from the above gist
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+    cpuFreqGovernor = lib.mkDefault "ondemand";
+  };
+
+  # Enable thermal data
+  services.thermald.enable = true;
+
+  # Enable fingerprint support
+  services.fprintd.enable = true;
+
+  # extra opengl packages for intel graphics
+  hardware.opengl.extraPackages = with pkgs; [
+    mesa_drivers
+    vaapiIntel
+    vaapiVdpau
+    libvdpau-va-gl
+    intel-media-driver
+  ];
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.xserver.libinput.enable = true;
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    # alsamixer: https://nixos.wiki/wiki/ALSA
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
+
+  # https://nixos.wiki/wiki/Bluetooth#Enabling_A2DP_Sink
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+    };
+  };
 
   boot.loader = {
     efi = {
@@ -29,6 +81,36 @@
       device = "nodev";
     };
   };
+
+  boot.kernelParams = [
+    # For Power consumption
+    # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
+    "mem_sleep_default=deep"
+    # For Power consumption
+    # https://community.frame.work/t/linux-battery-life-tuning/6665/156
+    "nvme.noacpi=1"
+    # Workaround iGPU hangs
+    # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
+    "i915.enable_psr=1"
+  ];
+
+  # Fix TRRS headphones missing a mic
+  # https://community.frame.work/t/headset-microphone-on-linux/12387/3
+  boot.extraModprobeConfig = ''
+    options snd-hda-intel model=dell-headset-multi
+  '';
+
+  # Custom udev rules
+  services.udev.extraRules = ''
+    # Fix headphone noise when on powersave
+    # https://community.frame.work/t/headphone-jack-intermittent-noise/5246/55
+    SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0xa0e0", ATTR{power/control}="on"
+    # Ethernet expansion card support
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="8156", ATTR{power/autosuspend}="20"
+  '';
+
+  # https://nixos.wiki/wiki/Linux_kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
