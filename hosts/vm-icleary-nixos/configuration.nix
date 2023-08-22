@@ -13,6 +13,9 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+  networking.firewall.enable = true;
+  networking.firewall.allowedTCPPorts = [ 80 443 8000 8080 ];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
