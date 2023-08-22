@@ -12,7 +12,7 @@
       package = pkgs.elementary-xfce-icon-theme;
     };
     theme = {
-      name = "zukitre-dark";
+      name = "Zukitre-dark";
       package = pkgs.zuki-themes;
     };
     gtk3.extraConfig = {
