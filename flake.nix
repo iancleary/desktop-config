@@ -58,6 +58,7 @@
       ];
 
       personal-modules = [
+        ./modules/authy.nix
         ./modules/tailscale.nix
       ];
 
