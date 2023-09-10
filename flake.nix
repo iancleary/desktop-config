@@ -86,6 +86,17 @@
             ./home/iancleary-gnome.nix
           ];
         };
+        vm-iancleary-nixos = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          system = vm-system;
+          pkgs = vm-pkgs;
+          modules = common-modules ++ xfce-desktop-modules ++ virtualbox-guest-modules
+            ++ [
+            ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
+            ./configuration.nix # hosts/vm-icleary-nixos.nix
+            ./home/icleary-xfce.nix
+          ];
+        };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = vm-system;
