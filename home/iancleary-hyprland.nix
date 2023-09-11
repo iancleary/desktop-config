@@ -16,9 +16,9 @@
     # hyprland.homeManagerModules.default
   ];
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-  };
+  #wayland.windowManager.hyprland = {
+  #  enable = true;
+  #};
 
   home-manager.users.iancleary = {
     home.stateVersion = "23.05";

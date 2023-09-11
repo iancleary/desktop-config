@@ -83,7 +83,6 @@
       nixosConfigurations = {
         framework = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          inherit inputs;
           system = desktop-system;
           pkgs = desktop-pkgs;
           modules = common-modules ++ hyprland-desktop-modules ++ personal-modules
