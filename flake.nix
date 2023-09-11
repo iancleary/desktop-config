@@ -74,7 +74,7 @@
 
       hyprland-desktop-modules = [
         ./modules/desktop # folder
-        ./modules/desktop/hyperland # folder
+        ./modules/desktop/hyprland # folder
       ];
 
     in
