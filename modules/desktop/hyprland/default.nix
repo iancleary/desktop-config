@@ -46,6 +46,22 @@ in
   # modified to use pkg-unstable instead of pkgs
   # names of wantedBy targets and after services are different for user services
   # launches with CTRL+SPACE
+  systemd.services.hyprland = {
+    enable = true;
+    description = "Lemurs";
+    # script = "/run/current-system/sw/bin/ulauncher --hide-window";
+    script = "/run/current-system/sw/bin/lemurs";
+    serviceConfig = {
+      StandardInput = "tty";
+      TTYPath = "/dev/tty2";
+      TTYReset = "yes";
+      TTYVHangup = "yes";
+      Type = "idle";
+    };
+    documentation = [ "https://github.com/coastalwhite/lemurs" ];
+    after = [ "systemd-user-sessions.target" "plymouth-quit-wait.service" "getty@tty2.service" ];
+  };
+
   systemd.user.services.hyprland = {
     enable = true;
     description = "Start Hyprland";
