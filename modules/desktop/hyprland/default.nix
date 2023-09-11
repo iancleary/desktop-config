@@ -18,6 +18,11 @@
 
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-hyprland
+    hyprpaper # wallpaper utility
+    kitty # terminal emulator
+    waybar # wayland bar
+    wofi # app launcher
+
     # polkit-kde-agent
   ];
 
