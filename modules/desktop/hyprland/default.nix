@@ -46,7 +46,7 @@ in
   # modified to use pkg-unstable instead of pkgs
   # names of wantedBy targets and after services are different for user services
   # launches with CTRL+SPACE
-  systemd.services.hyprland = {
+  systemd.services.lemurs = {
     enable = true;
     description = "Lemurs";
     # script = "/run/current-system/sw/bin/ulauncher --hide-window";
@@ -63,14 +63,14 @@ in
     after = [ "systemd-user-sessions.target" "plymouth-quit-wait.service" "getty@tty2.service" ];
   };
 
-  systemd.user.services.hyprland = {
-    enable = true;
-    description = "Start Hyprland";
-    # script = "/run/current-system/sw/bin/ulauncher --hide-window";
-    script = "/run/current-system/sw/bin/Hyprland --config /home/iancleary/.config/hypr/hyprland.conf";
+  # systemd.user.services.hyprland = {
+  #   enable = true;
+  #   description = "Start Hyprland";
+  #   # script = "/run/current-system/sw/bin/ulauncher --hide-window";
+  #   script = "/run/current-system/sw/bin/Hyprland --config /home/iancleary/.config/hypr/hyprland.conf";
 
-    documentation = [ "https://github.com/hyperwm/Hyprland" ];
-    wantedBy = [ "default.target" ];
-    after = [ "default.target" ];
-  };
+  #   documentation = [ "https://github.com/hyperwm/Hyprland" ];
+  #   wantedBy = [ "default.target" ];
+  #   after = [ "default.target" ];
+};
 }
