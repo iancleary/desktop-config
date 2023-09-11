@@ -72,5 +72,5 @@ in
   #   documentation = [ "https://github.com/hyperwm/Hyprland" ];
   #   wantedBy = [ "default.target" ];
   #   after = [ "default.target" ];
-};
+  # };
 }
