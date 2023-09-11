@@ -58,9 +58,7 @@ in
       TTYVHangup = "yes";
       Type = "idle";
     };
-    installConfig = {
-      Alias = "display-manager.service";
-    };
+    aliases = [ "display-manager.service" ];
     documentation = [ "https://github.com/coastalwhite/lemurs" ];
     after = [ "systemd-user-sessions.target" "plymouth-quit-wait.service" "getty@tty2.service" ];
   };
