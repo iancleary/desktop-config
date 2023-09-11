@@ -15,4 +15,18 @@
 
   # Install Flatpak
   services.flatpak.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    xdg-desktop-portal-hyprland
+    polkit-kde-agent
+    qt5-wayland
+    qt6-wayland
+  ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+    ];
+  };
 }
