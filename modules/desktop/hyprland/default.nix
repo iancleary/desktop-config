@@ -42,7 +42,7 @@
     enable = true;
     description = "Start Hyprland";
     # script = "/run/current-system/sw/bin/ulauncher --hide-window";
-    script = "/run/current-system/sw/bin/Hyperland";
+    script = "/run/current-system/sw/bin/Hyprland";
 
     documentation = [ "https://github.com/hyperwm/Hyprland" ];
     wantedBy = [ "multi-user.target" ];
