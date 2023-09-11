@@ -38,13 +38,14 @@
   # modified to use pkg-unstable instead of pkgs
   # names of wantedBy targets and after services are different for user services
   # launches with CTRL+SPACE
-  systemd.services.hyprland = {
+  systemd.user.services.hyprland = {
     enable = true;
     description = "Start Hyprland";
     # script = "/run/current-system/sw/bin/ulauncher --hide-window";
     script = "/run/current-system/sw/bin/Hyprland";
 
     documentation = [ "https://github.com/hyperwm/Hyprland" ];
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = [ "default.target" ];
+    after = [ "default.target" ];
   };
 }
