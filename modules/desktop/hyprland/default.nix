@@ -18,9 +18,7 @@
 
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-hyprland
-    polkit-kde-agent
-    qt5-wayland
-    qt6-wayland
+    # polkit-kde-agent
   ];
 
   xdg.portal = {
