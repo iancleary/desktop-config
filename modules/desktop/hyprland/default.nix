@@ -32,4 +32,15 @@
       xdg-desktop-portal-hyprland
     ];
   };
+
+  # Service to start
+  systemd.services.hyprland = {
+    enable = true;
+    description = "Start Hyprland";
+    # script = "/run/current-system/sw/bin/ulauncher --hide-window";
+    script = "${pkgs.Hyperland}/Hyperland";
+
+    documentation = [ "https://github.com/hyperwm/Hyprland" ];
+    wantedBy = [ "multi-user.target" ];
+  };
 }
