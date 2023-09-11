@@ -3,18 +3,17 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, inputs, pkgs, ... }:
-let
-  flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+# let
+#   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
-  hyprland = (import flake-compat {
-    src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
-  }).defaultNix;
-in
+#   hyprland = (import flake-compat {
+#     src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
+#   }).defaultNix;
+# in
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    hyprland.homeManagerModules.default
-
+    # hyprland.homeManagerModules.default
   ];
 
   wayland.windowManager.hyprland = {
@@ -25,7 +24,7 @@ in
     home.stateVersion = "23.05";
     imports = [
       ./common.nix
-      ./hyperland # folder
+      # ./hyperland # folder
     ];
   };
   # Define a user account. Don't forget to set a password with ‘passwd’.

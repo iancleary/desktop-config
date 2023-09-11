@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    inputs.hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = { nixpkgs, ... }@inputs:
@@ -82,6 +83,7 @@
       nixosConfigurations = {
         framework = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
+          inherit inputs;
           system = desktop-system;
           pkgs = desktop-pkgs;
           modules = common-modules ++ hyprland-desktop-modules ++ personal-modules
