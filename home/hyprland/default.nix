@@ -11,8 +11,8 @@
   home.file.".config/hypr/hyprpaper.conf".target = ".config/hypr/hyprpaper.conf";
 
   home.file."Pictures/backgrounds/justinmaller-red-black-abstract.jpg".source = ./justinmaller-red-black-abstract.jpg;
-  home.file."Pictures/backgrounds/justinmaller-red-black-abstract.jpg".source = Pictures/backgrounds/justinmaller-red-black-abstract.jpg;
+  home.file."Pictures/backgrounds/justinmaller-red-black-abstract.jpg".target = Pictures/backgrounds/justinmaller-red-black-abstract.jpg;
 
   home.file."Pictures/backgrounds/justinmaller-blue-black-abstract.jpg".source = ./justinmaller-blue-black-abstract.jpg;
-  home.file."Pictures/backgrounds/justinmaller-blue-black-abstract.jpg".source = Pictures/backgrounds/justinmaller-blue-black-abstract.jpg;
+  home.file."Pictures/backgrounds/justinmaller-blue-black-abstract.jpg".target = Pictures/backgrounds/justinmaller-blue-black-abstract.jpg;
 }
