@@ -6,7 +6,7 @@
 
 {
   # Define your hostname.
-  networking.hostName = "vm-icleary-nixos";
+  networking.hostName = "vm-iancleary-nixos";
 
   # Bootloader.
   boot.loader.grub.enable = true;

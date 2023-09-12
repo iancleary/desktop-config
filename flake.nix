@@ -96,11 +96,11 @@
           inherit specialArgs;
           system = vm-system;
           pkgs = vm-pkgs;
-          modules = common-modules ++ xfce-desktop-modules ++ virtualbox-guest-modules
+          modules = common-modules ++ gnome-desktop-modules ++ virtualbox-guest-modules
             ++ [
-            ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
-            ./configuration.nix # hosts/vm-icleary-nixos.nix
-            ./home/iancleary-xfce.nix
+            ./hardware-configuration.nix # hardware-configuration/vm-iancleary-nixos.nix
+            ./configuration.nix # hosts/vm-iancleary-nixos.nix
+            ./home/iancleary-gnome.nix
           ];
         };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
