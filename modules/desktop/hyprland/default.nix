@@ -41,6 +41,7 @@ in
     gnome.nautilus # file manager
 
     playerctl # media player control
+    brightnessctl # brightness control
     # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
   ];
 
