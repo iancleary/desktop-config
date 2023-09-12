@@ -1,26 +1,18 @@
 # home.nix
 { config, pkgs, ... }: {
-  wayland.windowManager.hyprland.extraConfig = ''
-    $mod = SUPER
+  # Login picture/avatar
 
-    bind = $mod, F, exec, firefox
-    bind = , Print, exec, grimblast copy area
+  # hyprland configuration
+  home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
+  home.file.".config/hypr/hyprland.conf".target = ".config/hypr/hyprland.conf";
 
-    # workspaces
-    # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-    ${builtins.concatStringsSep "\n" (builtins.genList (
-        x: let
-          ws = let
-            c = (x + 1) / 10;
-          in
-            builtins.toString (x + 1 - (c * 10));
-        in ''
-          bind = $mod, ${ws}, workspace, ${toString (x + 1)}
-          bind = $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}
-        ''
-      )
-      10)}
+  # wallpaper configuration
+  home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
+  home.file.".config/hypr/hyprpaper.conf".target = ".config/hypr/hyprpaper.conf";
 
-    # ...
-  '';
+  home.file."Pictures/backgrounds/justinmaller-red-black-abstract.jpg".source = ./justinmaller-red-black-abstract.jpg;
+  home.file."Pictures/backgrounds/justinmaller-red-black-abstract.jpg".source = Pictures/backgrounds/justinmaller-red-black-abstract.jpg;
+
+  home.file."Pictures/backgrounds/justinmaller-blue-black-abstract.jpg".source = ./justinmaller-blue-black-abstract.jpg;
+  home.file."Pictures/backgrounds/justinmaller-blue-black-abstract.jpg".source = Pictures/backgrounds/justinmaller-blue-black-abstract.jpg;
 }
