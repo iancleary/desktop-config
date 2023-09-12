@@ -24,7 +24,7 @@
     home.stateVersion = "23.05";
     imports = [
       ./common.nix
-      ./hyperland # folder
+      ./hyprland # folder
     ];
 
     # Notification Center
