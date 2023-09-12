@@ -30,8 +30,8 @@ in
     waybar # wayland bar
     wofi # app launcher
 
-    pkgs-unstable.lemurs
-    # polkit-kde-agent
+    # pkgs-unstable.lemurs
+    polkit-kde-agent
   ];
 
   xdg.portal = {
@@ -46,22 +46,22 @@ in
   # modified to use pkg-unstable instead of pkgs
   # names of wantedBy targets and after services are different for user services
   # launches with CTRL+SPACE
-  systemd.services.lemurs = {
-    enable = true;
-    description = "Lemurs";
-    # script = "/run/current-system/sw/bin/ulauncher --hide-window";
-    script = "/run/current-system/sw/bin/lemurs";
-    serviceConfig = {
-      StandardInput = "tty";
-      TTYPath = "/dev/tty2";
-      TTYReset = "yes";
-      TTYVHangup = "yes";
-      Type = "idle";
-    };
-    aliases = [ "display-manager.service" ];
-    documentation = [ "https://github.com/coastalwhite/lemurs" ];
-    after = [ "getty.target" ];
-  };
+  # systemd.services.lemurs = {
+  #   enable = true;
+  #   description = "Lemurs";
+  #   # script = "/run/current-system/sw/bin/ulauncher --hide-window";
+  #   script = "/run/current-system/sw/bin/lemurs";
+  #   serviceConfig = {
+  #     StandardInput = "tty";
+  #     TTYPath = "/dev/tty2";
+  #     TTYReset = "yes";
+  #     TTYVHangup = "yes";
+  #     Type = "idle";
+  #   };
+  #   aliases = [ "display-manager.service" ];
+  #   documentation = [ "https://github.com/coastalwhite/lemurs" ];
+  #   after = [ "getty.target" ];
+  # };
 
   # systemd.user.services.hyprland = {
   #   enable = true;
