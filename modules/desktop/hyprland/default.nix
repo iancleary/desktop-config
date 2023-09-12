@@ -28,14 +28,16 @@ in
   security.polkit.enable = true;
 
   environment.systemPackages = with pkgs; [
-    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-hyprland # display portal for hyprland, required
     hyprpaper # wallpaper utility
     kitty # terminal emulator
     waybar # wayland bar
     wofi # app launcher
 
-    # pkgs-unstable.lemurs
-    polkit_gnome
+    polkit_gnome # polkit agent for GNOME
+    gnome.seahorse # keyring manager GUI
+
+    # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
   ];
 
   xdg.portal = {
