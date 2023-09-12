@@ -96,11 +96,11 @@
           inherit specialArgs;
           system = vm-system;
           pkgs = vm-pkgs;
-          modules = common-modules ++ xfce-desktop-modules ++ virtualbox-guest-modules
+          modules = common-modules ++ hyprland-desktop-modules ++ virtualbox-guest-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
             ./configuration.nix # hosts/vm-icleary-nixos.nix
-            ./home/iancleary-xfce.nix
+            ./home/iancleary-hyprland.nix
           ];
         };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
