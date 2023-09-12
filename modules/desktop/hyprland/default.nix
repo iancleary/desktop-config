@@ -40,6 +40,7 @@ in
     gnome.seahorse # keyring manager GUI
     gnome.nautilus # file manager
 
+    playerctl # media player control
     # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
   ];
 
