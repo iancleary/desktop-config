@@ -36,6 +36,7 @@ in
 
     polkit_gnome # polkit agent for GNOME
     gnome.seahorse # keyring manager GUI
+    gnome.nautilus # file manager
 
     # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
   ];
