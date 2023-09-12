@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = { nixpkgs, ... }@inputs:
@@ -72,6 +73,11 @@
         ./modules/desktop/xfce # folder
       ];
 
+      hyprland-desktop-modules = [
+        ./modules/desktop # folder
+        ./modules/desktop/hyprland # folder
+      ];
+
     in
     {
       nixosConfigurations = {
@@ -79,11 +85,11 @@
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
-          modules = common-modules ++ gnome-desktop-modules ++ personal-modules
+          modules = common-modules ++ hyprland-desktop-modules ++ personal-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
-            ./home/iancleary-gnome.nix
+            ./home/iancleary-hyprland.nix
           ];
         };
         vm-iancleary-nixos = nixpkgs.lib.nixosSystem {
