@@ -23,6 +23,10 @@ in
   # Install Flatpak
   services.flatpak.enable = true;
 
+  # Gnome Keyring
+  services.gnome.gnome-keyring.enable = true;
+  security.polkit.enable = true;
+
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-hyprland
     hyprpaper # wallpaper utility
@@ -31,7 +35,7 @@ in
     wofi # app launcher
 
     # pkgs-unstable.lemurs
-    polkit-kde-agent
+    polkit_gnome
   ];
 
   xdg.portal = {

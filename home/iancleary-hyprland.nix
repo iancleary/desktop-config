@@ -26,6 +26,9 @@
       ./common.nix
       # ./hyperland # folder
     ];
+
+    # Notification Center
+    services.dunst.enable = true;
   };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.iancleary = {
