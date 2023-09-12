@@ -30,6 +30,8 @@ in
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-hyprland # display portal for hyprland, required
     hyprpaper # wallpaper utility
+    hyprpicker # color picker
+    wl-clipboard # allows copying to clipboard (for hyprpicker)
     kitty # terminal emulator
     waybar # wayland bar
     wofi # app launcher
