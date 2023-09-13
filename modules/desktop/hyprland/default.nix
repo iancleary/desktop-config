@@ -50,6 +50,8 @@ in
 
     swaylock # screen locker
 
+    xdg-utils # allow xdg-open to work
+
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
   ];
