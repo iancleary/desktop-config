@@ -27,6 +27,11 @@ in
   services.gnome.gnome-keyring.enable = true;
   security.polkit.enable = true;
 
+  # swaylock
+  # https://discourse.nixos.org/t/swaylock-wont-unlock/27275
+  security.pam.services.swaylock = { };
+  security.pam.services.swaylock.fprintAuth = false;
+
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-hyprland # display portal for hyprland, required
     hyprpaper # wallpaper utility
@@ -43,6 +48,8 @@ in
     playerctl # media player control
     brightnessctl # brightness control
 
+    swaylock # screen locker
+
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
   ];
@@ -53,6 +60,23 @@ in
       xdg-desktop-portal-hyprland
     ];
   };
+
+  #  systemd.services.hyprland = {
+  #   enable = true;
+  #   description = "Hyprland";
+  #   # script = "/run/current-system/sw/bin/ulauncher --hide-window";
+  #   script = "agetty -o '-p -f -- \u' --noclear --autologin iancleary %I $TERM";
+  #   serviceConfig = {
+  #     StandardInput = "tty";
+  #     TTYPath = "/dev/tty2";
+  #     TTYReset = "yes";
+  #     TTYVHangup = "yes";
+  #     Type = "idle";
+  #   };
+  #   aliases = [ "display-manager.service" ];
+  #   documentation = [ "https://github.com/coastalwhite/lemurs" ];
+  #   after = [ "sysinit.target" ];
+  # };
 
   # Service to start
   # copied from https://discourse.nixos.org/t/ulauncher-and-the-debugging-journey/13141/5?u=iancleary
@@ -75,6 +99,8 @@ in
   #   documentation = [ "https://github.com/coastalwhite/lemurs" ];
   #   after = [ "getty.target" ];
   # };
+
+
 
   # systemd.user.services.hyprland = {
   #   enable = true;
