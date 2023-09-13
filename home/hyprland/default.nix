@@ -19,4 +19,7 @@
 
   home.file.".config/hypr/lock.png".source = ./linux_makes_journeys_to_mars_possible.png;
   home.file.".config/hypr/lock.png".target = ".config/hypr/lock.png";
+
+  home.file.".config/hypr/wofi.css".source = ./wofi.css;
+  home.file.".config/hypr/wofi.css".target = ".config/hypr/wofi.css";
 }
