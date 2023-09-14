@@ -52,9 +52,24 @@ in
 
     xdg-utils # allow xdg-open to work
 
+    # greetd.greetd # login manager daemon
+    # greetd.gtkgreet # GTK based greeter for greetd
+
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
   ];
+
+  # https://nixos.wiki/wiki/Greetd
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = "iancleary";
+      };
+      default_session = initial_session;
+    };
+  };
 
   xdg.portal = {
     enable = true;

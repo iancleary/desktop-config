@@ -22,4 +22,7 @@
 
   home.file.".config/hypr/wofi.css".source = ./wofi.css;
   home.file.".config/hypr/wofi.css".target = ".config/hypr/wofi.css";
+
+  # home.file.".config/hypr/greetd.toml".source = ./greetd.toml;
+  # home.file.".config/hypr/greetd.toml".target = ".config/hypr/greetd.toml";
 }
