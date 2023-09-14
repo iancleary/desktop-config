@@ -2,5 +2,5 @@
 vt = 1
 
 [default_session]
-command = "Hyprland -c /home/iancleary/.config/hypr/hyprland.conf"
+command = "Hyprland"
 user = "iancleary"
