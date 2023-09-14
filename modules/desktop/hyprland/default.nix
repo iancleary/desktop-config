@@ -53,7 +53,7 @@ in
     xdg-utils # allow xdg-open to work
 
     # greetd.greetd # login manager daemon
-    # greetd.gtkgreet # GTK based greeter for greetd
+    greetd.gtkgreet # GTK based greeter for greetd
 
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
@@ -70,6 +70,18 @@ in
       default_session = initial_session;
     };
   };
+
+  environment.etc."greetd/environments".text = ''
+    hyprland = {
+      name = "Hyprland";
+      description = "Hyprland";
+      icon = "hyprland";
+      wayland = true;
+      default = true;
+    };
+    zsh
+    bash
+  '';
 
   xdg.portal = {
     enable = true;
