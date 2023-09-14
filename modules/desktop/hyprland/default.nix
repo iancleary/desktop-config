@@ -70,22 +70,14 @@ in
       # default_session = initial_session;
 
       default_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland";
+        command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l";
         user = "iancleary";
       };
     };
   };
 
   environment.etc."greetd/environments".text = ''
-    hyprland = {
-      name = "Hyprland";
-      description = "Hyprland";
-      icon = "hyprland";
-      wayland = true;
-      default = true;
-    };
-    zsh
-    bash
+    Hyprland
   '';
 
   xdg.portal = {
