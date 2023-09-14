@@ -59,6 +59,18 @@ in
     # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
   ];
 
+  # https://nixos.wiki/wiki/Greetd
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "Hyprland --config /home/iancleary/.config/hypr/hyprland.conf";
+        user = "iancleary";
+      };
+      default_session = initial_session;
+    };
+  };
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
