@@ -64,7 +64,7 @@ in
     enable = true;
     settings = rec {
       initial_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland --config /home/iancleary/.config/hypr/hyprland.conf";
+        command = "${pkgs.hyprland}/bin/Hyprland";
         user = "iancleary";
       };
       default_session = initial_session;
