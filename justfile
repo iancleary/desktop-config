@@ -55,4 +55,4 @@ lint:
 
 # Open the github repo in default web browser
 open:
-  xdg-open https://github.com/iancleary/nixos-config &
+  xdg-open https://github.com/iancleary/nixos-config & disown
