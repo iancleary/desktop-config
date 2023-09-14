@@ -63,22 +63,22 @@ in
   services.greetd = {
     enable = true;
     settings = rec {
-      # initial_session = {
-      #   command = "${pkgs.hyprland}/bin/Hyprland";
-      #   user = "iancleary";
-      # };
-      # default_session = initial_session;
-
-      default_session = {
-        command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l";
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
         user = "iancleary";
       };
+      default_session = initial_session;
+
+      # default_session = {
+      #   command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l";
+      #   user = "iancleary";
+      # };
     };
   };
 
-  environment.etc."greetd/environments".text = ''
-    Hyprland
-  '';
+  # environment.etc."greetd/environments".text = ''
+  #   Hyprland
+  # '';
 
   xdg.portal = {
     enable = true;
