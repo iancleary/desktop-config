@@ -1,3 +1,13 @@
+:root {
+  --main-border: rgba(0,255,255,0.6);
+  --main-highlight: rgba(0,255,255,0.6);
+  --text-color: white;
+  --main-background: black;
+}
+/* Not sure why the scope doesn't propagate
+Assuming its GTK versus web CSS and the root element differing from window */
+
+
 window {
   margin: 5px;
   border: 2px solid rgba(0,255,255,0.6);
@@ -6,7 +16,7 @@ window {
 
 #input {
   margin: 5px;
-  border: 2px solid gray;
+  border: 2px solid #2E3436;
   background-color: black;
   color: white;
 }
@@ -14,36 +24,31 @@ window {
 #inner-box {
   margin: 5px;
   border: 2px solid black;
-  background-color: black;
+  /* background-color: red; */
 }
 
 #outer-box {
   margin: 5px;
   border: 2px solid black;
-  background-color: black;
+  /* background-color: blue; */
 }
 
 #scroll {
   margin: 5px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   background-color: black;
 }
 
 #text {
   margin: 5px;
-  border: 2px solid black;
-  background-color: black;
   color: white;
 }
 
 #entry:selected {
   background-color: rgba(0,255,255,0.6);
+  color: black;
 }
 
 expander > list > #entry {
-  background-color: black;
-}
-
-#text:selected {
   background-color: black;
 }
