@@ -63,11 +63,16 @@ in
   services.greetd = {
     enable = true;
     settings = rec {
-      initial_session = {
+      # initial_session = {
+      #   command = "${pkgs.hyprland}/bin/Hyprland";
+      #   user = "iancleary";
+      # };
+      # default_session = initial_session;
+
+      default_session = {
         command = "${pkgs.hyprland}/bin/Hyprland";
         user = "iancleary";
       };
-      default_session = initial_session;
     };
   };
 
