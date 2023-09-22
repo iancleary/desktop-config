@@ -12,6 +12,10 @@ let
   };
 in
 {
+  imports = [
+    # custom package
+    ./power-panel.nix
+  ];
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
