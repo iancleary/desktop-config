@@ -12,10 +12,6 @@ let
   };
 in
 {
-  imports = [
-    ./power-panel.nix
-  ];
-
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -59,7 +55,8 @@ in
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
 
-    (callPackage ./power-panel { })
+    # https://nixos.org/manual/nixos/stable/index.html#sec-customising-packages
+    (import ./power-panel.nix)
   ];
 
   # https://nixos.wiki/wiki/Greetd
