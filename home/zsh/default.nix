@@ -46,6 +46,7 @@
     # initExtraFirst = (builtins.readFile /etc/nixos/modules/common/p10k-config/instant_prompt.zsh);
 
     # end of file
+    # https://zsh.sourceforge.io/Doc/Release/Options.html
     initExtra =
       ''
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
