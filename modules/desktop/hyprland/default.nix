@@ -58,6 +58,8 @@ in
 
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
+
+    (callPackage ./power-panel { })
   ];
 
   # https://nixos.wiki/wiki/Greetd
