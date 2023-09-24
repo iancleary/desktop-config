@@ -22,7 +22,7 @@ in
           owner = "iancleary";
           repo = pname;
           rev = version;
-          hash = "sha256-XOSOaL7j93xrX/IhZzhpP5NR7Q9MyG2BSFGpsMwe82Q=";
+          hash = "sha256-DKjbxdvtmxSuy2I0/N2Ed0xAnLa1d5rn/XjCGPV3UHE=";
         };
 
         # https://nixos.wiki/wiki/Packaging/Quirks_and_Caveats
