@@ -35,7 +35,7 @@ in
           gtk4
         ];
 
-        cargoHash = "sha256-aReLKWj3eCpQ4ct4gF+DfU37llrqyVqKd9R2OJ/3p7g=";
+        cargoHash = "sha256-XOSOaL7j93xrX/IhZzhpP5NR7Q9MyG2BSFGpsMwe82Q=";
 
         meta = with lib; {
           description = "Rust GUI app to restart and shutdown a system";
