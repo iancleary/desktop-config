@@ -8,7 +8,6 @@ let
   # https://nixos.wiki/index.php?title=FAQ&oldid=3528#How_can_I_install_a_package_from_unstable_while_remaining_on_the_stable_channel.3F
   pkgs-unstable = (import inputs.nixpkgs-unstable) {
     system = "x86_64-linux";
-    config.allowUnfree = true;
   };
 in
 {
