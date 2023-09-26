@@ -20,12 +20,12 @@ applications=(
   "us.zoom.Zoom"
 )
 
-gnome-desktop-applications=(
+gnomeApplications=(
   "nl.hjdskes.gcolor3"
   "com.mattjakeman.ExtensionManager"
 )
 
-experimental-applications=(
+experimentalApplications=(
   "dev.lapce.lapce"
 )
 
