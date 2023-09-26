@@ -7,6 +7,7 @@ applications=(
   "org.mozilla.firefox" # Web browser
   "com.rafaelmardojai.Blanket" # Background noise
   "re.sonny.Junction" # Web browser chooser (select it as a default browser)
+  "com.nextcloud.desktopclient.nextcloud" # Nextcloud
 
   # Tools
   "com.github.tchx84.Flatseal" # Manage Flatpak permissions
