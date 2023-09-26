@@ -56,3 +56,7 @@ lint:
 # Open the github repo in default web browser
 open:
   xdg-open https://github.com/iancleary/nixos-config & disown
+
+# Setup flatpak applications
+flatpak:
+  bash flatpak/setup.sh
