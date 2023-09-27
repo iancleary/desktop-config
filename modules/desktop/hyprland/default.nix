@@ -52,6 +52,9 @@ in
     playerctl # media player control
     brightnessctl # brightness control
 
+    blueberry # bluetooth manager GUI
+    networkmanager # network manager, including nmtui, a network manager TUI
+
     swaylock # screen locker
 
     xdg-utils # allow xdg-open to work
