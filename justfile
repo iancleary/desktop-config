@@ -27,7 +27,7 @@ switch:
   just lock
 
 # Run `sudo nixos-rebuild switch --upgrade` to upgrade channels
-upgrade:
+upgrade: flake
   sudo nixos-rebuild switch --upgrade
 
 # garbage collect
