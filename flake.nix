@@ -90,11 +90,11 @@
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
-          modules = common-modules ++ gnome-desktop-modules ++ personal-modules
+          modules = common-modules ++ hyprland-desktop-modules ++ personal-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
-            ./home/iancleary-gnome.nix
+            ./home/iancleary-hyprland.nix
           ];
         };
         vm-iancleary-nixos = nixpkgs.lib.nixosSystem {
