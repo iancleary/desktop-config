@@ -106,7 +106,7 @@
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
-            ./home/common.nix
+            ./home/iancleary-server.nix
           ];
         };
 
