@@ -106,7 +106,7 @@
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
-            ./home/default.nix
+            ./home/common.nix
           ];
         };
 
