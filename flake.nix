@@ -107,6 +107,7 @@
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
             ./home/iancleary-server.nix
+            ./modules/server/stay-awake-on-lid-close.nix
           ];
         };
 
