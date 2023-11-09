@@ -64,7 +64,6 @@
       ];
 
       personal-modules = [
-        ./modules/authy.nix
         ./modules/tailscale.nix
       ];
 
@@ -86,17 +85,32 @@
     in
     {
       nixosConfigurations = {
+        # framework = nixpkgs.lib.nixosSystem {
+        #   inherit specialArgs;
+        #   system = desktop-system;
+        #   pkgs = desktop-pkgs;
+        #   modules = common-modules ++ hyprland-desktop-modules ++ personal-modules
+        #     ++ [
+        #     ./hardware-configuration.nix # hardware-configuration/framework.nix
+        #     ./configuration.nix # hosts/framework.nix
+        #     ./home/iancleary-hyprland.nix
+        #   ];
+        # };
+
+        # Experimental setup as a server
         framework = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = desktop-system;
           pkgs = desktop-pkgs;
-          modules = common-modules ++ hyprland-desktop-modules ++ personal-modules
+          modules = common-modules ++ personal-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
             ./configuration.nix # hosts/framework.nix
-            ./home/iancleary-hyprland.nix
+            ./home/iancleary-server.nix
+            ./modules/server/stay-awake-on-lid-close.nix
           ];
         };
+
         vm-iancleary-nixos = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = vm-system;
