@@ -18,7 +18,7 @@ in
   ];
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs-unstable.system}.hyprland;
   };
 
   # Optional, hint electron apps to use wayland:
@@ -36,7 +36,7 @@ in
   security.pam.services.swaylock = { };
   security.pam.services.swaylock.fprintAuth = false;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     xdg-desktop-portal-hyprland # display portal for hyprland, required
     hyprpaper # wallpaper utility
     hyprpicker # color picker
@@ -59,7 +59,7 @@ in
 
     xdg-utils # allow xdg-open to work
 
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    inputs.hyprland-contrib.packages.${pkgs-unstable.system}.grimblast
     # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
   ];
 
@@ -81,7 +81,7 @@ in
     enable = true;
     settings = rec {
       initial_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland";
+        command = "${pkgs-unstable.hyprland}/bin/Hyprland";
         user = "iancleary";
       };
       default_session = initial_session;
@@ -90,7 +90,7 @@ in
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
+    extraPortals = with pkgs-unstable; [
       xdg-desktop-portal-hyprland
     ];
   };
