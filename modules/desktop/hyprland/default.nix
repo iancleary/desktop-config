@@ -90,7 +90,7 @@ in
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs-unstable; [
+    extraPortals = with pkgs; [
       xdg-desktop-portal-hyprland
     ];
   };
