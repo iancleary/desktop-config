@@ -17,21 +17,13 @@
     };
   };
 
-  outputs = { nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       specialArgs = { inherit inputs; };
 
-      desktop-system = "x86_64-linux";
-      desktop-pkgs = (import nixpkgs) {
-        system = desktop-system;
-        config = {
-          allowUnfree = true;
-        };
-      };
-
-      vm-system = "x86_64-linux";
-      vm-pkgs = (import nixpkgs) {
-        system = vm-system;
+      x86-system = "x86_64-linux";
+      x86-pkgs = import nixpkgs {
+        system = x86-system;
         config = {
           allowUnfree = true;
         };
@@ -87,8 +79,8 @@
       nixosConfigurations = {
         framework = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          system = desktop-system;
-          pkgs = desktop-pkgs;
+          system = x86-system;
+          # pkgs = x86-pkgs;
           modules = common-modules ++ hyprland-desktop-modules ++ personal-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/framework.nix
@@ -99,8 +91,7 @@
 
         vm-iancleary-nixos = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          system = vm-system;
-          pkgs = vm-pkgs;
+          system = x86-system;
           modules = common-modules ++ gnome-desktop-modules ++ virtualbox-guest-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/vm-iancleary-nixos.nix
@@ -110,8 +101,7 @@
         };
         vm-icleary-nixos = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          system = vm-system;
-          pkgs = vm-pkgs;
+          system = x86-system;
           modules = common-modules ++ xfce-desktop-modules ++ virtualbox-guest-modules
             ++ [
             ./hardware-configuration.nix # hardware-configuration/vm-icleary-nixos.nix
