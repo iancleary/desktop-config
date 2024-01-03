@@ -28,7 +28,7 @@
   ########
 
   # # https://nixos.wiki/wiki/Fonts
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     meslo-lgs-nf
   ];
   fonts.fontconfig.defaultFonts.serif = [ "meslo-lgs-nf" ];

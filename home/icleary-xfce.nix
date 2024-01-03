@@ -2,12 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, pkgs, ... }: {
+{ config, inputs, ... }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager.users.icleary = {
-    home.stateVersion = "23.05";
+    home.stateVersion = "23.11";
     imports = [
       ./common.nix
       ./xfce # folder

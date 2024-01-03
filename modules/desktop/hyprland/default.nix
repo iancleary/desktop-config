@@ -37,7 +37,7 @@ in
   security.pam.services.swaylock.fprintAuth = false;
 
   environment.systemPackages = with pkgs; [
-    xdg-desktop-portal-hyprland # display portal for hyprland, required
+    # xdg-desktop-portal-hyprland # display portal for hyprland, required
     hyprpaper # wallpaper utility
     hyprpicker # color picker
     wl-clipboard # allows copying to clipboard (for hyprpicker)
@@ -88,12 +88,12 @@ in
     };
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-    ];
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   # extraPortals = with pkgs; [
+  #   #   xdg-desktop-portal-hyprland
+  #   # ];
+  # };
 
   #  systemd.services.hyprland = {
   #   enable = true;
