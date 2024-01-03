@@ -7,7 +7,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager.users.iancleary = {
-    home.stateVersion = "23.05";
+    home.stateVersion = "23.11";
     imports = [
       ./common.nix
       ./xfce # folder

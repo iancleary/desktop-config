@@ -7,7 +7,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager.users.icleary = {
-    home.stateVersion = "23.05";
+    home.stateVersion = "23.11";
     imports = [
       ./common.nix
       ./gnome # folder
