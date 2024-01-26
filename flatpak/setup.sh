@@ -2,12 +2,12 @@ flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/fl
 
 applications=(
   # Day to Day
-  "org.standardnotes.standardnotes" # Notes
   "com.spotify.Client" # Music
   "org.mozilla.firefox" # Web browser
   "com.rafaelmardojai.Blanket" # Background noise
   "re.sonny.Junction" # Web browser chooser (select it as a default browser)
   "com.nextcloud.desktopclient.nextcloud" # Nextcloud
+  "com.bitwarden.desktop" # Passwords
 
   # Tools
   "com.github.tchx84.Flatseal" # Manage Flatpak permissions

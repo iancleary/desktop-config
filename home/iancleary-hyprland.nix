@@ -35,5 +35,6 @@
     isNormalUser = true;
     description = "iancleary";
     extraGroups = [ "networkmanager" "wheel" "docker" "vboxsf" ];
+    initialHashedPassword = "$y$j9T$Ov2T/rXjvlEr48/5akCcx0$xOvKr97FRq9TLPLVKhEC7rtF7sfvOwpeL2/DC4a2vO1";
   };
 }

@@ -8,6 +8,9 @@
   # Define your hostname.
   networking.hostName = "framework";
 
+  # ZFS
+  networking.hostId = "8425e349";
+
   # testing fwupd on framework 11th gen intel
   # https://knowledgebase.frame.work/en_us/framework-laptop-bios-releases-S1dMQt6F#Linux_BIOS
   # https://nixos.wiki/wiki/Fwupd
@@ -110,7 +113,8 @@
   '';
 
   # https://nixos.wiki/wiki/Linux_kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
