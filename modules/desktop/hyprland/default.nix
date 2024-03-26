@@ -45,6 +45,10 @@ in
     waybar # wayland bar
     wofi # app launcher
 
+    # waybar applets
+    networkmanagerapplet # nm-applet --indicator &
+    blueman # blueman-applet
+
     polkit_gnome # polkit agent for GNOME
     gnome.seahorse # keyring manager GUI
     gnome.nautilus # file manager
