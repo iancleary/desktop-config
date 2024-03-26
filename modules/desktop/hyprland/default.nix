@@ -48,6 +48,7 @@ in
     # waybar applets
     networkmanagerapplet # nm-applet --indicator &
     blueman # blueman-applet
+    udiskie # removable media/disk mounting
 
     polkit_gnome # polkit agent for GNOME
     gnome.seahorse # keyring manager GUI
