@@ -36,6 +36,8 @@ in
   security.pam.services.swaylock = { };
   security.pam.services.swaylock.fprintAuth = false;
 
+  services.blueman.enabe = true;
+
   environment.systemPackages = with pkgs; [
     # xdg-desktop-portal-hyprland # display portal for hyprland, required
     hyprpaper # wallpaper utility
