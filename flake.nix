@@ -15,6 +15,8 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland-config.url = "github:iancleary/hyprland-config";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -72,6 +74,7 @@
       hyprland-desktop-modules = [
         ./modules/desktop # folder
         ./modules/desktop/hyprland # folder
+        inputs.hyprland-config.nixosModules.default
       ];
 
     in
