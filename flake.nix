@@ -15,6 +15,8 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flake-hello-world.url = "github:iancleary/flake-hello-world";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -72,6 +74,7 @@
       hyprland-desktop-modules = [
         ./modules/desktop # folder
         ./modules/desktop/hyprland # folder
+        inputs.flake-hello-world.nixosModules.default
       ];
 
     in
