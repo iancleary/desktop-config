@@ -54,15 +54,6 @@
       nixosConfigurations = 
         let
           defaultModules = (builtins.attrValues nixosModules) ++ [
-
-          ];
-          specialArgs = { inherit inputs outputs; };
-
-          virtualbox-guest-modules = [
-            ./modules/virtualbox/guest-enabled.nix
-          ];
-
-          common-modules = [
             # Flakes and Direnv
             ./modules/flakes.nix
             ./modules/nix-direnv.nix
@@ -77,29 +68,31 @@
             ./modules/openssh.nix
             ./modules/garbage-collection.nix
 
+            ./modules/tailscale.nix
+
             ./modules/unfree-allowed.nix
 
             # Locale and Timezone
             ./modules/localization/en_US.nix
             ./modules/timezone/America-Phoenix.nix
           ];
+          specialArgs = { inherit inputs outputs; };
 
-          personal-modules = [
-            ./modules/tailscale.nix
+          virtualboxGuestModules = [
+            ./modules/virtualbox/guest-enabled.nix
           ];
 
-          gnome-desktop-modules = [
+          gnomeDesktopModules = [
             ./modules/desktop # folder
             ./modules/desktop/gnome # folder
           ];
-
 
         in
           {
             framework = nixpkgs.lib.nixosSystem {
               inherit specialArgs;
               system = "x86_64-linux";
-              modules = common-modules ++ gnome-desktop-modules ++ personal-modules
+              modules = defaultModules ++ gnomeDesktopModules
                 ++ [
                 ./hardware-configuration.nix # hardware-configuration/framework.nix
                 ./configuration.nix # hosts/framework.nix
