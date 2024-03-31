@@ -57,7 +57,7 @@
     hitori # sudoku game
     atomix # puzzle game
   ]);
-  services.xserver.excludePackages = (with pkgs; [
+  services.xserver.excludePackages = with pkgs; [
     xterm
-  ]);
+  ];
 }

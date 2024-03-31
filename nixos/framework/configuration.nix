@@ -41,11 +41,11 @@
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)
       #media-session.enable = true;
+    };
   };
 
   # Enable sound with pipewire.
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
   # https://community.frame.work/t/nixos-on-the-framework-blog-review/3835/10?u=ian_cleary
@@ -56,14 +56,7 @@
     powertop.enable = true;
     cpuFreqGovernor = lib.mkDefault "ondemand";
   };
-  # extra opengl packages for intel graphics
-  hardware.opengl.extraPackages = with pkgs; [
-    mesa_drivers
-    vaapiIntel
-    vaapiVdpau
-    libvdpau-va-gl
-    intel-media-driver
-  ];
+  
 
   hardware = {
     # https://nixos.wiki/wiki/Bluetooth#Enabling_A2DP_Sink
@@ -73,33 +66,46 @@
         General = {
           Enable = "Source,Sink,Media,Socket";
         };
-      }
+      };
+    };
+
+    # Enable sound with pipewire.
+    pulseaudio.enable = false;
+    # extra opengl packages for intel graphics
+    opengl.extraPackages = with pkgs; [
+      mesa_drivers
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+      intel-media-driver
+    ];
   };
 
   
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot"; # ← use the same mount point here.
+  boot = {
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot"; # ← use the same mount point here.
+      };
+      grub = {
+        efiSupport = true;
+        #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+        device = "nodev";
+      };
     };
-    grub = {
-      efiSupport = true;
-      #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-      device = "nodev";
-    };
+    kernelParams = [
+      # For Power consumption
+      # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
+      "mem_sleep_default=deep"
+      # For Power consumption
+      # https://community.frame.work/t/linux-battery-life-tuning/6665/156
+      "nvme.noacpi=1"
+      # Workaround iGPU hangs
+      # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
+      "i915.enable_psr=1"
+    ];
   };
-
-  boot.kernelParams = [
-    # For Power consumption
-    # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
-    "mem_sleep_default=deep"
-    # For Power consumption
-    # https://community.frame.work/t/linux-battery-life-tuning/6665/156
-    "nvme.noacpi=1"
-    # Workaround iGPU hangs
-    # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
-    "i915.enable_psr=1"
-  ];
 
   # Fix TRRS headphones missing a mic
   # https://community.frame.work/t/headset-microphone-on-linux/12387/3
