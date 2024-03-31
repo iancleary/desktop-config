@@ -11,8 +11,42 @@
   # testing fwupd on framework 11th gen intel
   # https://knowledgebase.frame.work/en_us/framework-laptop-bios-releases-S1dMQt6F#Linux_BIOS
   # https://nixos.wiki/wiki/Fwupd
-  services.fwupd.enable = true;
-  services.fwupd.enableTestRemote = true;
+  services = {
+    fwupd = {
+      enable = true;
+      enableTestRemote = true;
+    };
+    # Enable thermal data
+    thermald.enable = true;
+
+    # Enable fingerprint support
+    fprintd.enable = true;
+
+    # Enable touchpad support (enabled default in most desktopManager).
+    xserver.libinput.enable = true;
+
+    # Enable CUPS to print documents.
+    printing.enable = true;
+
+    # Enable sound with pipewire.
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      # alsamixer: https://nixos.wiki/wiki/ALSA
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+  };
+
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
 
   # https://community.frame.work/t/nixos-on-the-framework-blog-review/3835/10?u=ian_cleary
   # https://gist.github.com/digitalknk/ee0379c1cd4597463c31a323ea5882a5
@@ -22,13 +56,6 @@
     powertop.enable = true;
     cpuFreqGovernor = lib.mkDefault "ondemand";
   };
-
-  # Enable thermal data
-  services.thermald.enable = true;
-
-  # Enable fingerprint support
-  services.fprintd.enable = true;
-
   # extra opengl packages for intel graphics
   hardware.opengl.extraPackages = with pkgs; [
     mesa_drivers
@@ -38,38 +65,18 @@
     intel-media-driver
   ];
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    # alsamixer: https://nixos.wiki/wiki/ALSA
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+  hardware = {
+    # https://nixos.wiki/wiki/Bluetooth#Enabling_A2DP_Sink
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      }
   };
 
-  # https://nixos.wiki/wiki/Bluetooth#Enabling_A2DP_Sink
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.settings = {
-    General = {
-      Enable = "Source,Sink,Media,Socket";
-    };
-  };
-
+  
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
