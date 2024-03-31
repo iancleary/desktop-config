@@ -15,12 +15,14 @@
   outputs = 
     { self
     , nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , flake-hello-world
     , ...
     }@inputs:
     let
-      inherit (self) output;
+      inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [ "aarch64-linux" "x86_64-linux"];
-      
     in
     rec {
       overlays = {
