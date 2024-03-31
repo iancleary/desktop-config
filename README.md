@@ -1,90 +1,90 @@
-# nixos-config
+# My NixOS configuration
 
-Welcome to my nixos-config!
+[![Made with Neovim](https://img.shields.io/badge/Made%20with-Neovim-green&?style=flat&logo=neovim)](https://neovim.io)
+[![NixOS](https://img.shields.io/badge/NixOS-23.11-blue?style=flat&logo=nixos&logoColor=white)](https://nixos.org)
 
-## Setup Channels and Home Manager
+## NixOS
 
-Channels for the current nixos release, nixpkgs unstable, and home-manager are all handled by the [flake.nix](flake.nix) file.
-
-There is a good walkthrough here: [https://nixos-and-flakes.thiscute.world/](https://nixos-and-flakes.thiscute.world/).
-
-### Flatpak
+### Installation (assuming host config already exists)
 
 ```bash
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+# All as root
+HOST=...  # set host variable to use proper configuration
+
+nix-shell
+git clone https://this.repo.url/ /etc/nixos
+cd /etc/nixos
+nixos-install --root /mnt --impure --flake .#$HOST
+
+# Reboot
 ```
 
-## Upgrading Versions
-
-<https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module>
-<https://nixos.org/manual/nixos/stable/index.html#sec-upgrading>
-
-* Update the [flake.nix](flake.nix) file to use the new release
-* Check the release notes for changes to modules
-* Run `just upgrade` and resolve errors until upgrade is complete
-
-## Links
-
-<https://nixos.wiki/wiki/Overview_of_the_NixOS_Linux_distribution>
-
-<https://nixos.wiki/wiki/Home_Manager>
-
-<https://discourse.nixos.org/t/github-strategies-for-configuration-nix/1983>
-
-<https://github.com/michaelpj/nixos-config/blob/master/modules/home.nix>
-
-<https://github.com/NixOS/nixpkgs/issues/154696#issuecomment-1012026159>
-
-<https://www.bekk.christmas/post/2021/16/dotfiles-with-nix-and-home-manager>
-
-Mixing Channels
-
-<https://discourse.nixos.org/t/allow-unfree-from-unstable/23218>
-
-## Flakes and Direnv
-
-<https://nixos.wiki/wiki/Flakes#Enable_flakes>
-
-<https://github.com/nix-community/nix-direnv>
-
-<https://determinate.systems/posts/nix-direnv>
-
-## First Run (Host and VirtualBox)
+### System update
 
 ```bash
-nix-shell -p git just
+# Go to the repo directory
+nixos-rebuild switch --flake .
+```
+
+## Non-NixOS
+
+Example steps necessary to bootstrap and use this configuration on Ubuntu.
+
+### Installation
+
+First make sure, your user is in the sudo/wheel group.
+
+```bash
+# Install git, curl and xz (e.g. for ubuntu)
+sudo apt install git xz-utils curl
+
+# Clone this repository
 git clone https://github.com/iancleary/nixos-config.git
 cd nixos-config
-# Set hostname
-sudo nano /etc/nixos/configuration.nix
-# after hostname is set, copy config over
-sudo nixos-rebuild switch
-just update upgrade
 
+# Install nix (single-user installation)
+sh <(curl -L https://nixos.org/nix/install) --no-daemon
+
+# Activate nix profile (and add it to the .profile)
+. ~/.nix-profile/etc/profile.d/nix.sh
+echo ". $HOME/.nix-profile/etc/profile.d/nix.sh" >> ~/.profile
+echo ". $HOME/.nix-profile/etc/profile.d/nix.sh" >> ~/.zprofile
+
+# Open tempoary shell with nix and home-manager (shell.nix)
+nix-shell
+
+# Remove nix (this is necessary, so home-manager can install nix)
+nix-env -e nix
+
+# Install the configuration (adjust to your username if you want to use a different one)
+home-manager switch --flake .#iancleary
+
+# Exit temporary shell
+exit
+
+# Set zsh (installed by nix) as default shell
+echo ~/.nix-profile/bin/zsh | sudo tee -a /etc/shells
+usermod -s ~/.nix-profile/bin/zsh $USER
 ```
 
-## SSH Authorized Keys (VirtualBox)
-
-Setup a shared folder, copy the public ssh key over to `/mnt/shared/authorized_keys`.
-
-Then run
+### Update
 
 ```bash
-cd /etc/nixos
-sudo mkdir ssh
-sudo cp /mnt/shared/authorized_keys /etc/nixos/ssh/authorized_keys
+# Go to the repo directory
+home-manager switch --flake .
 ```
 
-Add the authorized keyfile for your user
+## Live ISO
 
-```nix
-  users.users.{username}.openssh.authorizedKeys.keyFiles = [
-    /etc/nixos/ssh/authorized_keys
-  ];
+```bash
+nix build .#nixosConfigurations.isoimage.config.system.build.isoImage
 ```
 
-Add `users/iancleary/authorized-keys.nix` to the `configuration.nix` file
+## Resources
 
-## VirtualBox Resolution
-
-On the host, add more than 32MB of video memory to get over 1920x1080 resolution.
+- [Nix config template](https://github.com/Misterio77/nix-starter-configs)
+- [hlissner dotfiles](https://github.com/hlissner/dotfiles)
+- [adfaure nix configuration](https://github.com/adfaure/nix_configuration)
+- [Home-manager docs](https://nix-community.github.io/home-manager/index.html#ch-nix-flakes)
+- [Building NixOS ISO](https://ash64.eu/2022/03/08/custom-nixos-isos/)
+- [NixOS manual](https://nixos.org/manual/nix/stable)
