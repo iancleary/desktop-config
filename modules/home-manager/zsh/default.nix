@@ -1,12 +1,13 @@
 { pkgs, ... }: {
 
-  home.packages = with pkgs; [
-    colorls
-    nix-zsh-completions
-  ];
-
-  home.file.".p10k.zsh".source = ./.p10k.zsh;
-  home.file.".p10k.zsh".target = ".p10k.zsh";
+  home = {
+    packages = with pkgs; [
+      colorls
+      nix-zsh-completions
+    ];
+    file.".p10k.zsh".source = ./.p10k.zsh;
+    file.".p10k.zsh".target = ".p10k.zsh";
+  };
 
   programs.zsh = {
     enable = true;

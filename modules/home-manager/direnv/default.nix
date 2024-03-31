@@ -7,11 +7,17 @@
 
   # Direnv templates and remote sources
   home = {
-    file."dvd".source = ./dvd;
-    file."dvd".target = ".local/bin/dvd";
-    file."dvd".executable = true;
-    file."dvt".source = ./dvt;
-    file."dvt".target = ".local/bin/dvt";
-    file."dvt".executable = true;
+    file = {
+      "dvd" = {
+        source = ./dvd;
+        target = ".local/bin/dvd";
+        executable = true;
+      };
+      "dvt" = {
+        source = ./dvt;
+        target = ".local/bin/dvt";
+        executable = true;
+      };
+    };
   };
 }
