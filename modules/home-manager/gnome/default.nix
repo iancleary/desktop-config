@@ -1,19 +1,23 @@
 { pkgs, ... }: {
 
   # Login picture/avatar
-  home.file.".face".source = ./avatar.jpg;
-  home.file.".face".target = ".face";
+  home = {
+    file.".face".source = ./avatar.jpg;
+    file.".face".target = ".face";
 
-  # Themes and extensions
-  home.packages = with pkgs; [
-    yaru-theme
-    gnomeExtensions.user-themes
-    gnomeExtensions.tray-icons-reloaded
-    gnomeExtensions.vitals
-    gnomeExtensions.dash-to-panel
-    gnomeExtensions.sound-output-device-chooser
-    gnomeExtensions.space-bar
-  ];
+    # Themes and extensions
+    packages = with pkgs; [
+      yaru-theme
+      gnomeExtensions.user-themes
+      gnomeExtensions.tray-icons-reloaded
+      gnomeExtensions.vitals
+      gnomeExtensions.dash-to-panel
+      gnomeExtensions.sound-output-device-chooser
+      gnomeExtensions.space-bar
+    ];
+
+    sessionVariables.GTK_THEME = "Yaru-blue-dark";
+  };
 
   programs.zsh = {
     enable = true;
@@ -53,9 +57,6 @@
       '';
     };
   };
-
-  home.sessionVariables.GTK_THEME = "Yaru-blue-dark";
-  # ...
 
   # Configure gnome settings and extensions
   dconf.settings = {
