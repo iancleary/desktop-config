@@ -4,11 +4,19 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    neovim-plugins = {
+      url = "github:LongerHV/neovim-plugins-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixgl = {
+      url = "github:guibou/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-hello-world.url = "github:iancleary/flake-hello-world";
   };
 
@@ -16,7 +24,10 @@
     { self
     , nixpkgs
     , nixpkgs-unstable
+    , nixos-hardware
     , home-manager
+    , neovim-plugins
+    , nixgl
     , flake-hello-world
     , ...
     }@inputs:
@@ -31,6 +42,8 @@
           unstable = nixpkgs-unstable.legacyPackages.${prev.system};
           inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
         };
+        neovimPlugins = neovim-plugins.overlays.default;
+        nixgl = nixgl.overlays.default;
       };
 
       legacyPackages = forAllSystems (system:
