@@ -33,13 +33,15 @@ in
         extraGroups = [ "wheel" "networkmanager" "keys" ];
       };
     };
-    programs.neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-    programs.zsh = {
-      enable = true; # Workaround for https://github.com/nix-community/home-manager/issues/2751
-      enableCompletion = false;
+    programs = {
+      neovim = {
+        enable = true;
+        defaultEditor = true;
+      };
+      zsh = {
+        enable = true; # Workaround for https://github.com/nix-community/home-manager/issues/2751
+        enableCompletion = false;
+      };
     };
     
     # Whether to start the OpenSSH agent when you log in.  The OpenSSH agent

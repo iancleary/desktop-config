@@ -68,9 +68,11 @@ in
 
     services.openssh = with lib; {
       enable = mkDefault false;        
-      settings.PasswordAuthentication = mkDefault false;
-      settings.KbdInteractiveAuthentication = mkDefault false;
-      settings.PermitRootLogin = mkDefault "no";
+      settings = {
+        PasswordAuthentication = mkDefault false;
+        KbdInteractiveAuthentication = mkDefault false;
+        PermitRootLogin = mkDefault "no";
+      };
     };
 
    
