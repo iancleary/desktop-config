@@ -1,6 +1,6 @@
 {
   mySystem = import ./mySystem;
-  homelab = import ./homelab;
+  # homelab = import ./homelab;
 
   sunshine = import ./sunshine.nix;
 }
