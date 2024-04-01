@@ -47,6 +47,12 @@ in
     nixpkgs.config.allowUnfree = true;
     nix = {
       package = pkgs.nix;
+
+      ## enables flakes
+      # experimental-features = "nix-command flakes"; 
+      ## nix-direnv (# https://github.com/nix-community/nix-direnv#via-home-manager)
+      # keep-outputs = true; 
+      # keep-derivations = true; # keep build derivations
       extraOptions = ''
         experimental-features = nix-command flakes
         keep-outputs = true

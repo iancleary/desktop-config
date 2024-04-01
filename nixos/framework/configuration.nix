@@ -5,8 +5,58 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Define your hostname.
-  networking.hostName = "framework";
+  imports = [
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    ./hardware-configuration.nix
+    ./networking.nix
+    ./vm-variant.nix
+  ];
+
+  mySystem = {
+    gnome.enable = true;
+    gaming.enable = true;
+    vmHost = false;
+    dockerHost = true;
+    home-manager = {
+      enable = true;
+      home = ./home.nix;
+    };
+    nix.substituters = [ "nasgul" ];
+  };
+
+  boot = {
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot"; # ← use the same mount point here.
+      };
+      grub = {
+        efiSupport = true;
+        #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+        device = "nodev";
+      };
+    };
+    # https://nixos.wiki/wiki/Linux_kernel
+    # boot.kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelParams = [
+      # For Power consumption
+      # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
+      "mem_sleep_default=deep"
+      # For Power consumption
+      # https://community.frame.work/t/linux-battery-life-tuning/6665/156
+      "nvme.noacpi=1"
+      # Workaround iGPU hangs
+      # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
+      "i915.enable_psr=1"
+    ];
+    # Fix TRRS headphones missing a mic
+    # https://community.frame.work/t/headset-microphone-on-linux/12387/3
+    extraModprobeConfig = ''
+      options snd-hda-intel model=dell-headset-multi
+    '';
+  };
 
   # testing fwupd on framework 11th gen intel
   # https://knowledgebase.frame.work/en_us/framework-laptop-bios-releases-S1dMQt6F#Linux_BIOS
@@ -48,15 +98,7 @@
   sound.enable = true;
   security.rtkit.enable = true;
 
-  # https://community.frame.work/t/nixos-on-the-framework-blog-review/3835/10?u=ian_cleary
-  # https://gist.github.com/digitalknk/ee0379c1cd4597463c31a323ea5882a5
-  # Some of the config was pulled from the above gist
-  powerManagement = {
-    enable = true;
-    powertop.enable = true;
-    cpuFreqGovernor = lib.mkDefault "ondemand";
-  };
-
+ 
 
   hardware = {
     # https://nixos.wiki/wiki/Bluetooth#Enabling_A2DP_Sink
@@ -81,38 +123,24 @@
     ];
   };
 
-
-  boot = {
-    loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot"; # ← use the same mount point here.
-      };
-      grub = {
-        efiSupport = true;
-        #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-        device = "nodev";
-      };
-    };
-    kernelParams = [
-      # For Power consumption
-      # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
-      "mem_sleep_default=deep"
-      # For Power consumption
-      # https://community.frame.work/t/linux-battery-life-tuning/6665/156
-      "nvme.noacpi=1"
-      # Workaround iGPU hangs
-      # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
-      "i915.enable_psr=1"
-    ];
+  powerManagement = {
+    # https://community.frame.work/t/nixos-on-the-framework-blog-review/3835/10?u=ian_cleary
+    # https://gist.github.com/digitalknk/ee0379c1cd4597463c31a323ea5882a5
+    # Some of the config was pulled from the above gist
+    enable = true;
+    powertop.enable = true;
+    cpuFreqGovernor = lib.mkDefault "ondemand";
   };
 
-  # Fix TRRS headphones missing a mic
-  # https://community.frame.work/t/headset-microphone-on-linux/12387/3
-  boot.extraModprobeConfig = ''
-    options snd-hda-intel model=dell-headset-multi
-  '';
+  networking = {
+    hostName = "framework";
+  };
 
+
+  # stay awake on lid close
+  # services.logind.lidSwitchExternalPower = "ignore";
+
+  
   # Custom udev rules
   services.udev.extraRules = ''
     # Fix headphone noise when on powersave
@@ -122,9 +150,7 @@
     ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="8156", ATTR{power/autosuspend}="20"
   '';
 
-  # https://nixos.wiki/wiki/Linux_kernel
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
