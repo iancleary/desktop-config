@@ -28,10 +28,10 @@
     startInBackground = true;
   };
 
-  xdg.configFile."wireplumber/main.lua.d" = {
-    recursive = true;
-    source = ./wireplumber;
-  };
+  #   xdg.configFile."wireplumber/main.lua.d" = {
+  #     recursive = true;
+  #     source = ./wireplumber;
+  #   };
 
   gtk = {
     enable = true;
