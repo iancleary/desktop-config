@@ -16,7 +16,7 @@
   mySystem = {
     gnome.enable = true;
     gaming.enable = true;
-    vmHost = false;
+    vmHost = true;
     dockerHost = true;
     home-manager = {
       enable = true;
