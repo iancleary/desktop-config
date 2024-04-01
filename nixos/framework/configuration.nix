@@ -98,7 +98,7 @@
   sound.enable = true;
   security.rtkit.enable = true;
 
- 
+
 
   hardware = {
     # https://nixos.wiki/wiki/Bluetooth#Enabling_A2DP_Sink
@@ -140,7 +140,7 @@
   # stay awake on lid close
   # services.logind.lidSwitchExternalPower = "ignore";
 
-  
+
   # Custom udev rules
   services.udev.extraRules = ''
     # Fix headphone noise when on powersave
@@ -150,7 +150,7 @@
     ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="8156", ATTR{power/autosuspend}="20"
   '';
 
-  
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
