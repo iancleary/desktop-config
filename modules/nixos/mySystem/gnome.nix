@@ -66,7 +66,7 @@ in
         desktopManager.gnome.enable = true;
         # Excluding some GNOME applications from the default install
         excludePackages = with pkgs; [
-            xterm
+          xterm
         ];
       };
       udev.packages = [ pkgs.gnome.gnome-settings-daemon ];
@@ -81,10 +81,10 @@ in
     programs = {
       gnome-terminal.enable = true;
       zsh.vteIntegration = true;
-    #   kdeconnect = {
-    #     enable = true;
-    #     package = pkgs.gnomeExtensions.gsconnect;
-    #   };
+      #   kdeconnect = {
+      #     enable = true;
+      #     package = pkgs.gnomeExtensions.gsconnect;
+      #   };
     };
 
     hardware.pulseaudio.enable = false;

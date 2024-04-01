@@ -12,7 +12,7 @@
     flake-hello-world.url = "github:iancleary/flake-hello-world";
   };
 
-  outputs = 
+  outputs =
     { self
     , nixpkgs
     , nixpkgs-unstable
@@ -22,7 +22,7 @@
     }@inputs:
     let
       inherit (self) outputs;
-      forAllSystems = nixpkgs.lib.genAttrs [ "aarch64-linux" "x86_64-linux"];
+      forAllSystems = nixpkgs.lib.genAttrs [ "aarch64-linux" "x86_64-linux" ];
     in
     rec {
       overlays = {
@@ -40,7 +40,7 @@
           config.allowUnfree = true;
         }
       );
-      
+
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
@@ -49,9 +49,9 @@
         lint = nixpkgs.legacyPackages.${system}.callPackage ./shells/lint.nix { };
       });
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages."${system}".nixpkgs-fmt);      
-      
-      nixosConfigurations = 
+      formatter = forAllSystems (system: nixpkgs.legacyPackages."${system}".nixpkgs-fmt);
+
+      nixosConfigurations =
         let
           defaultModules = (builtins.attrValues nixosModules) ++ [
             # Flakes and Direnv
@@ -88,18 +88,18 @@
           ];
 
         in
-          {
-            framework = nixpkgs.lib.nixosSystem {
-              inherit specialArgs;
-              system = "x86_64-linux";
-              modules = defaultModules ++ gnomeDesktopModules
-                ++ [
-                ./hardware-configuration.nix # hardware-configuration/framework.nix
-                ./configuration.nix # hosts/framework.nix
-                ./home/iancleary-gnome.nix
-              ];
-            };
+        {
+          framework = nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+            system = "x86_64-linux";
+            modules = defaultModules ++ gnomeDesktopModules
+              ++ [
+              ./hardware-configuration.nix # hardware-configuration/framework.nix
+              ./configuration.nix # hosts/framework.nix
+              ./home/iancleary-gnome.nix
+            ];
           };
+        };
 
       homeConfigurations = {
         # Ubuntu WSL at home

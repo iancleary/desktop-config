@@ -56,7 +56,7 @@
     powertop.enable = true;
     cpuFreqGovernor = lib.mkDefault "ondemand";
   };
-  
+
 
   hardware = {
     # https://nixos.wiki/wiki/Bluetooth#Enabling_A2DP_Sink
@@ -81,7 +81,7 @@
     ];
   };
 
-  
+
   boot = {
     loader = {
       efi = {

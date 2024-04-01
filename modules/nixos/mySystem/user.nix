@@ -43,7 +43,7 @@ in
         enableCompletion = false;
       };
     };
-    
+
     # Whether to start the OpenSSH agent when you log in.  The OpenSSH agent
     # remembers private keys for you so that you don't have to type in
     # passphrases every time you make an SSH connection.  Use

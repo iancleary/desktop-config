@@ -2,16 +2,16 @@
 
 let
   cfg = config.mySystem;
-#   substituters = {
-#     nasgul = {
-#       url = "https://cache.local.longerhv.xyz/";
-#       key = "cache.local.longerhv.xyz:ioE/YEOpla3uyof/kZQG+gNKgeBAhOMWh+riRAEzKDA=";
-#     };
-#     mordor = {
-#       url = "http://mordor.lan:5000";
-#       key = "mordor.lan:fY4rXQ7QqtaxsokDAA57U0kuXvlo9pzn3XgLs79TZX4";
-#     };
-#   };
+  #   substituters = {
+  #     nasgul = {
+  #       url = "https://cache.local.longerhv.xyz/";
+  #       key = "cache.local.longerhv.xyz:ioE/YEOpla3uyof/kZQG+gNKgeBAhOMWh+riRAEzKDA=";
+  #     };
+  #     mordor = {
+  #       url = "http://mordor.lan:5000";
+  #       key = "mordor.lan:fY4rXQ7QqtaxsokDAA57U0kuXvlo9pzn3XgLs79TZX4";
+  #     };
+  #   };
 in
 {
   imports = [
@@ -67,7 +67,7 @@ in
     };
 
     services.openssh = with lib; {
-      enable = mkDefault false;        
+      enable = mkDefault false;
       settings = {
         PasswordAuthentication = mkDefault false;
         KbdInteractiveAuthentication = mkDefault false;
@@ -75,7 +75,7 @@ in
       };
     };
 
-   
+
     environment = {
       systemPackages = with pkgs; [
         agenix

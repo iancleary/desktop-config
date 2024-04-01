@@ -3,7 +3,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  
+
   systemd = {
     # https://discourse.nixos.org/t/how-to-disable-networkmanager-wait-online-service-in-the-configuration-file/19963/2
     services.NetworkManager-wait-online.enable = false;
