@@ -88,3 +88,4 @@ nix build .#nixosConfigurations.isoimage.config.system.build.isoImage
 - [Home-manager docs](https://nix-community.github.io/home-manager/index.html#ch-nix-flakes)
 - [Building NixOS ISO](https://ash64.eu/2022/03/08/custom-nixos-isos/)
 - [NixOS manual](https://nixos.org/manual/nix/stable)
+- [NixOS Configuration - Folder Structure This Repo was based on](https://github.com/LongerHV/nixos-configuration/tree/3d9baf05bc1bc34e2b9137a475db123e84b7aec5)

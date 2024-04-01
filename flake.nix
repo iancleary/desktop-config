@@ -99,6 +99,26 @@
               ./home/iancleary-gnome.nix
             ];
           };
+          isoimage = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            inherit specialArgs;
+            modules = defaultModules ++ [
+              "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
+              { isoImage.squashfsCompression = "gzip -Xcompression-level 1"; }
+              ./nixos/iso
+            ];
+          };
+          isoimage-server = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            inherit specialArgs;
+            modules = defaultModules ++ [
+              "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+              {
+                isoImage.squashfsCompression = "gzip -Xcompression-level 1";
+                mySystem.user = "nixos";
+              }
+            ];
+          };
         };
 
       homeConfigurations = {
