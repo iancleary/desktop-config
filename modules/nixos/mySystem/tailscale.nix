@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-    cfg = config.mySystem.tailscale;
+  cfg = config.mySystem.tailscale;
 in
 {
   options.mySystem.tailscale = {
