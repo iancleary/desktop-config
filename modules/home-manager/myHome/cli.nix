@@ -17,7 +17,7 @@ in
       };
       git = {
         enable = true;
-        userName = lib.mkIf cfg.personalGitEnable "Ian Cleary";
+        userName = lib.mkIf cfg.personalGitEnable "iancleary";
         userEmail = lib.mkIf cfg.personalGitEnable "github@iancleary.me";
       };
     };

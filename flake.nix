@@ -66,8 +66,9 @@
 
       nixosConfigurations =
         let
-          defaultModules = builtins.attrValues nixosModules;
-          # defaultModules = (builtins.attrValues nixosModules) ++ [];
+          defaultModules = (builtins.attrValues nixosModules) ++ [
+            home-manager.nixosModules.default
+          ];
           specialArgs = { inherit inputs outputs; };
 
         in
