@@ -33,6 +33,7 @@
     , nixpkgs-unstable
     , nixos-hardware
     , home-manager
+    , agenix
     , neovim-plugins
     , nixgl
     , flake-hello-world
