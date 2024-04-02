@@ -76,6 +76,9 @@ in
         pulse.enable = true;
         jack.enable = true;
       };
+
+      # Install Flatpak
+      flatpak.enable = true;
     };
 
     programs = {
@@ -90,9 +93,6 @@ in
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
     sound.enable = true;
-
-    # Install Flatpak
-    flatpak.enable = true;
 
     xdg.portal = {
       enable = true;
