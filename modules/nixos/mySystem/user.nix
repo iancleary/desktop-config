@@ -48,7 +48,7 @@ in
     # remembers private keys for you so that you don't have to type in
     # passphrases every time you make an SSH connection.  Use
     # {command}`ssh-add` to add a key to the agent.
-    programs.ssh.startAgent = mkDefault true;
+    programs.ssh.startAgent = lib.mkDefault true;
 
 
     # Add ~/.local/bin/ to $PATH

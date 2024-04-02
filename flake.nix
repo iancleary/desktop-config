@@ -66,50 +66,17 @@
 
       nixosConfigurations =
         let
-          defaultModules = (builtins.attrValues nixosModules) ++ [
-            # Flakes and Direnv
-            ./modules/flakes.nix
-            ./modules/nix-direnv.nix
-
-            # Common
-            ./modules/common/docker.nix
-            ./modules/common/localBinInPath.nix
-            ./modules/common/packages.nix
-            ./modules/common/zsh.nix
-
-            ./modules/networkmanager.nix
-            ./modules/openssh.nix
-            ./modules/garbage-collection.nix
-
-            ./modules/tailscale.nix
-
-            ./modules/unfree-allowed.nix
-
-            # Locale and Timezone
-            ./modules/localization/en_US.nix
-            ./modules/timezone/America-Phoenix.nix
-          ];
+          defaultModules = builtins.attrValues nixosModules;
+          # defaultModules = (builtins.attrValues nixosModules) ++ [];
           specialArgs = { inherit inputs outputs; };
-
-          virtualboxGuestModules = [
-            ./modules/virtualbox/guest-enabled.nix
-          ];
-
-          gnomeDesktopModules = [
-            ./modules/desktop # folder
-            ./modules/desktop/gnome # folder
-          ];
 
         in
         {
           framework = nixpkgs.lib.nixosSystem {
             inherit specialArgs;
             system = "x86_64-linux";
-            modules = defaultModules ++ gnomeDesktopModules
-              ++ [
-              ./hardware-configuration.nix # hardware-configuration/framework.nix
-              ./configuration.nix # hosts/framework.nix
-              ./home/iancleary-gnome.nix
+            modules = defaultModules ++ [
+              ./nixos/framework
             ];
           };
           isoimage = nixpkgs.lib.nixosSystem {
