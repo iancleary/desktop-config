@@ -1,16 +1,22 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  cfg = config.mySystem.tailscale;
+in
 {
-  # Install tailscale
-  services.tailscale.enable = true;
+  options.mySystem.tailscale = {
+    enable = lib.mkEnableOption "tailscale";
+  };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    tailscale
-  ];
+  config = lib.mkIf cfg.enable {
+    services.tailscale.enable = true;
 
-  systemd.network.wait-online.ignoredInterfaces = [
-    "tailscale0"
-  ];
+    environment.systemPackages = with pkgs; [
+      tailscale
+    ];
+
+    systemd.network.wait-online.ignoredInterfaces = [
+      "tailscale0"
+    ];
+  };
 }
