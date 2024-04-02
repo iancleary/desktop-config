@@ -51,6 +51,7 @@
           inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
         };
         neovimPlugins = neovim-plugins.overlays.default;
+        agenix = agenix.overlays.default;
         nixgl = nixgl.overlays.default;
       };
 
@@ -75,6 +76,7 @@
       nixosConfigurations =
         let
           defaultModules = (builtins.attrValues nixosModules) ++ [
+            agenix.nixosModules.default
             home-manager.nixosModules.default
           ];
           specialArgs = { inherit inputs outputs; };
@@ -116,7 +118,7 @@
           pkgs = legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = (builtins.attrValues homeManagerModules) ++ [
-            ./home-manager/work.nix
+            ./home-manager/default.nix
           ];
         };
       };
