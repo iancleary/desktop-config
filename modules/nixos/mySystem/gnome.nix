@@ -16,7 +16,6 @@ in
         spotify
         gnome.gnome-tweaks
         gnome.sushi
-        guake
         linssid
         xdg-desktop-portal-gnome
         gnomeExtensions.appindicator
