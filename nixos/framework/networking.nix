@@ -1,3 +1,5 @@
+{ config, lib, ...}:
+
 {
   #   imports = [ ./vpn.nix ];
 
@@ -11,14 +13,14 @@
     # DHCPCD is still the default on NixOS
     dhcpcd.enable = false;
   };
+  systemd.services = {
+    NetworkManager-wait-online.enable = lib.mkForce false;
+    systemd-networkd-wait-online.enable = lib.mkForce false;
+  };
   systemd.network = {
     enable = true;
-    # wait-online.extraArgs = [ "--interface" "eth0" ];
   };
   services.resolved = {
     enable = true;
-    #  extraConfig = ''
-    #       DNS = 10.69.1.243
-    #     '';
   };
 }
