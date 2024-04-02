@@ -13,7 +13,7 @@
   };
   systemd.network = {
     enable = true;
-    wait-online.extraArgs = [ "--interface" "eth0" ];
+    # wait-online.extraArgs = [ "--interface" "eth0" ];
   };
   services.resolved = {
     enable = true;
