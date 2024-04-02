@@ -31,7 +31,6 @@
         autoload -U promptinit; promptinit
       '';
       initExtra = /* bash */ ''
-        source ${./kubectl.zsh}
         source ${./git.zsh}
 
         bindkey '^[[Z' reverse-menu-complete

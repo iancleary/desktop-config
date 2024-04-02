@@ -17,7 +17,6 @@ let
     terraformls = { };
     tflint = { };
     gopls = { };
-    templ = { };
     marksman = { };
     tsserver = {
       init_options.tsserver.path = "${pkgs.nodePackages.typescript}/bin/tsserver";
@@ -126,7 +125,6 @@ in
     unstable.nil
     unstable.gopls
     nixpkgs-fmt
-    templ
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
     nodePackages.dockerfile-language-server-nodejs
