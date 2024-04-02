@@ -77,7 +77,6 @@
         }
       ];
     };
-    home.file.".config/spaceship.zsh".source = ./spaceship.zsh;
 
     # Direnv templates and remote sources
     home = {
@@ -91,6 +90,9 @@
           source = ./dvt;
           target = ".local/bin/dvt";
           executable = true;
+        };
+        ".config/spaceship.zsh" = {
+          source = ./spaceship.zsh;
         };
       };
     };
