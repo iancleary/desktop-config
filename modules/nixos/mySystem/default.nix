@@ -98,11 +98,11 @@ in
       shells = [ pkgs.zsh ];
     };
 
-    
+
 
     # https://nixos.wiki/wiki/Command_Shell
     users.defaultUserShell = pkgs.zsh;
-  
+
     ########
     ## When using SSH, Windows Terminal, or VS Code with a shared directory
     ## You need the fonts installed on the host machine, not the nix target
