@@ -17,8 +17,8 @@
   };
   services.resolved = {
     enable = true;
-  #  extraConfig = ''
-  #       DNS = 10.69.1.243
-  #     '';
+    #  extraConfig = ''
+    #       DNS = 10.69.1.243
+    #     '';
   };
 }
