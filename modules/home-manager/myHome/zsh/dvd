@@ -1,0 +1,2 @@
+echo "use flake \"github:iancleary/dev-templates?dir=$1\"" >> .envrc
+direnv allow

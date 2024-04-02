@@ -1,0 +1,37 @@
+---
+name: Run linters
+
+"on":
+  - push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: nix develop --accept-flake-config .#lint --command bash -e {0}
+    steps:
+      - name: Install nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - name: Lint GitHub Actions
+        run: actionlint
+
+      - name: Lint yaml
+        run: yamllint .
+
+      - name: Lint lua
+        run: selene .
+
+      - name: Lint lua formatting
+        run: stylua --check .
+
+      - name: Lint nix (statix)
+        run: statix check
+
+      - name: Lint nix (nixpkgs-fmt)
+        run: nixpkgs-fmt --check .
