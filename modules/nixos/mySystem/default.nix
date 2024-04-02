@@ -89,16 +89,16 @@ in
         dnsutils
         pciutils
       ];
+      # to help zsh completions
+      pathsToLink = [ "/share/zsh" ];
+      # https://nixos.wiki/wiki/Command_Shell
+      # Many programs look at /etc/shells to determine if a user is a "normal" user and not a "system" user.
+      # Therefore it is recommended to add the user shells to this list.
+      # To add a shell to /etc/shells use the following line in your config:
+      shells = [ pkgs.zsh ];
     };
 
-    # https://nixos.wiki/wiki/Command_Shell
-    # Many programs look at /etc/shells to determine if a user is a "normal" user and not a "system" user.
-    # Therefore it is recommended to add the user shells to this list.
-    # To add a shell to /etc/shells use the following line in your config:
-    shells = [ pkgs.zsh ];
-
-    # https://nix-community.github.io/home-manager/options.html#opt-programs.zsh.enableCompletion
-    pathsToLink = [ "/share/zsh" ];
+    
 
     # https://nixos.wiki/wiki/Command_Shell
     users.defaultUserShell = pkgs.zsh;

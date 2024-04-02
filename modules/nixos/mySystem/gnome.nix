@@ -56,12 +56,12 @@ in
             greeter.IncludeAll = true;
           };
           # https://github.com/NixOS/nixpkgs/issues/206630#issuecomment-1518696676
-          # resolves nextcloud-client install working
-          importedVariables = [
-            "XDG_SESSION_TYPE"
-            "XDG_CURRENT_DESKTOP"
-            "XDG_SESSION_DESKTOP"
-          ];
+          # # resolves nextcloud-client install working
+          # importedVariables = [
+          #   "XDG_SESSION_TYPE"
+          #   "XDG_CURRENT_DESKTOP"
+          #   "XDG_SESSION_DESKTOP"
+          # ];
         };
         desktopManager.gnome.enable = true;
         # Excluding some GNOME applications from the default install
