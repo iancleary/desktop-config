@@ -4,39 +4,31 @@
   options.myHome.zsh = with lib; {
     enable = mkEnableOption "zsh";
   };
+
   config = {
     programs.direnv = {
       enable = true;
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
-
-    home = {
-      file.".p10k.zsh".source = ./.p10k.zsh;
-      file.".p10k.zsh".target = ".p10k.zsh";
-    };
-
     programs.zsh = {
       enable = true;
+      history = {
+        size = 10000;
+      };
       shellAliases = {
-        l = "eza -alh --icons=auto";
         ll = "eza -l --icons=auto";
         la = "eza -la --icons=auto";
-        ls = "eza --icons=auto";
-        hg = "history|grep"; # search bash history, I swapped the letters for github-cli compatibility
-        left = "eza -t -1"; # most recently edited files
-        cg = "cd `git rev-parse --show-toplevel`"; # go to git main level
+        ns = "sudo nixos-rebuild switch --flake .";
+        hs = "home-manager switch --impure --flake .";
       };
       initExtraBeforeCompInit = /* bash */ ''
         # Completion
         zstyle ':completion:*' menu yes select
 
         # Prompt
+        source ${pkgs.spaceship-prompt}/lib/spaceship-prompt/spaceship.zsh
         autoload -U promptinit; promptinit
-
-        # SSH
-        eval $(ssh-agent)
-        [[ ! -f ~/.ssh/github_id_ed25519 ]] || ssh-add ~/.ssh/github_id_ed25519
       '';
       initExtra = /* bash */ ''
         source ${./git.zsh}
@@ -48,12 +40,6 @@
         zvm_after_init_commands+=("bindkey '^[OA' history-substring-search-up")
         zvm_after_init_commands+=("bindkey '^[[B' history-substring-search-down")
         zvm_after_init_commands+=("bindkey '^[OB' history-substring-search-down")
-
-        ####
-        # On each machine, run p10k configure once.  That should create ~/.p10k.zsh with my preferences.
-        ####
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-        # setopt auto_cd
       '';
       localVariables = {
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=13,underline";
@@ -71,8 +57,6 @@
         # searchUpKey = [ "^[[A" "^[OA" ];
         # searchDownKey = [ "^[[B" "^[OB" ];
       };
-
-      # https://discourse.nixos.org/t/using-an-external-oh-my-zsh-theme-with-zsh-in-nix/6142/2
       plugins = [
         {
           name = "nix-shell";
@@ -90,12 +74,26 @@
           name = "zsh-z";
           src = "${pkgs.zsh-z}/share/zsh-z";
         }
-        {
-          name = "powerlevel10k";
-          src = pkgs.zsh-powerlevel10k;
-          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        }
       ];
+    };
+
+    # Direnv templates and remote sources
+    home = {
+      file = {
+        "dvd" = {
+          source = ./dvd;
+          target = ".local/bin/dvd";
+          executable = true;
+        };
+        "dvt" = {
+          source = ./dvt;
+          target = ".local/bin/dvt";
+          executable = true;
+        };
+        ".config/spaceship.zsh" = {
+          source = ./spaceship.zsh;
+        };
+      };
     };
   };
 }

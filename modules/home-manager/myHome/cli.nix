@@ -30,6 +30,7 @@ in
       fzf
       htop
       jq
+      unstable.just
       neofetch
       nix-tree
       openssh

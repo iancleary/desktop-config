@@ -30,6 +30,10 @@ nixos-rebuild switch --flake .
 
 Example steps necessary to bootstrap and use this configuration on Ubuntu.
 
+### In WSL2
+
+We **strongly recommend** [enabling systemd](https://ubuntu.com/blog/ubuntu-wsl-enable-systemd), then installing Nix as normal:
+
 ### Installation
 
 First make sure, your user is in the sudo/wheel group.
@@ -42,13 +46,8 @@ sudo apt install git xz-utils curl
 git clone https://github.com/iancleary/nixos-config.git
 cd nixos-config
 
-# Install nix (single-user installation)
-sh <(curl -L https://nixos.org/nix/install) --no-daemon
-
-# Activate nix profile (and add it to the .profile)
-. ~/.nix-profile/etc/profile.d/nix.sh
-echo ". $HOME/.nix-profile/etc/profile.d/nix.sh" >> ~/.profile
-echo ". $HOME/.nix-profile/etc/profile.d/nix.sh" >> ~/.zprofile
+# Install nix (determinate-systems installation)
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 
 # Open tempoary shell with nix and home-manager (shell.nix)
 nix-shell
@@ -56,8 +55,8 @@ nix-shell
 # Remove nix (this is necessary, so home-manager can install nix)
 nix-env -e nix
 
-# Install the configuration (adjust to your username if you want to use a different one)
-home-manager switch --flake .#iancleary
+# Install the configuration (adjust to the configuration you want to use )
+home-manager switch --flake .#wsl
 
 # Exit temporary shell
 exit
