@@ -4,7 +4,7 @@ let
   cfg = config.myHome.wsl;
 in
 {
-  options.myHome.nonNixos = with lib; {
+  options.myHome.wsl = with lib; {
     enable = mkEnableOption "wsl";
   };
   config = lib.mkIf cfg.enable {
