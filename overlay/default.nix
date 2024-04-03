@@ -14,5 +14,5 @@ final: prev: {
     url = "https://images8.alphacoders.com/133/1336966.jpeg";
     sha256 = "99ba832936425307f1827793bd4a4e9055b0761c6b6c88871fdb575de884b109";
   };
-  avatarPicture = builtins.readFile ".avatar.jpg";
+  avatarPicture = builtins.readFile "./avatar.jpg";
 }
