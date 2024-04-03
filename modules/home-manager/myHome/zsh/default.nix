@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ lib, pkgs, ... }:
 
 {
   options.myHome.zsh = with lib; {
