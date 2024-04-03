@@ -37,7 +37,7 @@ in
     fonts.fontconfig.enable = true;
     home.packages = [ cfg.font.package ];
     home.file.".face" = {
-      source = cfg.avatarPicture;
+      source = cfg.avatar;
       target = ".face";
     };
     dconf.settings = {
