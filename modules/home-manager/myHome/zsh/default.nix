@@ -10,7 +10,7 @@
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
-  
+
     home = {
       file.".p10k.zsh".source = ./.p10k.zsh;
       file.".p10k.zsh".target = ".p10k.zsh";
@@ -71,26 +71,26 @@
       # https://discourse.nixos.org/t/using-an-external-oh-my-zsh-theme-with-zsh-in-nix/6142/2
       plugins = [
         {
-            name = "nix-shell";
-            src = "${pkgs.zsh-nix-shell}/share/zsh-nix-shell";
-          }
-          {
-            name = "you-should-use";
-            src = "${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use";
-          }
-          {
-            name = "zsh-vi-mode";
-            src = "${pkgs.unstable.zsh-vi-mode}/share/zsh-vi-mode";
-          }
-          {
-            name = "zsh-z";
-            src = "${pkgs.zsh-z}/share/zsh-z";
-          }
-          {
-            name = "powerlevel10k";
-            src = pkgs.zsh-powerlevel10k;
-            file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-          }
+          name = "nix-shell";
+          src = "${pkgs.zsh-nix-shell}/share/zsh-nix-shell";
+        }
+        {
+          name = "you-should-use";
+          src = "${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use";
+        }
+        {
+          name = "zsh-vi-mode";
+          src = "${pkgs.unstable.zsh-vi-mode}/share/zsh-vi-mode";
+        }
+        {
+          name = "zsh-z";
+          src = "${pkgs.zsh-z}/share/zsh-z";
+        }
+        {
+          name = "powerlevel10k";
+          src = pkgs.zsh-powerlevel10k;
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
       ];
     };
   };
