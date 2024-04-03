@@ -52,4 +52,3 @@ jobs:
             --title "[Flake] Auto update lock" \
             --body "" \
             --label automated || exit 0
-
