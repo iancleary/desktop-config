@@ -13,6 +13,10 @@ in
       type = types.package;
       default = pkgs.landscapeWallpaper;
     };
+    avatar = mkOption {
+      type = types.package;
+      default = pkgs.avatarPicture;
+    };
     font = {
       package = mkOption {
         type = types.package;
@@ -32,6 +36,10 @@ in
   config = lib.mkIf cfg.enable {
     fonts.fontconfig.enable = true;
     home.packages = [ cfg.font.package ];
+    home.file.".face" = {
+      source = cfg.avatar;
+      target = ".face";
+    };
     dconf.settings = {
       "org/gnome/desktop/peripherals/trackball" = {
         scroll-wheel-emulation-button = 8;
