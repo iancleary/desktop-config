@@ -114,11 +114,11 @@
 
       homeConfigurations = {
         # Ubuntu WSL at home
-        iancleary = home-manager.lib.homeManagerConfiguration {
+        wsl = home-manager.lib.homeManagerConfiguration {
           pkgs = legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = (builtins.attrValues homeManagerModules) ++ [
-            ./home-manager/default.nix
+            ./home-manager/wsl.nix
           ];
         };
       };
