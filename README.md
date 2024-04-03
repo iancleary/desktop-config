@@ -30,6 +30,10 @@ nixos-rebuild switch --flake .
 
 Example steps necessary to bootstrap and use this configuration on Ubuntu.
 
+### In WSL2
+
+We **strongly recommend** [enabling systemd](https://ubuntu.com/blog/ubuntu-wsl-enable-systemd), then installing Nix as normal:
+
 ### Installation
 
 First make sure, your user is in the sudo/wheel group.
@@ -43,7 +47,7 @@ git clone https://github.com/iancleary/nixos-config.git
 cd nixos-config
 
 # Install nix (single-user installation)
-sh <(curl -L https://nixos.org/nix/install) --no-daemon
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 
 # Activate nix profile (and add it to the .profile)
 . ~/.nix-profile/etc/profile.d/nix.sh
