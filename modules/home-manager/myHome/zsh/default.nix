@@ -33,6 +33,10 @@
 
         # Prompt
         autoload -U promptinit; promptinit
+
+        # SSH
+        eval $(ssh-agent)
+        [[ ! -f ~/.ssh/github_id_ed25519 ]] || ssh-add ~/.ssh/github_id_ed25519
       '';
       initExtra = /* bash */ ''
         source ${./git.zsh}
