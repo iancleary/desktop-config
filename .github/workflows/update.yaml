@@ -32,7 +32,7 @@ jobs:
             git checkout -b "$BRANCH_NAME"
           else
             git checkout "$BRANCH_NAME"
-            git reset --hard origin/master
+            git reset --hard origin/main
           fi
 
       - name: Update lock
@@ -47,7 +47,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           gh pr create \
-            --base master \
+            --base main \
             --head "$BRANCH_NAME" \
             --title "[Flake] Auto update lock" \
             --body "" \
