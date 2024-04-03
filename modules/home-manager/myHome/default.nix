@@ -6,6 +6,7 @@
     ./gnome
     ./neovim
     ./non-nixos.nix
+    ./wsl.nix
     ./tmux.nix
     ./zsh
   ];
