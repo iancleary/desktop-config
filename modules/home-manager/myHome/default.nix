@@ -5,7 +5,7 @@
     # ./devops.nix
     ./gnome
     ./neovim
-    # ./non-nixos.nix
+    ./non-nixos.nix
     ./tmux.nix
     ./zsh
   ];

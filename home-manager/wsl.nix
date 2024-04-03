@@ -16,4 +16,6 @@
       enableLSP = true;
     };
   };
+
+  xdg.enable = false;
 }
