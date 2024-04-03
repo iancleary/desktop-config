@@ -10,7 +10,7 @@ echo:
   @echo "{{ hostname }}"
 
 # Update the flake lock file
-flake:
+update:
   nix flake update
 
 # Run `sudo nixos-rebuild switch` (only for nixos)
@@ -44,6 +44,10 @@ check:
   stylua --check .
   statix check
   nixpkgs-fmt --check .
+
+# Check flake evaluation
+flake:
+  nix flake check --no-build --all-systems
 
 # format all the files
 format:
