@@ -24,8 +24,8 @@
   ];
 
   services.nextcloud-client = {
-    enable = true;
-    startInBackground = true;
+    enable = false;
+    startInBackground = false;
   };
 
   #   xdg.configFile."wireplumber/main.lua.d" = {
