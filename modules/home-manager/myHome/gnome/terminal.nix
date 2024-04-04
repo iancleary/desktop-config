@@ -17,7 +17,7 @@ in
           opacity = 0.90;
         };
         cursor = {
-          thickness = 2.0; # 0.1
+          thickness = 0.1;
         };
         font = {
           normal = {
