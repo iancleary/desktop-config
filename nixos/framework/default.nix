@@ -6,8 +6,7 @@
 
 {
   imports = [
-    inputs.nixos-hardware.nixosModules.common-cpu-intel
-    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
     ./hardware-configuration.nix
     ./networking.nix
     ./vm-variant.nix
@@ -41,22 +40,23 @@
     # https://nixos.wiki/wiki/Linux_kernel
     # boot.kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    kernelParams = [
-      # For Power consumption
-      # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
-      "mem_sleep_default=deep"
-      # For Power consumption
-      # https://community.frame.work/t/linux-battery-life-tuning/6665/156
-      "nvme.noacpi=1"
-      # Workaround iGPU hangs
-      # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
-      "i915.enable_psr=1"
-    ];
-    # Fix TRRS headphones missing a mic
-    # https://community.frame.work/t/headset-microphone-on-linux/12387/3
-    extraModprobeConfig = ''
-      options snd-hda-intel model=dell-headset-multi
-    '';
+    # kernelParams = [
+    #   # For Power consumption
+    #  # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
+    #   "mem_sleep_default=deep"
+    #   # For Power consumption
+    #   # https://community.frame.work/t/linux-battery-life-tuning/6665/156
+    #   "nvme.noacpi=1"
+    #   # Workaround iGPU hangs
+    #   # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
+    #   "i915.enable_psr=1"
+    # ];
+
+    # # Fix TRRS headphones missing a mic
+    # # https://community.frame.work/t/headset-microphone-on-linux/12387/3
+    # extraModprobeConfig = ''
+    #   options snd-hda-intel model=dell-headset-multi
+    # '';
   };
 
   # testing fwupd on framework 11th gen intel

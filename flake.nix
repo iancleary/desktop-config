@@ -20,10 +20,10 @@
       url = "github:LongerHV/neovim-plugins-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl = {
-      url = "github:guibou/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixgl = {
+    #   url = "github:guibou/nixGL";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     flake-hello-world.url = "github:iancleary/flake-hello-world";
   };
 
@@ -35,7 +35,7 @@
     , home-manager
     , agenix
     , neovim-plugins
-    , nixgl
+      # , nixgl
     , flake-hello-world
     , ...
     }@inputs:
@@ -52,7 +52,7 @@
         };
         neovimPlugins = neovim-plugins.overlays.default;
         agenix = agenix.overlays.default;
-        nixgl = nixgl.overlays.default;
+        # nixgl = nixgl.overlays.default;
       };
 
       legacyPackages = forAllSystems (system:
