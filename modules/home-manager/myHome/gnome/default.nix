@@ -24,7 +24,7 @@ in
       };
       name = mkOption {
         type = types.str;
-        default = "Hack Nerd Font";
+        default = "MesloLGS NF";
       };
       size = mkOption {
         type = types.int;
@@ -76,14 +76,14 @@ in
         bold-color-same-as-fg = true;
         inherit (colors) palette;
         use-transparent-background = true;
-        background-transparency-percent = 10;
+        background-transparency-percent = 80;
       };
       "org/gnome/settings-daemon/plugins/color" = {
         night-light-enabled = true;
         night-light-temperature = "uint32 3000";
         night-light-schedule-automatic = false;
-        night-light-schedule-from = 0.0;
-        night-light-schedule-to = 0.0;
+        night-light-schedule-from = 19.0;
+        night-light-schedule-to = 6.0;
       };
       "org/gnome/mutter" = {
         workspaces-only-on-primary = true;
