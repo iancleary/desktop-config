@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   fontName = config.myHome.gnome.font.name;
@@ -8,14 +8,16 @@ in
   config = lib.mkIf config.myHome.gnome.enable {
     programs.alacritty = {
       enable = true;
+      package = pkgs.unstable.alacritty;
       settings = {
-        # env.TERM = "xterm-256color";
+        env.TERM = "alacritty";
+
         window = {
           padding = { x = 6; y = 6; };
           opacity = 0.90;
         };
         cursor = {
-          thickness = 0.1;
+          thickness = 2.0; # 0.1
         };
         font = {
           normal = {

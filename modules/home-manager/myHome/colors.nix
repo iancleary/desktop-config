@@ -29,7 +29,6 @@ let
     magenta = "#C594C5";
     cyan = "#5FB3B3";
     white = "#D8DEE9";
-    orange = "#f99157";
   };
   palette = [
     normal.black
