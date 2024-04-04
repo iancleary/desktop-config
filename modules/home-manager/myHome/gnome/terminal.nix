@@ -9,7 +9,7 @@ in
     programs.alacritty = {
       enable = true;
       settings = {
-        env.TERM = "xterm-256color";
+        # env.TERM = "xterm-256color";
         window = {
           padding = { x = 6; y = 6; };
           opacity = 0.90;
