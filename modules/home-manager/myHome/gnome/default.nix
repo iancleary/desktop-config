@@ -81,9 +81,9 @@ in
       "org/gnome/settings-daemon/plugins/color" = {
         night-light-enabled = true;
         night-light-temperature = "uint32 3000";
-        night-light-schedule-automatic = true;
+        night-light-schedule-automatic = false;
         night-light-schedule-from = 19.0;
-        night-light-schedule-to = 0.0;
+        night-light-schedule-to = 6.0;
       };
       "org/gnome/mutter" = {
         workspaces-only-on-primary = true;
