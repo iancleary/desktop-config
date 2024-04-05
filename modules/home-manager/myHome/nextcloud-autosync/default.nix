@@ -36,18 +36,18 @@ in
         };
         Service = {
           Type = "simple";
-          ExecStart= "${pkgs.nextcloud-client}/bin/nextcloudcmd -h -n ${cfg.folder} ${cfg.server}";
+          ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h -n ${cfg.folder} ${cfg.server}";
           TimeoutStopSec = "180";
           KillMode = "process";
           KillSignal = "SIGINT";
         };
-        Install.WantedBy = ["multi-user.target"];
+        Install.WantedBy = [ "multi-user.target" ];
       };
       timers.nextcloud-autosync = {
         Unit.Description = "Automatic sync files with Nextcloud when booted up after 5 minutes then rerun every 60 minutes";
         Timer.OnBootSec = "${cfg.initialSyncDelay}";
         Timer.OnUnitActiveSec = "${cfg.rerunSyncDelay}";
-        Install.WantedBy = ["multi-user.target" "timers.target"];
+        Install.WantedBy = [ "multi-user.target" "timers.target" ];
       };
       startServices = true;
     };
