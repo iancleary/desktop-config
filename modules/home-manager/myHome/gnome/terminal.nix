@@ -7,7 +7,7 @@ in
 {
   config = lib.mkIf config.myHome.gnome.enable {
     programs.alacritty = {
-      enable = true;
+      enable = false; # cursor doesn't show up (2024-04-05...maybe fixed now?)
       package = pkgs.unstable.alacritty;
       settings = {
         env.TERM = "alacritty";
