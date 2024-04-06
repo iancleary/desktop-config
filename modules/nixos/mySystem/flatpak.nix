@@ -26,10 +26,9 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    services.flatpak = {
-      packages = cfg.packages;
-      update.auto = cfg.update.auto;
-      uninstallUnmanaged = cfg.uninstallUnmanaged;
+    services.flatpak = with cfg; {
+      inherit packages uninstallUnmanaged;
+      update.auto = update.auto;
     };
   };
 }
