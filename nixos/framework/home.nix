@@ -13,7 +13,7 @@
     };
     nextcloud-autosync = {
       enable = true;
-      folder = "/home/${config.mySystem.user}/Nextcloud/";
+      folder = "/home/iancleary/Nextcloud/";
       server = "http://nextcloud.iancleary.me";
     };
   };
