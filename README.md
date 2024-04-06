@@ -14,7 +14,7 @@ HOST=...  # set host variable to use proper configuration
 nix-shell
 git clone https://this.repo.url/ /etc/nixos
 cd /etc/nixos
-nixos-install --root /mnt --impure --flake .#$HOST
+sudo nixos-install --root /mnt --impure --flake .#$HOST
 
 # Reboot
 ```
@@ -23,7 +23,7 @@ nixos-install --root /mnt --impure --flake .#$HOST
 
 ```bash
 # Go to the repo directory
-nixos-rebuild switch --flake .
+sudo ixos-rebuild switch --flake .
 ```
 
 ## Non-NixOS
