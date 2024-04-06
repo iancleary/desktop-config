@@ -243,7 +243,7 @@ alias gpd='git push --dry-run'
 alias gpf='git push --force-with-lease'
 alias gpf!='git push --force'
 alias gpo='git push origin'
-alias gpoc'git push origin $(git_current_branch)"
+alias gpoc'git push origin $(git_current_branch)'
 alias gpoat='git push origin --all && git push origin --tags'
 alias gpr='git pull --rebase'
 alias gpu='git push upstream'
