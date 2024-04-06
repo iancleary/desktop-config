@@ -8,7 +8,7 @@ in
     enable = mkEnableOption "nextcloud-autosync";
     folder = mkOption {
       type = types.path;
-      default = "~/Nextcloud/";
+      default = "${config.home.homeDirectory}/Nextcloud/";
     };
     server = mkOption {
       type = types.str;
