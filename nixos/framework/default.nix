@@ -15,6 +15,9 @@
 
   mySystem = {
     gnome.enable = true;
+    flatpak = {
+      enable = true;
+    };
     gaming.enable = true;
     tailscale.enable = true;
     vmHost = true;
