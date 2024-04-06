@@ -114,7 +114,7 @@ alias gpristine='git reset --hard && git clean -dffx'
 alias gcm='git checkout $(git_main_branch)'
 alias gcmd='git checkout $(git_main_branch) && git pull && git branch -D'
 function gcmdc {
-  local b = $(git_current_branch)
+  local b=$(git_current_branch)
   git checkout $(git_main_branch)
   git pull
   git branch -D $b
