@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.myHome.services.nextcloud-autosync;
+  cfg = config.myHome.nextcloud-autosync;
 in
 {
-  options.myHome.services.nextcloud-autosync = with lib; {
-    enable = mkEnableOption "nextcloud-autosync";
+  options.myHome.nextcloud-autosync = with lib; {
+    enable = mkEnableOption "";
     folder = mkOption {
       type = types.string;
       default = "~/Nextcloud/";

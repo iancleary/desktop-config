@@ -11,12 +11,10 @@
       enable = true;
       enableLSP = true;
     };
-    services = {
-      nextcloud-autosync = {
-        enable = true;
-        folder = "~/Nextcloud/";
-        server = "http://nextcloud.iancleary.me";
-      };
+    nextcloud-autosync = {
+      enable = true;
+      folder = "~/Nextcloud/";
+      server = "http://nextcloud.iancleary.me";
     };
   };
 
