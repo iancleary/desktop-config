@@ -113,7 +113,12 @@ alias gclean='git clean -id'
 alias gpristine='git reset --hard && git clean -dffx'
 alias gcm='git checkout $(git_main_branch)'
 alias gcmd='git checkout $(git_main_branch) && git pull && git branch -D'
-alias gcmdc='git checkout $(git_main_branch) && git pull && git branch -D $(git_current_branch)'
+function gcmdc {
+  local b = $(git_current_branch)
+  git checkout $(git_main_branch)
+  git pull
+  git branch -D $b
+}
 alias gcd='git checkout develop'
 alias gcmsg='git commit -m'
 alias gco='git checkout'
