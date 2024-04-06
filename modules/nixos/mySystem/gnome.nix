@@ -17,6 +17,7 @@ in
         gnome.gnome-tweaks
         gnome.sushi
         linssid
+        angryipscanner
         xdg-desktop-portal-gnome
         gnomeExtensions.appindicator
         # gnomeExtensions.gsconnect
