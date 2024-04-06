@@ -14,7 +14,7 @@
       "org.kde.okular" # PDF reader/editor
       "org.libreoffice.LibreOffice" # Office suite
       "app/org.videolan.VLC/x86_64/stable" # Video player
-      "hl.hjdskes.gcolor3" # Color picker
+      "nl.hjdskes.gcolor3" # Color picker
       "ca.desrt.dconf-editor"
     ];
     update.auto = {
@@ -22,5 +22,7 @@
       onCalendar = "weekly";
       # https://github.com/gmodena/nix-flatpak?tab=readme-ov-file#updates
     };
+    # enforce declarative installations
+    uninstallUnmanaged = true;
   };
 }
