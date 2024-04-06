@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.stateVersion = "21.11";
+  home.stateVersion = "23.11";
 
   myHome = {
     gnome.enable = true;

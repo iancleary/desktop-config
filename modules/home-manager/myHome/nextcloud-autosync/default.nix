@@ -12,6 +12,7 @@ in
     };
     server = mkOption {
       type = types.string;
+      default = "http://nextcloud.iancleary.me";
     };
     initialSyncDelay = mkOption {
       type = types.string;
