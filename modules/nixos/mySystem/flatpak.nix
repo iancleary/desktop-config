@@ -8,7 +8,7 @@ in
     enable = mkEnableOption "flatpak";
     packages = mkOption {
       type = types.listOf types.str;
-      default = [];
+      default = [ ];
     };
     # https://github.com/gmodena/nix-flatpak?tab=readme-ov-file#updates
     update.auto = mkOption {
