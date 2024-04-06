@@ -15,6 +15,7 @@ update:
 
 # Run `sudo nixos-rebuild switch` (only for nixos)
 switch:
+  echo "nix-flatpak initial build may take a while..."
   sudo nixos-rebuild switch --flake .
 
 # Update the configuration using home-manager (non-nixos or WSL)
