@@ -5,7 +5,7 @@ let
 in
 {
   options.myHome.nextcloud-autosync = with lib; {
-    enable = mkEnableOption "";
+    enable = mkEnableOption "nextcloud-autosync";
     folder = mkOption {
       type = types.string;
       default = "~/Nextcloud/";
