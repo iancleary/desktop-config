@@ -7,19 +7,19 @@ in
   options.myHome.nextcloud-autosync = with lib; {
     enable = mkEnableOption "nextcloud-autosync";
     folder = mkOption {
-      type = types.string;
+      type = types.path;
       default = "~/Nextcloud/";
     };
     server = mkOption {
-      type = types.string;
+      type = types.str;
       default = "http://nextcloud.iancleary.me";
     };
     initialSyncDelay = mkOption {
-      type = types.string;
+      type = types.str;
       default = "5min";
     };
     rerunSyncDelay = mkOption {
-      type = types.string;
+      type = types.str;
       default = "60min";
     };
   };
