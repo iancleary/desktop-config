@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.stateVersion = "23.11";
@@ -13,7 +13,7 @@
     };
     nextcloud-autosync = {
       enable = true;
-      folder = "~/Nextcloud/";
+      folder = "/home/${config.mySystem.user}/Nextcloud/";
       server = "http://nextcloud.iancleary.me";
     };
   };
