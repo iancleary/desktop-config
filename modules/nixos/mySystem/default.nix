@@ -18,6 +18,7 @@ in
     # ./android.nix
     ./gaming.nix
     ./gnome.nix
+    ./flatpak.nix
     ./tailscale.nix
     ./user.nix
     ./virt.nix
@@ -49,9 +50,9 @@ in
       package = pkgs.nix;
 
       ## enables flakes
-      # experimental-features = "nix-command flakes"; 
+      # experimental-features = "nix-command flakes";
       ## nix-direnv (# https://github.com/nix-community/nix-direnv#via-home-manager)
-      # keep-outputs = true; 
+      # keep-outputs = true;
       # keep-derivations = true; # keep build derivations
       extraOptions = ''
         experimental-features = nix-command flakes
@@ -112,7 +113,7 @@ in
     ########
     fonts = {
       # Install font (on the nix target, see above for WSL or virtual machine)
-      # tl;dr you install fonts on the machine that is rendering the fonts  
+      # tl;dr you install fonts on the machine that is rendering the fonts
       packages = with pkgs; [
         meslo-lgs-nf
       ];
