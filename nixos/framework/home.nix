@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-  home.stateVersion = "21.11";
+  home.stateVersion = "23.11";
 
   myHome = {
     gnome.enable = true;
@@ -10,6 +10,11 @@
     neovim = {
       enable = true;
       enableLSP = true;
+    };
+    nextcloud-autosync = {
+      enable = true;
+      folder = "/home/iancleary/Nextcloud/";
+      server = "http://nextcloud.iancleary.me";
     };
   };
 
@@ -22,11 +27,6 @@
 
     gnomeExtensions.tray-icons-reloaded
   ];
-
-  services.nextcloud-client = {
-    enable = true;
-    startInBackground = true;
-  };
 
   #   xdg.configFile."wireplumber/main.lua.d" = {
   #     recursive = true;

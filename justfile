@@ -36,7 +36,11 @@ fwupd:
 lint:
   nix develop --accept-flake-config .#lint
 
-# Lint all files (similar to GitHub Actions), when in a nix-shell
+# format all the files, when in a nix-shell
+format:
+  nixpkgs-fmt .
+
+# check all files (similar to GitHub Actions), when in a nix-shell
 check:
   actionlint
   yamllint .
@@ -48,10 +52,6 @@ check:
 # Check flake evaluation
 flake:
   nix flake check --no-build --all-systems
-
-# format all the files
-format:
-  nix develop --accept-flake-config .#lint --command bash -e nixpkgs-fmt .
 
 # Open the github repo in default web browser
 open:
