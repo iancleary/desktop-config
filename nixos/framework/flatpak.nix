@@ -2,6 +2,7 @@
 
 {
   mySystem.flatpak = {
+    enable = true;
     packages = [
       "im.riot.Riot"
       "com.rafaelmardojai.Blanket" # Background noise
