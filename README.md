@@ -23,7 +23,7 @@ sudo nixos-install --root /mnt --impure --flake .#$HOST
 
 ```bash
 # Go to the repo directory
-sudo ixos-rebuild switch --flake .
+sudo nixos-rebuild switch --flake .
 ```
 
 ## Non-NixOS
