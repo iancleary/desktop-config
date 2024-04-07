@@ -37,6 +37,7 @@ in
         };
         Service = {
           Type = "simple";
+          ExecStartPre="mkdir -p ${cfg.folder}";
           ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h -n ${cfg.folder} ${cfg.server}";
           TimeoutStopSec = "180";
           KillMode = "process";
