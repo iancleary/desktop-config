@@ -1,22 +1,21 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 
-telescope.setup {
-  defaults = {
-    layout_config = {
-      prompt_position = 'top',
-    },
-    layout_strategy = 'horizontal',
-    sorting_strategy = 'ascending',
-    use_less = false,
-  },
-  pickers = {
-    find_files = {
-      find_command = { 'rg', '--files', '--hidden', '--no-ignore-vcs', '--iglob', '!.git' },
-    },
-  }
-}
-
+telescope.setup({
+	defaults = {
+		layout_config = {
+			prompt_position = "top",
+		},
+		layout_strategy = "horizontal",
+		sorting_strategy = "ascending",
+		use_less = false,
+	},
+	pickers = {
+		find_files = {
+			find_command = { "rg", "--files", "--hidden", "--no-ignore-vcs", "--iglob", "!.git" },
+		},
+	},
+})
 
 vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Open file picker" })
 vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Open buffer picker" })
