@@ -20,4 +20,12 @@ jobs:
           pr-labels: |                   # Labels to be set on the PR
             dependencies
             automated
+          # yamllint disable rule:line-length
+          pr-body: |
+            Automated changes by the [update-flake-lock](https://github.com/DeterminateSystems/update-flake-lock) GitHub Action.
+
+            ```
+            {{ env.GIT_COMMIT_MESSAGE }}
+            ```
+          # yamllint enable rule:line-length
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
