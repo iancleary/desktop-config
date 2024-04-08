@@ -1,22 +1,20 @@
+local telescope = require("telescope")
 local builtin = require("telescope.builtin")
-local setup = require("telescope.setup")
 
-setup.pickers = {
-  layout_config = {
-	width = 0.9,
-	height = 0.9,
+telescope.setup {
+  defaults = {
+    layout_config = {
+      prompt_position = 'top',
+    },
+    layout_strategy = 'horizontal',
+    sorting_strategy = 'ascending',
+    use_less = false,
   },
-  find_files = {
-	hidden = true,
-  },
-  sorting_strategy = "ascending",
-  mappings = {
-	i = {
-	  ["<esc>"] = builtin.close,
-	  ["<C-j>"] = builtin.move_selection_next,
-	  ["<C-k>"] = builtin.move_selection_previous,
-	},
-  },
+  pickers = {
+    find_files = {
+      find_command = { 'rg', '--files', '--hidden', '--no-ignore-vcs', '--iglob', '!.git' },
+    },
+  }
 }
 
 
