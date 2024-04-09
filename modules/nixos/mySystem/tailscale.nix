@@ -15,9 +15,9 @@ in
   config = lib.mkIf cfg.enable {
     services.tailscale.enable = true;
 
-    environment.systemPackages = with pkgs; mkMerge [
-      (mkIf cfg.unstable unstable.tailscale-unstable)
-      (mkIf (!cfg.unstable) tailscale)
+    environment.systemPackages = with pkgs; lib.mkMerge [
+      (lib.mkIf cfg.unstable unstable.tailscale-unstable)
+      (lib.mkIf (!cfg.unstable) tailscale)
     ];
 
     systemd.network.wait-online.ignoredInterfaces = [
