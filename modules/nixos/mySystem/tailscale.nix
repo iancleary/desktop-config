@@ -16,7 +16,7 @@ in
     services.tailscale.enable = true;
 
     environment.systemPackages = with pkgs; lib.mkMerge [
-      (lib.mkIf cfg.unstable unstable.tailscale-unstable)
+      (lib.mkIf cfg.unstable unstable.tailscale)
       (lib.mkIf (!cfg.unstable) tailscale)
     ];
 
