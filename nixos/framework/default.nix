@@ -16,7 +16,10 @@
   mySystem = {
     gnome.enable = true;
     gaming.enable = true;
-    tailscale.enable = true;
+    tailscale = {
+      enable = true;
+      unstable = true;
+    };
     vmHost = true;
     dockerHost = true;
     home-manager = {
