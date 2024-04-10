@@ -84,10 +84,10 @@ in
     programs = {
       gnome-terminal.enable = true;
       zsh.vteIntegration = true;
-      #   kdeconnect = {
-      #     enable = true;
-      #     package = pkgs.gnomeExtensions.gsconnect;
-      #   };
+      kdeconnect = {
+        enable = true;
+        package = pkgs.gnomeExtensions.gsconnect;
+      };
     };
 
     hardware.pulseaudio.enable = false;
