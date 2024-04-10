@@ -18,9 +18,10 @@ in
         gnome.sushi
         linssid
         angryipscanner
+        todoist-electron
         xdg-desktop-portal-gnome
         gnomeExtensions.appindicator
-        # gnomeExtensions.gsconnect
+        gnomeExtensions.gsconnect
       ];
       gnome.excludePackages = with pkgs.gnome; [
         cheese # webcam tool
