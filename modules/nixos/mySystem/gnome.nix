@@ -32,10 +32,12 @@ in
         totem # video player
         pkgs.gnome-console
         pkgs.gnome-connections
+        pkgs.gnome-tour
+        pkgs.yelp # yelp, gnome-help
         gnome-contacts
         gnome-maps
         gnome-music
-        gnome-weather
+        # gnome-weather
         totem # video player
         tali # poker game
         iagno # go game
