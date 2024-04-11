@@ -12,7 +12,7 @@ telescope.setup({
 	},
 	pickers = {
 		find_files = {
-			find_command = { "rg", "--files", "--hidden", "--no-ignore-vcs", "--iglob", "!.git" },
+			find_command = { "rg", "--files", "--hidden", "--iglob", "!.git" },
 		},
 	},
 })
