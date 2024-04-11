@@ -48,6 +48,7 @@ in
       "org/gnome/desktop/sound".event-sounds = false;
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
+        enable-hot-corners = false;
         monospace-font-name = cfg.font.name;
       };
       "org/gnome/desktop/background" = {
@@ -56,6 +57,9 @@ in
       };
       "org/gnome/desktop/screensaver" = {
         picture-uri = "file://${cfg.wallpaper}";
+      };
+      "org/gnome/mutter" = {
+        experimental-features = [ "scale-monitor-framebuffer" ];
       };
       "org/gnome/terminal/legacy" = {
         theme-variant = "dark";
@@ -70,6 +74,8 @@ in
         font = "${cfg.font.name} ${builtins.toString cfg.font.size}";
         use-system-font = false;
         use-theme-colors = false;
+        default-size-columns = 120;
+        default-size-rows = 60;
         background-color = colors.primary.background;
         foreground-color = colors.primary.foreground;
         bold-color = colors.primary.foreground;
@@ -94,95 +100,3 @@ in
   };
 }
 
-
-# { pkgs, ... }: {
-
-#   # Login picture/avatar
-#   home = {
-#     file.".face".source = ./avatar.jpg;
-#     file.".face".target = ".face";
-
-#     # Themes and extensions
-#     packages = with pkgs; [
-#       yaru-theme
-#       gnomeExtensions.user-themes
-#       gnomeExtensions.tray-icons-reloaded
-#       gnomeExtensions.vitals
-#       gnomeExtensions.dash-to-panel
-#       gnomeExtensions.sound-output-device-chooser
-#       gnomeExtensions.space-bar
-#     ];
-
-#     sessionVariables.GTK_THEME = "Yaru-blue-dark";
-#   };
-
-#   programs.zsh = {
-#     enable = true;
-#     shellAliases = {
-#       code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=Vulkan";
-#     };
-#   };
-
-#   # Configure themes
-#   gtk = {
-#     enable = true;
-
-#     iconTheme = {
-#       name = "Papirus-Dark";
-#       package = pkgs.papirus-icon-theme;
-#     };
-
-#     theme = {
-#       name = "Yaru-blue-dark";
-#       package = pkgs.yaru-theme;
-#     };
-
-#     cursorTheme = {
-#       name = "Numix-Cursor";
-#       package = pkgs.numix-cursor-theme;
-#     };
-
-#     gtk3.extraConfig = {
-#       Settings = ''
-#         gtk-application-prefer-dark-theme=1
-#       '';
-#     };
-
-#     gtk4.extraConfig = {
-#       Settings = ''
-#         gtk-application-prefer-dark-theme=1
-#       '';
-#     };
-#   };
-
-#   # Configure gnome settings and extensions
-#   dconf.settings = {
-#     "org/gnome/mutter" = {
-#       experimental-features = [ "scale-monitor-framebuffer" ];
-#     };
-#     "org/gnome/desktop/interface" = {
-#       color-scheme = "prefer-dark";
-#       enable-hot-corners = false;
-#     };
-#     "org/gnome/desktop/wm/preferences" = {
-#       workspace-names = [ "Main" ];
-#     };
-#     "org/gnome/shell" = {
-#       disable-user-extensions = false;
-
-#       # `gnome-extensions list` for a list
-#       enabled-extensions = [
-#         "user-theme@gnome-shell-extensions.gcampax.github.com"
-#         "trayIconsReloaded@selfmade.pl"
-#         "Vitals@CoreCoding.com"
-#         "dash-to-panel@jderose9.github.com"
-#         # "sound-output-device-chooser@kgshank.net"
-#         "space-bar@luchrioh"
-#       ];
-#     };
-
-#     "org/gnome/shell/extensions/user-theme" = {
-#       name = "Yaru-blue-dark";
-#     };
-#   };
-# }
