@@ -18,6 +18,7 @@
       "nl.hjdskes.gcolor3" # Color picker
       "ca.desrt.dconf-editor"
       "md.obsidian.Obsidian"
+      "com.bitwarden.desktop"
     ];
     update.auto = {
       enable = true;
