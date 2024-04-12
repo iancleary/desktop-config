@@ -41,5 +41,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Indents
 vim.api.nvim_set_option("tabstop", 4)
 vim.api.nvim_set_option("shiftwidth", 4)
+vim.api.nvim_set_option("softtabstop", 4)
+vim.api.nvim_set_option("expandtab", true)
 vim.api.nvim_set_option("smartindent", true)
 vim.cmd("filetype indent plugin on")
