@@ -73,7 +73,7 @@
           defaultModules = (builtins.attrValues nixosModules) ++ [
             agenix.nixosModules.default
             home-manager.nixosModules.default
-            neovim-config.nixosModules.default
+            neovim-config.homeManagerModules.default
             nix-flatpak.nixosModules.nix-flatpak
           ];
           specialArgs = { inherit inputs outputs; };
