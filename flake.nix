@@ -16,14 +16,10 @@
         home-manager.follows = "home-manager";
       };
     };
-    neovim-plugins = {
-      url = "github:LongerHV/neovim-plugins-overlay";
+    neovim-config = {
+      url = "github:iancleary/neovim-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixgl = {
-    #   url = "github:guibou/nixGL";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     flake-hello-world.url = "github:iancleary/flake-hello-world";
   };
@@ -35,8 +31,7 @@
     , nixos-hardware
     , home-manager
     , agenix
-    , neovim-plugins
-      # , nixgl
+    , neovim-config
     , nix-flatpak
     , flake-hello-world
     , ...
@@ -52,9 +47,7 @@
           unstable = nixpkgs-unstable.legacyPackages.${prev.system};
           inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
         };
-        neovimPlugins = neovim-plugins.overlays.default;
         agenix = agenix.overlays.default;
-        # nixgl = nixgl.overlays.default;
       };
 
       legacyPackages = forAllSystems (system:
@@ -80,6 +73,7 @@
           defaultModules = (builtins.attrValues nixosModules) ++ [
             agenix.nixosModules.default
             home-manager.nixosModules.default
+            neovim-config.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
           ];
           specialArgs = { inherit inputs outputs; };

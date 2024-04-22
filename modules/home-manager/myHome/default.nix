@@ -5,7 +5,7 @@
     # ./devops.nix
     ./gnome
     ./nextcloud-autosync
-    ./neovim
+    #./neovim
     ./non-nixos.nix
     ./wsl.nix
     ./tmux.nix
