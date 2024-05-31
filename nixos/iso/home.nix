@@ -3,11 +3,14 @@
 
   myHome = {
     gnome.enable = true;
-    tmux.enable = true;
+  };
+
+  myTerminal = {
     zsh.enable = true;
     neovim = {
       enable = true;
       enableLSP = true;
     };
+    tmux.enable = true;
   };
 }

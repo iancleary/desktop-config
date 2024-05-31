@@ -54,6 +54,10 @@ check:
 flake:
   nix flake check --no-build --all-systems
 
+# Test the configuration
+test:
+  nix flake check --no-build --all-systems
+
 # Open the github repo in default web browser
 open:
   xdg-open https://github.com/iancleary/nixos-config & disown
