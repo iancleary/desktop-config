@@ -69,7 +69,6 @@
   services = {
     fwupd = {
       enable = true;
-      enableTestRemote = true;
     };
     # Enable thermal data
     thermald.enable = true;
@@ -78,7 +77,7 @@
     fprintd.enable = true;
 
     # Enable touchpad support (enabled default in most desktopManager).
-    xserver.libinput.enable = true;
+    libinput.enable = true;
 
     # Enable CUPS to print documents.
     printing.enable = true;
