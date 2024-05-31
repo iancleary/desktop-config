@@ -83,7 +83,6 @@
             agenix.nixosModules.default
             home-manager.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
-            terminal-config.nixosModules.default
           ];
           specialArgs = { inherit inputs outputs; };
 

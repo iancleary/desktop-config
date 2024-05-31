@@ -5,16 +5,20 @@
 
   myHome = {
     gnome.enable = true;
+    nextcloud-autosync = {
+      enable = true;
+      folder = "${config.home.homeDirectory}/Nextcloud/";
+      server = "http://nextcloud.iancleary.me";
+    };
+  };
+
+  myTerminal = {
+    cli.personalGitEnable = true;
     tmux.enable = true;
     zsh.enable = true;
     neovim = {
       enable = true;
       enableLSP = true;
-    };
-    nextcloud-autosync = {
-      enable = true;
-      folder = "${config.home.homeDirectory}/Nextcloud/";
-      server = "http://nextcloud.iancleary.me";
     };
   };
 
