@@ -23,54 +23,7 @@ sudo nixos-install --root /mnt --impure --flake .#$HOST
 
 ```bash
 # Go to the repo directory
-sudo nixos-rebuild switch --flake .
-```
-
-## Non-NixOS
-
-Example steps necessary to bootstrap and use this configuration on Ubuntu.
-
-### In WSL2
-
-We **strongly recommend** [enabling systemd](https://ubuntu.com/blog/ubuntu-wsl-enable-systemd), then installing Nix as normal:
-
-### Installation
-
-First make sure, your user is in the sudo/wheel group.
-
-```bash
-# Install git, curl and xz (e.g. for ubuntu)
-sudo apt install git xz-utils curl
-
-# Clone this repository
-git clone https://github.com/iancleary/nixos-config.git
-cd nixos-config
-
-# Install nix (determinate-systems installation)
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-
-# Open tempoary shell with nix and home-manager (shell.nix)
-nix-shell
-
-# Remove nix (this is necessary, so home-manager can install nix)
-nix-env -e nix
-
-# Install the configuration (adjust to the configuration you want to use )
-home-manager switch --flake .#wsl
-
-# Exit temporary shell
-exit
-
-# Set zsh (installed by nix) as default shell
-echo ~/.nix-profile/bin/zsh | sudo tee -a /etc/shells
-usermod -s ~/.nix-profile/bin/zsh $USER
-```
-
-### Update
-
-```bash
-# Go to the repo directory
-home-manager switch --flake .
+just switch
 ```
 
 ## Live ISO
