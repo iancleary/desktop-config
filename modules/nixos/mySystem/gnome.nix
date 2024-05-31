@@ -14,6 +14,7 @@ in
         firefox
         wl-clipboard
         spotify
+        gedit # changed to pkgs.gedit in 24.05
         gnome.gnome-tweaks
         gnome.sushi
         linssid
@@ -25,7 +26,6 @@ in
       ];
       gnome.excludePackages = with pkgs.gnome; [
         cheese # webcam tool
-        gedit # text editor
         epiphany # web browser
         geary # email reader
         evince # document viewer
@@ -50,8 +50,10 @@ in
       xserver = {
         enable = true;
         # Configure keymap in X11
-        layout = "us";
-        xkbVariant = "";
+        xkb = {
+          layout = "us";
+          variant = "";
+        };
         # enable GNOME
         displayManager.gdm = {
           enable = true;
