@@ -1,2 +1,0 @@
-nix flake init -t "github:iancleary/dev-templates#$1"
-direnv allow
