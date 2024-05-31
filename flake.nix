@@ -26,6 +26,7 @@
     # };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     flake-hello-world.url = "github:iancleary/flake-hello-world";
+    terminal-config.url = "github:iancleary/terminal-config";
   };
 
   outputs =
@@ -39,6 +40,7 @@
       # , nixgl
     , nix-flatpak
     , flake-hello-world
+    , terminal-config
     , ...
     }@inputs:
     let
@@ -52,7 +54,7 @@
           unstable = nixpkgs-unstable.legacyPackages.${prev.system};
           inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
         };
-        neovimPlugins = neovim-plugins.overlays.default;
+        neovimPlugins = terminal-config.overlays.default;
         agenix = agenix.overlays.default;
         # nixgl = nixgl.overlays.default;
       };
@@ -114,16 +116,5 @@
             ];
           };
         };
-
-      homeConfigurations = {
-        # Ubuntu WSL at home
-        wsl = home-manager.lib.homeManagerConfiguration {
-          pkgs = legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = (builtins.attrValues homeManagerModules) ++ [
-            ./home-manager/wsl.nix
-          ];
-        };
-      };
     };
 }
