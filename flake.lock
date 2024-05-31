@@ -920,11 +920,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
-        "lastModified": 1717184565,
-        "narHash": "sha256-TFVzsDPa9ghIsQFqNzcxU/OuNiZ53/7NBSVSXFzfiH8=",
+        "lastModified": 1717184756,
+        "narHash": "sha256-cvhHtkO0kqjAWE0zCLKnxqFI6v/Zo/0k7OjUM9McFbQ=",
         "owner": "iancleary",
         "repo": "terminal-config",
-        "rev": "240097e005736e5471b76ce56cf516f4b83be110",
+        "rev": "ccbdd93501500e6ab5f3ba63705696dce94df6ff",
         "type": "github"
       },
       "original": {
