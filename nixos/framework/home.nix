@@ -5,7 +5,7 @@
 
   myHome = {
     gnome.enable = false;
-#     kde.enable = true;
+    #     kde.enable = true;
     nextcloud-autosync = {
       enable = true;
       folder = "${config.home.homeDirectory}/Nextcloud/";

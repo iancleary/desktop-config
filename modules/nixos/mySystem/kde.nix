@@ -39,7 +39,7 @@ in
       };
       displayManager.sddm.enable = true;
       desktopManager.plasma6.enable = true;
-#       udev.packages = [ pkgs.gnome.gnome-settings-daemon ];
+      #       udev.packages = [ pkgs.gnome.gnome-settings-daemon ];
       pipewire = {
         enable = true;
         alsa.enable = true;

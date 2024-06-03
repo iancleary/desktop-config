@@ -14,8 +14,7 @@ in
     ./virt.nix
   ];
 
-  options.mySystem = with lib; {
-  };
+  options.mySystem = with lib; { };
 
   config = {
     hardware.enableRedistributableFirmware = lib.mkDefault true;
