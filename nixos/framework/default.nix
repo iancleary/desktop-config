@@ -139,6 +139,7 @@
 
   networking = {
     hostName = "framework";
+    hostId = "8425e349"; # zfs
   };
 
 
