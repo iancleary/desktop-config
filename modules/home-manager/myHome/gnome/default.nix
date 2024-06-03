@@ -37,7 +37,6 @@ in
     fonts.fontconfig.enable = true;
     home.packages = [
       cfg.font.package
-      gnomeExtensions.tray-icons-reloaded
     ];
     home.file.".face" = {
       source = cfg.avatar;

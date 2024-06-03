@@ -14,7 +14,8 @@
   ];
 
   mySystem = {
-    gnome.enable = true;
+    gnome.enable = false;
+    kde.enable = true;
     gaming.enable = true;
     tailscale = {
       enable = true;

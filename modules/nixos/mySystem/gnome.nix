@@ -23,6 +23,7 @@ in
         xdg-desktop-portal-gnome
         gnomeExtensions.appindicator
         gnomeExtensions.gsconnect
+        gnomeExtensions.tray-icons-reloaded
       ];
       gnome.excludePackages = with pkgs.gnome; [
         cheese # webcam tool
