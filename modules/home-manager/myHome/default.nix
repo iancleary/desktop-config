@@ -2,7 +2,7 @@
 {
   imports = [
     ./colors.nix
-#     ./gnome
+    #     ./gnome
     ./nextcloud-autosync
     ./non-nixos.nix
     inputs.terminal-config.homeManagerModules.default
