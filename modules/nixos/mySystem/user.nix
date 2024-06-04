@@ -25,6 +25,7 @@ in
       extraSpecialArgs = { inherit inputs; };
       sharedModules = builtins.attrValues outputs.homeManagerModules;
       users."${cfg.user}" = import cfg.home-manager.home;
+      backupFileExtension = "backup";
     };
     users = {
       defaultUserShell = pkgs.zsh;

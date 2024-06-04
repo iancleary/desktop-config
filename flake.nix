@@ -79,7 +79,9 @@
 
       nixosConfigurations =
         let
-          defaultModules = (builtins.attrValues nixosModules) ++ [
+          defaultModules = (builtins.attrValues nixosModules) ++
+                           (builtins.attrValues homeManagerModules) ++
+          [
             agenix.nixosModules.default
             home-manager.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
