@@ -35,9 +35,7 @@ in
 
   config = lib.mkIf cfg.enable {
     fonts.fontconfig.enable = true;
-    home.packages = [
-      cfg.font.package
-    ];
+    home.packages = [ cfg.font.package ];
     home.file.".face" = {
       source = cfg.avatar;
       target = ".face";
