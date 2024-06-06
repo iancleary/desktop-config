@@ -6,9 +6,9 @@ let
   inherit (config.myHome) colors;
 in
 {
+
   imports = [ ./terminal.nix ];
   options.myHome.gnome = with lib; {
-    enable = mkEnableOption "gnome";
     wallpaper = mkOption {
       type = types.package;
       default = pkgs.landscapeWallpaper;
