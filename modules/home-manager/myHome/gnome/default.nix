@@ -6,9 +6,9 @@ let
   inherit (config.myHome) colors;
 in
 {
+
   imports = [ ./terminal.nix ];
   options.myHome.gnome = with lib; {
-    enable = mkEnableOption "gnome";
     wallpaper = mkOption {
       type = types.package;
       default = pkgs.landscapeWallpaper;
@@ -40,7 +40,31 @@ in
       source = cfg.avatar;
       target = ".face";
     };
+    gtk = {
+      enable = true;
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
+      };
+      cursorTheme = {
+        name = "Numix-Cursor";
+        package = pkgs.numix-cursor-theme;
+      };
+    };
     dconf.settings = {
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+        enabled-extensions = [
+          "gsconnect@andyholmes.github.io"
+          "trayIconsReloaded@selfmade.pl"
+        ];
+      };
+      "org/gnome/desktop/interface" = {
+        gtk-theme = "Adwaita-dark";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys" = {
+        screensaver = [ "<Shift><Control><Super>l" ];
+      };
       "org/gnome/desktop/peripherals/trackball" = {
         scroll-wheel-emulation-button = 8;
         middle-click-emulation = true;

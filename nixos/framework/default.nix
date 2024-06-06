@@ -14,7 +14,8 @@
   ];
 
   mySystem = {
-    gnome.enable = true;
+    gnome.enable = false;
+    kde.enable = true;
     gaming.enable = true;
     tailscale = {
       enable = true;
@@ -138,6 +139,7 @@
 
   networking = {
     hostName = "framework";
+    hostId = "8425e349"; # zfs
   };
 
 
@@ -162,6 +164,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }
