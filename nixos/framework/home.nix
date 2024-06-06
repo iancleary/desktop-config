@@ -4,8 +4,8 @@
   home.stateVersion = "24.05";
 
   myHome = {
-    # gnome.enable = false;
-    # kde.enable = true;
+    gnome.enable = false;
+    kde.enable = true;
     nextcloud-autosync = {
       enable = true;
       folder = "${config.home.homeDirectory}/Nextcloud/";
