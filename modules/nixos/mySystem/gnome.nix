@@ -14,6 +14,7 @@ in
         firefox
         wl-clipboard
         spotify
+        warp-terminal
         gedit # changed to pkgs.gedit in 24.05
         gnome.gnome-tweaks
         gnome.sushi
