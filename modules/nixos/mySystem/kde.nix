@@ -14,6 +14,7 @@ in
         firefox
         wl-clipboard
         spotify
+        warp-terminal
         linssid
         angryipscanner
         todoist-electron
