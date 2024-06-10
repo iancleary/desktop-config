@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ _, ... }:
 
 {
   mySystem.flatpak = {
@@ -16,7 +16,7 @@
       "org.libreoffice.LibreOffice" # Office suite
       "app/org.videolan.VLC/x86_64/stable" # Video player
       "nl.hjdskes.gcolor3" # Color picker
-      "ca.desrt.dconf-editor"
+      # "ca.desrt.dconf-editor"
       "md.obsidian.Obsidian"
       "com.bitwarden.desktop"
     ];
