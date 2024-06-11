@@ -17,7 +17,7 @@
       };
     };
     neovim-plugins = {
-      url = "github:LongerHV/neovim-plugins-overlay";
+      url = "github:iancleary/neovim-plugins-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # nixgl = {
