@@ -20,9 +20,7 @@ in
         todoist-electron
         xdg-desktop-portal-kde
       ];
-      plasma6.excludePackages = with pkgs.plasma6; [
 
-      ];
     };
 
     services = {
