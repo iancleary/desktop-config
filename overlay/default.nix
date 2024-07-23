@@ -6,6 +6,6 @@ final: prev: {
   };
   avatarPicture = builtins.fetchurl {
     url = "https://avatars.githubusercontent.com/u/9398410?v=4";
-    sha256 = "bc29930dd9149571875a8d71048f1cc33719eefdd17db0645fd36986252dac7e";
+    sha256 = "1f13zzv194rlahlm4afwkzxgr3qc4aa2f8jx5pazyfl96hqrq9xr";
   };
 }
