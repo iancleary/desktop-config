@@ -24,19 +24,21 @@ in
   # Optional, hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Install Flatpak
-  services.flatpak.enable = true;
+  services = {
+    # Gnome Keyring
+    gnome.gnome-keyring.enable = true;
+    polkit.enable = true;
 
-  # Gnome Keyring
-  services.gnome.gnome-keyring.enable = true;
-  security.polkit.enable = true;
+    flatpak.enable = true;
 
+    # Bluetooth
+    blueman.enable = true;
+
+  };
   # swaylock
   # https://discourse.nixos.org/t/swaylock-wont-unlock/27275
-  security.pam.services.swaylock = { };
   security.pam.services.swaylock.fprintAuth = false;
 
-  services.blueman.enable = true;
 
   environment.systemPackages = with pkgs; [
     # xdg-desktop-portal-hyprland # display portal for hyprland, required
