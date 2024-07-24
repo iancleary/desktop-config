@@ -15,6 +15,7 @@ in
   imports = [
     ./colors.nix
     ./gnome
+    ./hyprland
     ./nextcloud-autosync
     ./non-nixos.nix
     inputs.terminal-config.homeManagerModules.default
