@@ -15,7 +15,8 @@
 
   mySystem = {
     gnome.enable = false;
-    kde.enable = false;
+    kde.enable = true;
+    hyprland.enable = true;
     gaming.enable = true;
     tailscale = {
       enable = true;
