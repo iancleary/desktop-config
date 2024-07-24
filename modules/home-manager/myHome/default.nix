@@ -12,6 +12,11 @@ in
     enable = mkEnableOption "kde";
   };
 
+  options.myHome.hyprland = with lib; {
+    enable = mkEnableOption "hyprland";
+  };
+
+
   imports = [
     ./colors.nix
     ./gnome
