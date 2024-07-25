@@ -6,6 +6,7 @@
   myHome = {
     gnome.enable = false;
     kde.enable = true;
+    hyprland.enable = true;
     nextcloud-autosync = {
       enable = true;
       folder = "${config.home.homeDirectory}/Nextcloud/";
