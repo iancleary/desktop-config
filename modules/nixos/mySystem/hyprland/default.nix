@@ -4,19 +4,11 @@ let
   cfg = config.mySystem.hyprland;
 in
 {
-  options.mySystem.hyprland = with lib; {
-    enable = mkEnableOption "hyprland";
-    packages = mkOption {
-      type = types.listOf types.str;
-      default = [ ];
-    };
+  options.mySystem.hyprland = {
+    enable = lib.mkEnableOption "hyprland";
   };
 
   config = lib.mkIf cfg.enable {
-    imports = [
-      # custom package
-      ./power-panel.nix
-    ];
     programs.hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -25,16 +17,16 @@ in
     # Optional, hint electron apps to use wayland:
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-    services = {
-      # Gnome Keyring
-      gnome.gnome-keyring.enable = true;
-      polkit.enable = true;
 
+    # Gnome keyring
+    services.gnome.gnome-keyring.enable = true;
+    security.polkit.enable = true;
+
+    services = {
       flatpak.enable = true;
 
       # Bluetooth
       blueman.enable = true;
-
     };
     # swaylock
     # https://discourse.nixos.org/t/swaylock-wont-unlock/27275
