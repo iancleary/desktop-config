@@ -27,7 +27,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     flake-hello-world.url = "github:iancleary/flake-hello-world";
     terminal-config.url = "github:iancleary/terminal-config";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
