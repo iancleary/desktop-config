@@ -62,9 +62,7 @@ in
       xdg-utils # allow xdg-open to work
 
       firefox
-      wl-clipboard
       spotify
-      warp-terminal
       linssid
       angryipscanner
       todoist-electron
