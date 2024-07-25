@@ -4,18 +4,21 @@ let
   cfg = config.myHome;
 in
 {
-  options.myHome.gnome = with lib; {
-    enable = mkEnableOption "gnome";
-  };
+  options = {
+    myHome = {
+      gnome = with lib; {
+        enable = mkEnableOption "gnome";
+      };
 
-  options.myHome.kde = with lib; {
-    enable = mkEnableOption "kde";
-  };
+      kde = with lib; {
+        enable = mkEnableOption "kde";
+      };
 
-  options.myHome.hyprland = with lib; {
-    enable = mkEnableOption "hyprland";
+      hyprland = with lib; {
+        enable = mkEnableOption "hyprland";
+      };
+    };
   };
-
 
   imports = [
     ./colors.nix
