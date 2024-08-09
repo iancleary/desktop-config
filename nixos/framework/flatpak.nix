@@ -18,8 +18,11 @@
       "nl.hjdskes.gcolor3" # Color picker
       # "ca.desrt.dconf-editor"
       "md.obsidian.Obsidian"
-      # "com.todoist.Todoist"
       "com.bitwarden.desktop"
+
+      # Todoist
+      # "com.todoist.Todoist" # electron, no thanks
+      "io.github.alainm23.planify"
     ];
     update.auto = {
       enable = true;

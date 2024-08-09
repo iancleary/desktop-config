@@ -92,7 +92,7 @@ in
         spotify
         linssid
         angryipscanner
-        todoist-electron
+        # todoist-electron
 
         inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
         # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
