@@ -19,7 +19,7 @@
       # "ca.desrt.dconf-editor"
       "md.obsidian.Obsidian"
       "com.todoist.Todoist"
-      "com.bitwarden.desktop"
+      # "com.bitwarden.desktop"
     ];
     update.auto = {
       enable = true;
