@@ -59,42 +59,47 @@ in
       };
     };
 
-    environment.systemPackages = with pkgs; [
-      # xdg-desktop-portal-hyprland # display portal for hyprland, required
-      hyprpaper # wallpaper utility
-      hyprpicker # color picker
-      wl-clipboard # allows copying to clipboard (for hyprpicker)
-      kitty # terminal emulator
-      waybar # wayland bar
-      wofi # app launcher
+    environment = {
+      systemPackages = with pkgs; [
+        # xdg-desktop-portal-hyprland # display portal for hyprland, required
+        hyprpaper # wallpaper utility
+        hyprpicker # color picker
+        wl-clipboard # allows copying to clipboard (for hyprpicker)
+        kitty # terminal emulator
+        waybar # wayland bar
+        wofi # app launcher
 
-      # waybar applets
-      networkmanagerapplet # nm-applet --indicator &
-      blueman # blueman-applet
-      udiskie # removable media/disk mounting
+        # waybar applets
+        networkmanagerapplet # nm-applet --indicator &
+        blueman # blueman-applet
+        udiskie # removable media/disk mounting
 
-      polkit_gnome # polkit agent for GNOME
-      gnome.seahorse # keyring manager GUI
-      gnome.nautilus # file manager
+        polkit_gnome # polkit agent for GNOME
+        gnome.seahorse # keyring manager GUI
+        gnome.nautilus # file manager
 
-      playerctl # media player control
-      brightnessctl # brightness control
+        playerctl # media player control
+        brightnessctl # brightness control
 
-      blueberry # bluetooth manager GUI
-      networkmanager # network manager, including nmtui, a network manager TUI
+        blueberry # bluetooth manager GUI
+        networkmanager # network manager, including nmtui, a network manager TUI
 
-      swaylock # screen locker
+        swaylock # screen locker
 
-      xdg-utils # allow xdg-open to work
+        xdg-utils # allow xdg-open to work
 
-      firefox
-      spotify
-      linssid
-      angryipscanner
-      todoist-electron
+        firefox
+        spotify
+        linssid
+        angryipscanner
+        todoist-electron
 
-      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-      # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
-    ];
+        inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+        # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
+       ];
+       variables = {
+        NIXOS_OZONE_WL=1;
+      };
+    };
   };
 }

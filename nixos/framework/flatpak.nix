@@ -18,8 +18,8 @@
       "nl.hjdskes.gcolor3" # Color picker
       # "ca.desrt.dconf-editor"
       "md.obsidian.Obsidian"
-      "com.todoist.Todoist"
-      # "com.bitwarden.desktop"
+      # "com.todoist.Todoist"
+      "com.bitwarden.desktop"
     ];
     update.auto = {
       enable = true;
