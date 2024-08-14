@@ -1,35 +1,40 @@
-# My NixOS configuration
+# My NixOS configuration with Nix Flakes
 
 [![Made with Neovim](https://img.shields.io/badge/Made%20with-Neovim-green&?style=flat&logo=neovim)](https://neovim.io)
 [![NixOS](https://img.shields.io/badge/NixOS-24.05-blue?style=flat&logo=nixos&logoColor=white)](https://nixos.org)
 
-## NixOS
+### Installation
 
-### Installation (assuming host config already exists)
+First make sure, your user is in the sudo/wheel group.
 
 ```bash
-# All as root
-HOST=...  # set host variable to use proper configuration
 
+# Clone this repository
+git clone git@github.com:iancleary/nixos-config.git
+cd nixos-config
+
+# Open tempoary shell with nix and home-manager (shell.nix)
+# if no flake.lock exists, run `nix flake update`
 nix-shell
-git clone https://this.repo.url/ /etc/nixos
-cd /etc/nixos
-sudo nixos-install --root /mnt --impure --flake .#$HOST
 
-# Reboot
+# Install the configuration (adjust #framework to your #yourhostname )
+## Boot is used here so you don't mess up your current session
+## This is useful when switching desktop environments or display managers
+sudo nixos-rebuild boot --flake .#framework
+
+
+# Exit temporary shell
+exit
 ```
 
-### System update
+> Make sure to update the flake.nix and nixos/<hostname> folders for your hostname
+
+### Update
 
 ```bash
 # Go to the repo directory
-just switch
-```
-
-## Live ISO
-
-```bash
-nix build .#nixosConfigurations.isoimage.config.system.build.isoImage
+nix flake update
+sudo nixos-rebuild switch --flake .
 ```
 
 ## Resources
@@ -41,3 +46,4 @@ nix build .#nixosConfigurations.isoimage.config.system.build.isoImage
 - [Building NixOS ISO](https://ash64.eu/2022/03/08/custom-nixos-isos/)
 - [NixOS manual](https://nixos.org/manual/nix/stable)
 - [NixOS Configuration - Folder Structure This Repo was based on](https://github.com/LongerHV/nixos-configuration/tree/3d9baf05bc1bc34e2b9137a475db123e84b7aec5)
+
