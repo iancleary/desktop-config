@@ -37,6 +37,16 @@ nix flake update
 sudo nixos-rebuild switch --flake .
 ```
 
+### Desktop
+
+Super + r to launch runner
+
+![Hyprland Desktop with runner](docs/desktop.png)
+
+Neofetch in kitty (Super + q)
+
+![Neofetch in kitty terminal emulator](docs/neofetch.png)
+
 ## Resources
 
 - [Nix config template](https://github.com/Misterio77/nix-starter-configs)
