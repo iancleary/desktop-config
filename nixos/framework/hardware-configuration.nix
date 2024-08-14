@@ -9,42 +9,46 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    {
-      device = "rpool/safe/system/root";
-      fsType = "zfs";
+  boot = {
+    initrd = {
+      availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
+      initrd.kernelModules = [ ];
     };
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
+  };
+  fileSystems = {
+    "/" =
+      {
+        device = "rpool/safe/system/root";
+        fsType = "zfs";
+      };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/CC98-279B";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+    "/boot" =
+      {
+        device = "/dev/disk/by-uuid/CC98-279B";
+        fsType = "vfat";
+        options = [ "fmask=0022" "dmask=0022" ];
+      };
 
-  fileSystems."/nix" =
-    {
-      device = "rpool/local/nix";
-      fsType = "zfs";
-    };
+    "/nix" =
+      {
+        device = "rpool/local/nix";
+        fsType = "zfs";
+      };
 
-  fileSystems."/var" =
-    {
-      device = "rpool/safe/system/var";
-      fsType = "zfs";
-    };
+    "/var" =
+      {
+        device = "rpool/safe/system/var";
+        fsType = "zfs";
+      };
 
-  fileSystems."/home/iancleary" =
-    {
-      device = "rpool/safe/home/iancleary";
-      fsType = "zfs";
-    };
-
+    "/home/iancleary" =
+      {
+        device = "rpool/safe/home/iancleary";
+        fsType = "zfs";
+      };
+  };
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
