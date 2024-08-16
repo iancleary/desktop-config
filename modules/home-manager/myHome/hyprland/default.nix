@@ -14,6 +14,11 @@ in
       ".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
       ".config/hypr/hyprpaper.conf".target = ".config/hypr/hyprpaper.conf";
 
+      ".config/waybar/config".source = ./waybar.config;
+      ".config/waybar/config".target = ".config/waybar/config";
+
+      ".config/waybar/style.css".source = ./waybar.css;
+      ".config/waybar/style.css".target = ".config/waybar/style,css";
 
       ".config/hypr/wallpaper-red.jpg".source = ./justinmaller-red-black-abstract.jpg;
       ".config/hypr/wallpaper-red.jpg".target = ".config/hypr/wallpaper-red.jpg";
