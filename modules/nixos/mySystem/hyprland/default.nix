@@ -36,32 +36,28 @@ in
       # https://nixos.wiki/wiki/Greetd
       # tweaked for Hyprland
       # ...
-      # launches swaylock with exec-once in home/hyprland/hyprland.conf
-      # ...
-      # single user and single window manager
-      # my goal here is auto-login with authentication
-      # so I can declare my user and environment (Hyprland) in this config
-      # my goal is NOT to allow user selection or environment selection at the the login screen
-      # (which a login manager provides beyond just the authentication check)
-      # so I don't need a login manager
-      # I just launch Hyprland as iancleary automatically, which starts swaylock (to authenticate)
-      # I thought I needed a greeter, but I really don't
+      # launches into hyprland on boot
+      # Super + L launches swaylock with exec-once in home/hyprland/hyprland.conf (lockscreen)
+      # logout with `hyprctl dispatch exit` to logout, which starts tuigreet
       # ...
       greetd = {
         enable = true;
-          settings = rec {
-            initial_session = {
-              command = "${pkgs.hyprland}/bin/Hyprland";
-              user = "iancleary";
-        };
-           default_session = initial_session;
+        settings = {
+          initial_session = {
+            command = "${pkgs.hyprland}/bin/Hyprland";
+            user = "iancleary";
+          };
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time --cmd ${pkgs.hyprland}/bin/Hyprland";
+            user = "greeter";
+          };
         };
       };
     };
 
     environment = {
       systemPackages = with pkgs; [
-        # xdg-desktop-portal-hyprland # display portal for hyprland, required
+
         hyprpaper # wallpaper utility
         hyprpicker # color picker
         wl-clipboard # allows copying to clipboard (for hyprpicker)
@@ -98,7 +94,6 @@ in
         # todoist-electron
 
         inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-        # pkgs-unstable.lemurs # TUI Login manager (crashes on NixOS)
       ];
     };
   };
