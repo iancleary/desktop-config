@@ -13,10 +13,14 @@ echo:
 update:
   nix flake update
 
-# Run `sudo nixos-rebuild switch` (only for nixos)
+# Run `sudo nixos-rebuild switch`
 switch:
   echo "nix-flatpak initial build may take a while..."
   sudo nixos-rebuild switch --flake .
+
+# Run `sudo nixos-rebuild boot --flake .`
+boot:
+  sudo nixos-rebuild boot --flake .
 
 # garbage collect
 gc:
