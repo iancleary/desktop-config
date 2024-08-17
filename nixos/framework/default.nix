@@ -6,7 +6,7 @@
 
 {
   imports = [
-    inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
+    inputs.nixos-hardware.nixosModules.framework-13-7040-amd
     ./hardware-configuration.nix
     ./networking.nix
     ./vm-variant.nix
