@@ -73,7 +73,7 @@ in
 
         # where-is-my-sddm-theme
 
-        xdg-desktop-portal-hyprland # display portal for hyprland, required
+        # xdg-desktop-portal-hyprland # display portal for hyprland, required
         hyprpaper # wallpaper utility
         hyprpicker # color picker
         wl-clipboard # allows copying to clipboard (for hyprpicker)
