@@ -18,7 +18,7 @@ in
       ".config/waybar/config".target = ".config/waybar/config";
 
       ".config/waybar/style.css".source = ./waybar.css;
-      ".config/waybar/style.css".target = ".config/waybar/style,css";
+      ".config/waybar/style.css".target = ".config/waybar/style.css";
 
       ".config/hypr/wallpaper-red.jpg".source = ./justinmaller-red-black-abstract.jpg;
       ".config/hypr/wallpaper-red.jpg".target = ".config/hypr/wallpaper-red.jpg";

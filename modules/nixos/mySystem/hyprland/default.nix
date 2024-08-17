@@ -49,19 +49,32 @@ in
       # ...
       greetd = {
         enable = true;
-        settings = rec {
+        settings = {
           initial_session = {
             command = "${pkgs.hyprland}/bin/Hyprland";
             user = "iancleary";
           };
-          default_session = initial_session;
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time --cmd ${pkgs.hyprland}/bin/Hyprland";
+            user = "greeter";
+          };
         };
       };
+      #displayManager = {
+      #  defaultSession = "hyprland";
+      #  sddm = {
+      #  enable = true;
+      #  wayland.enable = true;
+      #  theme = "where_is_my_sddm_theme";
+      #  package = pkgs.unstable.plasma5Packages.sddm;
+      #};
+      #};
     };
 
     environment = {
       systemPackages = with pkgs; [
-        # xdg-desktop-portal-hyprland # display portal for hyprland, required
+
+        # where-is-my-sddm-theme
         hyprpaper # wallpaper utility
         hyprpicker # color picker
         wl-clipboard # allows copying to clipboard (for hyprpicker)
