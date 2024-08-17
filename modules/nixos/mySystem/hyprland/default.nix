@@ -47,15 +47,19 @@ in
       # I just launch Hyprland as iancleary automatically, which starts swaylock (to authenticate)
       # I thought I needed a greeter, but I really don't
       # ...
-      greetd = {
+      #greetd = {
+      #  enable = true;
+        #    settings = rec {
+        #    initial_session = {
+        #      command = "${pkgs.hyprland}/bin/Hyprland";
+        #      user = "iancleary";
+        #};
+        #   default_session = initial_session;
+      #};
+      #};
+      xserver.displayManager.sddm = {
         enable = true;
-          settings = rec {
-            initial_session = {
-              command = "${pkgs.hyprland}/bin/Hyprland";
-              user = "iancleary";
-        };
-           default_session = initial_session;
-        };
+        wayland.enable = true;
       };
     };
 
