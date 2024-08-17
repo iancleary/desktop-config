@@ -57,15 +57,22 @@ in
         #   default_session = initial_session;
       #};
       #};
-      xserver.displayManager.sddm = {
-        enable = true;
-        wayland.enable = true;
+      displayManager = {
+        defaultSession = "hyprland";
+        sddm = {
+          enable = true;
+          wayland.enable = true;
+          theme = "where_is_my_sddm_theme";
+        };
       };
     };
 
     environment = {
       systemPackages = with pkgs; [
-        # xdg-desktop-portal-hyprland # display portal for hyprland, required
+
+        where_is_my_sddm_theme
+
+        xdg-desktop-portal-hyprland # display portal for hyprland, required
         hyprpaper # wallpaper utility
         hyprpicker # color picker
         wl-clipboard # allows copying to clipboard (for hyprpicker)
