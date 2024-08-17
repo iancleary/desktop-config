@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, pkgs-unstable, ... }:
 
 let
   cfg = config.mySystem.hyprland;
@@ -63,6 +63,7 @@ in
           enable = true;
           wayland.enable = true;
           theme = "where_is_my_sddm_theme";
+          package = pkgs-unstable.plasma5Packages.sddm;
         };
       };
     };
