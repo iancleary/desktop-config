@@ -88,6 +88,8 @@ in
 
         xdg-utils # allow xdg-open to work
 
+        inter # font
+
         firefox
         spotify
         linssid

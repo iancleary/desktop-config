@@ -18,15 +18,13 @@
 @define-color content_inactive rgba(255, 255, 255, 0.25);
 
 * {
-	text-shadow: none;
-	box-shadow: none;
+  text-shadow: none;
+  box-shadow: none;
   border: none;
   border-radius: 0;
-	font-family: "Segoe UI", "Ubuntu";
+  font-family: "Inter";
   font-weight: 600;
   font-size: 12.7px;
-	
-	
 }
 
 window#waybar {
