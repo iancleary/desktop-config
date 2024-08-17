@@ -8,6 +8,11 @@ in
     enable = lib.mkEnableOption "hyprland";
   };
 
+  # custom package
+  imports = [
+    ./power-panel.nix
+  ];
+
   config = lib.mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
