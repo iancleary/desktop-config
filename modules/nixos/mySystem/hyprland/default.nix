@@ -57,21 +57,21 @@ in
         #   default_session = initial_session;
       #};
       #};
-      displayManager = {
-        defaultSession = "hyprland";
-        sddm = {
-          enable = true;
-          wayland.enable = true;
-          theme = "where_is_my_sddm_theme";
-          package = pkgs.unstable.plasma5Packages.sddm;
-        };
-      };
+      #displayManager = {
+      #  defaultSession = "hyprland";
+        #  sddm = {
+        #  enable = true;
+        #  wayland.enable = true;
+        #  theme = "where_is_my_sddm_theme";
+        #  package = pkgs.unstable.plasma5Packages.sddm;
+      #};
+      #};
     };
 
     environment = {
       systemPackages = with pkgs; [
 
-        where-is-my-sddm-theme
+        # where-is-my-sddm-theme
 
         xdg-desktop-portal-hyprland # display portal for hyprland, required
         hyprpaper # wallpaper utility
