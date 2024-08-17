@@ -55,7 +55,7 @@ in
             user = "iancleary";
           };
          default_session = {
-            command = "${pkgs.hyprland}/bin/Hyprland";
+            command = "${pkgs.greetd.regreet}/bin/regreet";
             user = "greeter";
           };
         };
