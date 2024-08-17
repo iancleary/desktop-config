@@ -49,12 +49,15 @@ in
       # ...
       greetd = {
         enable = true;
-          settings = rec {
+          settings = {
           initial_session = {
             command = "${pkgs.hyprland}/bin/Hyprland";
             user = "iancleary";
           };
-         default_session = initial_session;
+         default_session = {
+            command = "${pkgs.hyprland}/bin/Hyprland";
+            user = "greeter";
+          };
         };
         package = pkgs.greetd.regreet;
       };
