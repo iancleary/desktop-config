@@ -50,11 +50,11 @@ in
       greetd = {
         enable = true;
           settings = {
-          initial_session = {
+          default_session = {
             command = "${pkgs.hyprland}/bin/Hyprland";
             user = "iancleary";
           };
-         default_session = {
+          initial_session = {
             command = "${pkgs.greetd.regreet}/bin/regreet";
             user = "greeter";
           };
