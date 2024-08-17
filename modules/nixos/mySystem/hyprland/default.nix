@@ -70,7 +70,7 @@ in
     environment = {
       systemPackages = with pkgs; [
 
-        where_is_my_sddm_theme
+        where-is-my-sddm-theme
 
         xdg-desktop-portal-hyprland # display portal for hyprland, required
         hyprpaper # wallpaper utility
