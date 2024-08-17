@@ -49,17 +49,16 @@ in
       # ...
       greetd = {
         enable = true;
-          settings = {
-          default_session = {
+        settings = {
+          initial_session = {
             command = "${pkgs.hyprland}/bin/Hyprland";
             user = "iancleary";
           };
-          initial_session = {
-            command = "${pkgs.greetd.regreet}/bin/regreet";
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time --cmd ${pkgs.hyprland}/bin/Hyprland";
             user = "greeter";
           };
         };
-        package = pkgs.greetd.regreet;
       };
       #displayManager = {
       #  defaultSession = "hyprland";
