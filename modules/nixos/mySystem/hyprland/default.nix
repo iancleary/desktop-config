@@ -61,7 +61,7 @@ in
         defaultSession = "hyprland";
         sddm = {
           enable = true;
-          wayland.enable = true;
+          wayland.enable = false;
           theme = "where_is_my_sddm_theme";
           package = pkgs.unstable.plasma5Packages.sddm;
         };
