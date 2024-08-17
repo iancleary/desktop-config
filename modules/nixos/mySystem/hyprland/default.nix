@@ -63,7 +63,7 @@ in
           enable = true;
           wayland.enable = true;
           theme = "where_is_my_sddm_theme";
-          package = pkgs.unstable.plasma5Packages.sddm;
+          package = pkgs.unstable.plasma6Packages.sddm;
         };
       };
     };
