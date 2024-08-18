@@ -7,8 +7,8 @@ in
   config = lib.mkIf cfg.enable {
     # hyprland configuration
     home.file = {
-      ".config/hypr/hyprland.conf".source = ./hyprland.conf;
-      ".config/hypr/hyprland.conf".target = ".config/hypr/hyprland.conf";
+      #".config/hypr/hyprland.conf".source = ./hyprland.conf;
+      #".config/hypr/hyprland.conf".target = ".config/hypr/hyprland.conf";
 
       # wallpaper configuration
       ".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
