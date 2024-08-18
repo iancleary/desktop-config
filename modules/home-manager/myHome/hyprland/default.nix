@@ -42,7 +42,7 @@ in
       config = {
         plugin = {
           applications = {
-              enable = true;
+            enable = true;
           };
           brave_bookmarks = {
             enable = true;
@@ -54,48 +54,48 @@ in
             enable = true;
           };
           clock = {
-              enable = true;
+            enable = true;
           };
           firefox_bookmarks = {
-              enable = true;
+            enable = true;
           };
           firefox_history = {
-                enable = true;
+            enable = true;
           };
           git_repositories = {
-              enable = true;
-              commands = [
-                  ["alacritty" "--command" "nvim" "$GIT_DIRECTORY"]
-                  ["alacritty" "--working-directory" "$GIT_DIRECTORY"]
-              ];
+            enable = true;
+            commands = [
+              [ "alacritty" "--command" "nvim" "$GIT_DIRECTORY" ]
+              [ "alacritty" "--working-directory" "$GIT_DIRECTORY" ]
+            ];
           };
           gitmoji = {
-              enable = false;
+            enable = false;
           };
           resource_monitor_battery = {
-              enable = true;
+            enable = true;
           };
           resource_monitor_cpu = {
-              enable = true;
+            enable = true;
           };
           resource_monitor_disks = {
-              enable = true;
+            enable = true;
           };
           resource_monitor_memory = {
-              enable = true;
+            enable = true;
           };
           system = {
-              enable = true;
+            enable = true;
           };
           wifi = {
-              enable = true;
+            enable = true;
           };
         };
       };
-    # enables a systemd service to index git-repositories
-    services.index-git-repositories = {
-         enable = true;
-         interval = "5min";
+      # enables a systemd service to index git-repositories
+      services.index-git-repositories = {
+        enable = true;
+        interval = "5min";
       };
     };
   };
