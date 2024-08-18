@@ -25,6 +25,7 @@
   };
 
   home.packages = with pkgs; [
+    alacritty
     brave
     jellyfin-media-player
     protonup

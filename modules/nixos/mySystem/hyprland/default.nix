@@ -63,7 +63,7 @@ in
         wl-clipboard # allows copying to clipboard (for hyprpicker)
         kitty # terminal emulator
         waybar # wayland bar
-        wofi # app launcher
+        # wofi # app launcher, replaced by centerpiece
 
         # waybar applets
         networkmanagerapplet # nm-applet --indicator &
