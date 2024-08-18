@@ -25,7 +25,6 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
-    flake-hello-world.url = "github:iancleary/flake-hello-world";
     terminal-config.url = "github:iancleary/terminal-config";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
@@ -33,7 +32,7 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    centerpiece.url = "github:friedow/centerpiece";
   };
 
   outputs =
@@ -46,10 +45,11 @@
     , neovim-plugins
       # , nixgl
     , nix-flatpak
-    , flake-hello-world
+      # , flake-hello-world
     , terminal-config
     , hyprland
     , hyprland-contrib
+    , centerpiece
     , ...
     }@inputs:
     let

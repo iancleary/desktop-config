@@ -1,9 +1,13 @@
 # home.nix
-{ config, lib, ... }:
+{ config, inputs, lib, ... }:
 let
   cfg = config.myHome.hyprland;
 in
 {
+
+  imports = [
+    inputs.centerpiece.hmModules."x86_64-linux".default
+  ];
   config = lib.mkIf cfg.enable {
     # hyprland configuration
     home.file = {
@@ -31,6 +35,68 @@ in
 
       ".config/hypr/wofi.css".source = ./wofi.css;
       ".config/hypr/wofi.css".target = ".config/hypr/wofi.css";
+    };
+
+    programs.centerpiece = {
+      enable = true;
+      config = {
+        plugin = {
+          applications = {
+              enable = true;
+          };
+          brave_bookmarks = {
+            enable = true;
+          };
+          brave_history = {
+            enable = true;
+          };
+          brave_progressive_web_apps = {
+            enable = true;
+          };
+          clock = {
+              enable = true;
+          };
+          firefox_bookmarks = {
+              enable = true;
+          };
+          firefox_history = {
+                enable = true;
+          };
+          git_repositories = {
+              enable = true;
+              commands = [
+                  ["alacritty" "--command" "nvim" "$GIT_DIRECTORY"]
+                  ["alacritty" "--working-directory" "$GIT_DIRECTORY"]
+              ];
+          };
+          gitmoji = {
+              enable = false;
+          };
+          resource_monitor_battery = {
+              enable = true;
+          };
+          resource_monitor_cpu = {
+              enable = true;
+          };
+          resource_monitor_disks = {
+              enable = true;
+          };
+          resource_monitor_memory = {
+              enable = true;
+          };
+          system = {
+              enable = true;
+          };
+          wifi = {
+              enable = true;
+          };
+        };
+      };
+    # enables a systemd service to index git-repositories
+    services.index-git-repositories = {
+         enable = true;
+         interval = "5min";
+      };
     };
   };
 }
