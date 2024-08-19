@@ -35,49 +35,52 @@
   };
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    # Latest kernel for ZFS
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  };
+  networking = {
+    hostName = "odroid1"; # Define your hostname.
+    # Pick only one of the below networking options.
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
-  # Latest kernel for ZFS
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-
-  networking.hostName = "odroid1"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
-  networking.hostId = "8425e349";
-
+    # ZFS
+    hostId = "8425e349";
+  };
   # Set your time zone.
   # time.timeZone = "America/Phoenix";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # don't allow mutation of users outside of config
-  users.mutableUsers = false;
+  users = {
+    # Define a user account. Don't forget to set a password with ‘passwd’.
+    # don't allow mutation of users outside of config
+    mutableUsers = false;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.iancleary = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
-    # initialPassword = "password";
-    initialHashedPassword = "$y$j9T$Ov2T/rXjvlEr48/5akCcx0$xOvKr97FRq9TLPLVKhEC7rtF7sfvOwpeL2/DC4a2vO1";
+    # Define a user account. Don't forget to set a password with ‘passwd’.
+    users.iancleary = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+      # initialPassword = "password";
+      initialHashedPassword = "$y$j9T$Ov2T/rXjvlEr48/5akCcx0$xOvKr97FRq9TLPLVKhEC7rtF7sfvOwpeL2/DC4a2vO1";
+    };
   };
-
   # packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-      # for ansible configuration
-      # it's located here so this configuration can be copy
-      # and pasted into a new system, without ansible
-      (
-        python310.withPackages(
-            ps: with ps; [
-                # for community.docker.docker_image
-                # and community.docker.docker_compose_v2
-                requests
-                ]
-        )
+    # for ansible configuration
+    # it's located here so this configuration can be copy
+    # and pasted into a new system, without ansible
+    (
+      python310.withPackages (
+        ps: with ps; [
+          # for community.docker.docker_image
+          # and community.docker.docker_compose_v2
+          requests
+        ]
       )
+    )
   ];
 
 

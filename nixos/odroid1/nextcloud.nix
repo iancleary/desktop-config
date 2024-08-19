@@ -10,8 +10,7 @@
   services = {
     nginx.virtualHosts = {
       # "odroid1.tail2500d.ts.net" = {
-      "nextcloud.iancleary.me" = {
-      };
+      "nextcloud.iancleary.me" = { };
     };
     nextcloud = {
       enable = true;
