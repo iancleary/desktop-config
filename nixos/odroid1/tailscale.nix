@@ -1,5 +1,3 @@
-{ _ }:
-
 {
   services.tailscale = {
     extraUpFlags = [
