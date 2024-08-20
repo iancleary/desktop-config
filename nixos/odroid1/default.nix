@@ -63,7 +63,7 @@
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.iancleary = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "docker"]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
       # initialPassword = "password";
       initialHashedPassword = "$y$j9T$Ov2T/rXjvlEr48/5akCcx0$xOvKr97FRq9TLPLVKhEC7rtF7sfvOwpeL2/DC4a2vO1";
     };

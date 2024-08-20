@@ -31,8 +31,8 @@ in
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       services.flatpak = {
-        packages = cfg.packages;
-        uninstallUnmanaged = cfg.uninstallUnmanaged;
+        inherit (cfg) packages;
+        inherit (cfg) uninstallUnmanaged;
         update.auto = cfg.update.auto;
       };
     })
