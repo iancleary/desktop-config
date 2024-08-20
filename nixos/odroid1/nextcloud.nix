@@ -40,9 +40,11 @@
         #   sha256 = "sha256-8XyOslMmzxmX2QsVzYzIJKNw6rVWJ7uDhU1jaKJ0Q8k=";
         # };
       };
-      config = {
+      settings = {
         overwriteProtocol = "http";
         defaultPhoneRegion = "US";
+      };
+      config = {
         dbtype = "pgsql";
         adminuser = "admin";
         adminpassFile = "/etc/nixos/secrets/nextcloud-pgsql.secret";

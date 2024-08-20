@@ -91,6 +91,7 @@
           defaultModules = (builtins.attrValues nixosModules) ++ [
             agenix.nixosModules.default
             home-manager.nixosModules.default
+            nix-flatpak.nixosModules.nix-flatpak
           ];
           specialArgs = { inherit inputs outputs; };
 
@@ -100,7 +101,6 @@
             inherit specialArgs;
             system = "x86_64-linux";
             modules = defaultModules ++ [
-              nix-flatpak.nixosModules.nix-flatpak
               ./nixos/framework
             ];
           };
@@ -111,13 +111,13 @@
               ./nixos/odroid1
             ];
           };
-          odroid2 = nixpkgs.lib.nixosSystem {
-            inherit specialArgs;
-            system = "x86_64-linux";
-            modules = defaultModules ++ [
-              ./nixos/odroid2
-            ];
-          };
+          #odroid2 = nixpkgs.lib.nixosSystem {
+          #  inherit specialArgs;
+          #  system = "x86_64-linux";
+          #    modules = defaultModules ++ [
+          #    ./nixos/odroid2
+          #  ];
+          #};
           isoimage = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             inherit specialArgs;
