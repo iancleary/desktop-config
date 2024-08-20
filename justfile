@@ -40,6 +40,7 @@ lint:
 # format all the files, when in a nix-shell
 format:
   nixpkgs-fmt .
+  statix fix
 
 # check all files (similar to GitHub Actions), when in a nix-shell
 check:
