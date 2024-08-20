@@ -21,6 +21,7 @@
     };
   };
 
+  programs.centerpiece.enable = false;
   # home.packages = with pkgs; [
   # ];
 }
