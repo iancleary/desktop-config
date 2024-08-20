@@ -5,7 +5,10 @@ let
 in
 {
   options.mySystem.flatpak = with lib; {
-    enable = mkEnableOption "flatpak";
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+    };
     packages = mkOption {
       type = types.listOf types.str;
       default = [ ];
@@ -25,10 +28,13 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    services.flatpak = with cfg; {
-      inherit packages uninstallUnmanaged;
-      update.auto = update.auto;
-    };
-  };
+  config = lib.mkMerge [
+    (lib.mkIf cfg.enable {
+      services.flatpak = {
+        packages = cfg.packages;
+        uninstallUnmanaged = cfg.uninstallUnmanaged;
+        update.auto = cfg.update.auto;
+      };
+    })
+  ];
 }

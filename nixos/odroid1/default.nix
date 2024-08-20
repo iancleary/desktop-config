@@ -34,10 +34,12 @@
     # nix.substituters = [ "nasgul" ];
   };
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    # Use the systemd-boot EFI boot loader.
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
     # Latest kernel for ZFS
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   };
@@ -61,7 +63,7 @@
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.iancleary = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "networkmanager" "docker"]; # Enable ‘sudo’ for the user.
       # initialPassword = "password";
       initialHashedPassword = "$y$j9T$Ov2T/rXjvlEr48/5akCcx0$xOvKr97FRq9TLPLVKhEC7rtF7sfvOwpeL2/DC4a2vO1";
     };

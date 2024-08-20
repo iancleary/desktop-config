@@ -6,17 +6,14 @@
   myHome = {
     gnome.enable = false;
     kde.enable = false;
-    hyprland.enable = true;
+    hyprland.enable = false;
     nextcloud-autosync = {
-      enable = true;
-      folder = "${config.home.homeDirectory}/Nextcloud/";
-      server = "http://nextcloud.iancleary.me";
+      enable = false;
     };
   };
 
   myTerminal = {
     cli.personalGitEnable = true;
-    tmux.enable = true;
     zsh.enable = true;
     neovim = {
       enable = true;
@@ -24,12 +21,6 @@
     };
   };
 
-  home.packages = with pkgs; [
-    alacritty
-    brave
-    jellyfin-media-player
-    protonup
-    signal-desktop
-    super-slicer-latest
-  ];
+  # home.packages = with pkgs; [
+  # ];
 }
