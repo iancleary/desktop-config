@@ -5,6 +5,7 @@ let
 in
 {
   imports = [
+    ./appimages.nix
     ./gaming.nix
     ./gnome.nix
     ./flatpak.nix
