@@ -45,13 +45,13 @@ in
             enable = true;
           };
           brave_bookmarks = {
-            enable = true;
+            enable = false;
           };
           brave_history = {
-            enable = true;
+            enable = false;
           };
           brave_progressive_web_apps = {
-            enable = true;
+            enable = false;
           };
           clock = {
             enable = true;
