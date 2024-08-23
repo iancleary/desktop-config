@@ -61,7 +61,7 @@ in
         hyprpaper # wallpaper utility
         hyprpicker # color picker
         wl-clipboard # allows copying to clipboard (for hyprpicker)
-        kitty # terminal emulator
+        # kitty # terminal emulator
         waybar # wayland bar
         # wofi # app launcher, replaced by centerpiece
 

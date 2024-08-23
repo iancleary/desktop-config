@@ -30,6 +30,6 @@
     jellyfin-media-player
     protonup
     signal-desktop
-    super-slicer-latest
+    # super-slicer-latest
   ];
 }
