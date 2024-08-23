@@ -18,6 +18,7 @@
     kde.enable = false;
     hyprland.enable = true;
     gaming.enable = true;
+    appimages.enable = true;
     tailscale = {
       enable = true;
       unstable = true;
