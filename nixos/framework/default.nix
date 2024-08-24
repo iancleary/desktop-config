@@ -10,7 +10,6 @@
     #inputs.auto-cpufreq.nixosModules.default
     ./hardware-configuration.nix
     ./networking.nix
-    ./vm-variant.nix
     ./flatpak.nix
   ];
 
