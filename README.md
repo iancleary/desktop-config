@@ -47,6 +47,21 @@ Neofetch in kitty (Super + q)
 
 ![Neofetch in kitty terminal emulator](docs/neofetch.png)
 
+### Useful Commands
+
+#### Check battery health
+
+```bash
+nix-shell -p acpi                                                                                                                                                                                                                                  ─╯
+acpi -i                                                                                                                                                                                                                                            ─╯
+```
+
+> which outputs something like
+> ```bash
+> Battery 0: Discharging, 84%, 04:47:22 remaining
+> Battery 0: design capacity 3572 mAh, last full capacity 3152 mAh = 88%
+> ```
+> which is for a few year old [Framework 13's 55 Wh battery](https://frame.work/products/battery?v=FRANBBAT01).
 ## Resources
 
 - [Nix config template](https://github.com/Misterio77/nix-starter-configs)
