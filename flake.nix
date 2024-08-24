@@ -44,7 +44,7 @@
     , nixpkgs
     , nixpkgs-unstable
     , nixos-hardware
-    #, auto-cpufreq
+      #, auto-cpufreq
     , home-manager
     , agenix
     , neovim-plugins
