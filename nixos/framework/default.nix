@@ -7,6 +7,7 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+    #inputs.auto-cpufreq.nixosModules.default
     ./hardware-configuration.nix
     ./networking.nix
     ./vm-variant.nix
@@ -99,6 +100,7 @@
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
+
   };
 
   # Enable sound with pipewire.
@@ -120,14 +122,19 @@
 
     # Enable sound with pipewire.
     pulseaudio.enable = false;
+
+
+
+    # Intel
+
     # extra opengl packages for intel graphics
-    opengl.extraPackages = with pkgs; [
-      mesa_drivers
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-      intel-media-driver
-    ];
+    #opengl.extraPackages = with pkgs; [
+    #  mesa_drivers
+    #  vaapiIntel
+    #  vaapiVdpau
+    #  libvdpau-va-gl
+    #  intel-media-driver
+    #];
   };
 
   powerManagement = {
@@ -136,8 +143,24 @@
     # Some of the config was pulled from the above gist
     enable = true;
     powertop.enable = true;
-    cpuFreqGovernor = lib.mkDefault "ondemand";
+    cpuFreqGovernor = lib.mkDefault "performance";
   };
+
+  #programs.auto-cpufreq = {
+  #  enable = true;
+  #  settings = {
+  #    charger = {
+  #      governer = "performance";
+  #      turbo = "auto";
+  #    };
+  #
+  #    battery = {
+  #      governer = "powersave";
+  #      turbo = "auto";
+  #    };
+  #  };
+  #};
+
 
   networking = {
     hostName = "framework";
