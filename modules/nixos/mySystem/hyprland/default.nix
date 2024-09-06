@@ -86,6 +86,7 @@ in
         xdg-utils # allow xdg-open to work
 
         inter # font
+        bibata-cursors # Material Based Cursor Theme
 
         firefox
         spotify
