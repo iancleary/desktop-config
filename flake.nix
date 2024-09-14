@@ -20,16 +20,16 @@
         home-manager.follows = "home-manager";
       };
     };
-    neovim-plugins = {
-      url = "github:iancleary/neovim-plugins-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #neovim-plugins = {
+    #  url = "github:iancleary/neovim-plugins-overlay";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
     # nixgl = {
     #   url = "github:guibou/nixGL";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
-    terminal-config.url = "github:iancleary/terminal-config";
+    terminal-config.url = "github:iancleary/terminal-config/feat/neovim-plugins";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     hyprland-contrib = {
@@ -47,7 +47,7 @@
       #, auto-cpufreq
     , home-manager
     , agenix
-    , neovim-plugins
+    #, neovim-plugins
       # , nixgl
     , nix-flatpak
     , terminal-config
@@ -67,7 +67,7 @@
           unstable = nixpkgs-unstable.legacyPackages.${prev.system};
           inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
         };
-        neovimPlugins = terminal-config.overlays.default;
+        # neovimPlugins = terminal-config.overlays.default;
         agenix = agenix.overlays.default;
         # nixgl = nixgl.overlays.default;
       };
