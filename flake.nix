@@ -47,7 +47,7 @@
       #, auto-cpufreq
     , home-manager
     , agenix
-    #, neovim-plugins
+      #, neovim-plugins
       # , nixgl
     , nix-flatpak
     , terminal-config

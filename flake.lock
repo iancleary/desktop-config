@@ -842,16 +842,15 @@
         "telescope-file-browser": "telescope-file-browser"
       },
       "locked": {
-        "lastModified": 1726287297,
+        "lastModified": 1726287518,
         "narHash": "sha256-4MyI6qAJyNXa9qWfZETN/x3H/4fegCi6mUN0cCLI6H4=",
         "owner": "iancleary",
         "repo": "terminal-config",
-        "rev": "ba9c8b600ecb6962a07a4f0b2c75309cb6ae611f",
+        "rev": "686f9e07d254f7aab49abec7f3e25b030dc5ef67",
         "type": "github"
       },
       "original": {
         "owner": "iancleary",
-        "ref": "bug/tsserver-deprecation-use-ts_ls-instead",
         "repo": "terminal-config",
         "type": "github"
       }
