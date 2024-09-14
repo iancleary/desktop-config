@@ -842,11 +842,11 @@
         "telescope-file-browser": "telescope-file-browser"
       },
       "locked": {
-        "lastModified": 1726284039,
-        "narHash": "sha256-YQpSuZj0gEFTYcRpCBlSO0BRv15its3tE9dpNJOzYWU=",
+        "lastModified": 1726284337,
+        "narHash": "sha256-X5oVtmqoK0BkcGOWO8ATjQPUUdvaUEFGHmXg6vX5jYs=",
         "owner": "iancleary",
         "repo": "terminal-config",
-        "rev": "c4bbe06c8cfbc78512a106ccfefd9669a19c66d0",
+        "rev": "8f43dda36a3c9123103039de08efd621dd6fa67d",
         "type": "github"
       },
       "original": {
