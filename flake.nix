@@ -67,7 +67,7 @@
           unstable = nixpkgs-unstable.legacyPackages.${prev.system};
           inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
         };
-        # neovimPlugins = terminal-config.overlays.default;
+        neovimPlugins = terminal-config.overlays.default;
         agenix = agenix.overlays.default;
         # nixgl = nixgl.overlays.default;
       };
