@@ -43,7 +43,7 @@ Super + r to launch runner
 
 ![Hyprland Desktop with runner](docs/desktop.png)
 
-Neofetch in kitty (Super + q)
+Neofetch in alacritty (Super + q)
 
 ![Neofetch in kitty terminal emulator](docs/neofetch.png)
 
