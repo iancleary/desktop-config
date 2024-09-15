@@ -142,7 +142,9 @@
     # Some of the config was pulled from the above gist
     enable = true;
     powertop.enable = true;
-    cpuFreqGovernor = lib.mkDefault "performance";
+    # See https://www.kernel.org/doc/Documentation/cpu-freq/governors.txt
+    # for definitions of modes
+    cpuFreqGovernor = lib.mkDefault "conservative";
   };
 
   #programs.auto-cpufreq = {
