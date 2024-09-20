@@ -63,3 +63,7 @@ test:
 open:
   xdg-open https://github.com/iancleary/nixos-config & disown
 
+# Update terminal config
+terminal-config:
+  nix flake lock --update-input terminal-config
+
