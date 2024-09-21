@@ -29,7 +29,7 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
-    terminal-config.url = "github:iancleary/terminal-config/feat/dev-tools";
+    terminal-config.url = "github:iancleary/terminal-config";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     hyprland-contrib = {
