@@ -5,8 +5,6 @@
 
 ### Installation
 
-First make sure, your user is in the sudo/wheel group.
-
 ```bash
 
 # Clone this repository
