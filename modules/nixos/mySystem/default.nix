@@ -72,7 +72,7 @@ in
 
     environment = {
       systemPackages = with pkgs; [
-        agenix
+        # agenix
         git
         dnsutils
         pciutils
