@@ -13,13 +13,13 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
+    #agenix = {
+    #  url = "github:ryantm/agenix";
+    #  inputs = {
+    #    nixpkgs.follows = "nixpkgs";
+    #    home-manager.follows = "home-manager";
+    #  };
+    #};
     #neovim-plugins = {
     #  url = "github:iancleary/neovim-plugins-overlay";
     #  inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +46,7 @@
     , nixos-hardware
       #, auto-cpufreq
     , home-manager
-    , agenix
+      #, agenix
       #, neovim-plugins
       # , nixgl
     , nix-flatpak
@@ -68,7 +68,7 @@
           inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
         };
         neovimPlugins = terminal-config.overlays.default;
-        agenix = agenix.overlays.default;
+        # agenix = agenix.overlays.default;
         # nixgl = nixgl.overlays.default;
       };
 
@@ -93,7 +93,7 @@
       nixosConfigurations =
         let
           defaultModules = (builtins.attrValues nixosModules) ++ [
-            agenix.nixosModules.default
+            #agenix.nixosModules.default
             home-manager.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
           ];
